@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デザイン — GUTS × Xeno</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --amber: #EF9F27;
+            --amber-light: #FAC775;
+            --amber-pale: #FAEEDA;
+            --coral: #D85A30;
+            --coral-pale: #FAECE7;
+            --pink: #D4537E;
+            --pink-pale: #FBEAF0;
+            --teal: #1D9E75;
+            --teal-pale: #E1F5EE;
+            --purple: #7F77DD;
+            --purple-pale: #EEEDFE;
+            --blue: #378ADD;
+            --blue-pale: #E6F1FB;
+            --green: #639922;
+            --green-pale: #EAF3DE;
+            --gray-100: #F7F6F3;
+            --gray-200: #EEEDE8;
+            --gray-700: #444441;
+            --text: #1a1a18;
+            --text-muted: #6b6a65;
+            --border: rgba(0, 0, 0, 0.1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-pill: 999px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--gray-100);
+            min-height: 100vh;
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(247, 246, 243, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 0.5px solid var(--border);
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color .15s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+        }
+
+        .nav-links a.active {
+            color: var(--text);
+            border-bottom: 2px solid #378ADD;
+            padding-bottom: 2px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color .15s;
+        }
+
+        .back-btn:hover {
+            color: var(--text);
+        }
+
+        .back-btn i {
+            font-size: 15px;
+        }
+
+        /* ── Container ── */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ── Page header ── */
+        .page-header {
+            padding: 3rem 0 2rem;
+            border-bottom: 0.5px solid var(--border);
+            margin-bottom: 2.5rem;
+        }
+
+        .page-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.35rem;
+        }
+
+        .page-header p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* ── Filter tabs ── */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            font-size: 13px;
+            font-weight: 500;
+            font-family: 'Noto Sans JP', sans-serif;
+            padding: 6px 16px;
+            border-radius: var(--radius-pill);
+            border: 0.5px solid var(--border);
+            background: white;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all .15s;
+        }
+
+        .filter-btn:hover {
+            color: var(--text);
+            border-color: rgba(0, 0, 0, 0.25);
+        }
+
+        .filter-btn.active {
+            background: var(--text);
+            color: white;
+            border-color: var(--text);
+        }
+
+        /* ── Masonry grid ── */
+
+        .gallery-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Placeholder image area */
+        .img-placeholder {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .img-placeholder .ph-label {
+            font-size: 11px;
+            font-weight: 500;
+            opacity: 0.5;
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: .05em;
+        }
+
+        /* Replace .img-placeholder with <img src="your-image.png"> when ready */
+
+        .item-body {
+            padding: 0.75rem 1rem 0.875rem;
+        }
+
+        .item-tag {
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 10px;
+            border-radius: 99px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .item-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 3px;
+        }
+
+        .item-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ── Lightbox ── */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 8, 0.85);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lightbox-inner {
+            background: white;
+            border-radius: var(--radius-lg);
+            max-width: 720px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .lightbox-img {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            min-height: 340px;
+        }
+
+        .lightbox-body {
+            padding: 1.25rem 1.5rem 1.5rem;
+            border-top: 0.5px solid var(--border);
+        }
+
+        .lightbox-body h2 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .lightbox-body p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.15);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            transition: background .15s;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        /* ── Contact ── */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin-top: 0.5rem;
+        }
+
+        .contact-card {
+            background: white;
+            border: 0.5px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.25rem 1.375rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .contact-card-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .contact-card-value {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-card-value:hover {
+            text-decoration: underline;
+        }
+
+        .contact-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: white;
+            border-top: 0.5px solid var(--border);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin: 20px auto;
+        }
+
+        /* ── Filter tabs ── */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            font-size: 13px;
+            font-weight: 500;
+            font-family: 'Noto Sans JP', sans-serif;
+            padding: 6px 16px;
+            border-radius: var(--radius-pill);
+            border: 0.5px solid var(--border);
+            background: white;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all .15s;
+        }
+
+        .filter-btn:hover {
+            color: var(--text);
+            border-color: rgba(0, 0, 0, 0.25);
+        }
+
+        .filter-btn.active {
+            background: var(--text);
+            color: white;
+            border-color: var(--text);
+        }
+
+
+        .gallery {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .gallery2 {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px auto;
+        }
+
+        .gallery-item {
+            display: block;
+            width: 100%;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+            border-radius: 12px;
+        }
+
+        .gallery-item blockquote {
+            width: 100%;
+        }
+
+        .yt-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        }
+
+        .gallery-item blockquote.tiktok-embed {
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0 !important;
+            margin: 0 !important;
+        }
+
+        .gallery-item blockquote.tiktok-embed iframe {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            nav {
+                padding: 0 1rem;
+            }
+
+            .gallery-item {
+                margin-bottom: 10px;
+            }
+
+            .page-header h1 {
+                font-size: 22px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .gallery2 {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <a href="index.html" class="nav-logo">GUTS × Xeno</a>
+        <ul class="nav-links">
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="png.html">デザイン</a></li>
+            <li><a href="video.html" class="active">動画</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- Page header -->
+        <div class="page-header">
+            <h1>ビデオ</h1>
+            <p>制作実績</p>
+        </div>
+
+        <!-- Filter -->
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">すべて</button>
+            <button class="filter-btn" data-filter="youtube">youtube</button>
+            <button class="filter-btn" data-filter="tiktok">tiktok</button>
+        </div>
+        <div id="gallery">
+            <div class="gallery2">
+                <div class="gallery-item" data-category="youtube">
+                    <img src="https://img.youtube.com/vi/a5dixJpWqmo/maxresdefault.jpg">
+                    <span class="yt-btn">▶</span>
+                </div>
+                <div class="gallery-item" data-category="youtube">
+                    <img src="https://img.youtube.com/vi/kn3GqyoQTDg/maxresdefault.jpg">
+                    <span class="yt-btn">▶</span>
+                </div>
+                <div class="gallery-item" data-category="youtube">
+                    <img src="https://img.youtube.com/vi/MGHPqIliQ0E/maxresdefault.jpg">
+                    <span class="yt-btn">▶</span>
+                </div>
+                <div class="gallery-item" data-category="youtube">
+                    <img src="https://img.youtube.com/vi/jXylkMJZioQ/maxresdefault.jpg">
+                    <span class="yt-btn">▶</span>
+                </div>
+            </div>
+
+            <div class="gallery">
+
+                <div class="gallery-item" data-category="tiktok">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@carenaviai/video/7615126918471404817"
+                        data-video-id="7615126918471404817">
+                        <section> <a target="_blank" title="@carenaviai"
+                                href="https://www.tiktok.com/@carenaviai?refer=embed">@carenaviai</a> 😩「日報書くのが一番しんどい…」
+                            そんなあなたに朗報💡 CareNaviAIなら 一日のメモを入れるだけで自然な日報が完成✨ 3分で終わって、残業も減る！ 今日もいい仕事したって思える時間 取り戻しませんか？
+                            コメント欄に「日報」って書いてね👇 今後も紹介していくので フォロー＆いいねお願いします！ <a title="ai" target="_blank"
+                                href="https://www.tiktok.com/tag/ai?refer=embed">#AI</a> <a title="仕事" target="_blank"
+                                href="https://www.tiktok.com/tag/%E4%BB%95%E4%BA%8B?refer=embed">#仕事</a> <a title="日報"
+                                target="_blank" href="https://www.tiktok.com/tag/%E6%97%A5%E5%A0%B1?refer=embed">#日報</a>
+                            <a title="革命" target="_blank"
+                                href="https://www.tiktok.com/tag/%E9%9D%A9%E5%91%BD?refer=embed">#革命</a> <a title="コスパ"
+                                target="_blank"
+                                href="https://www.tiktok.com/tag/%E3%82%B3%E3%82%B9%E3%83%91?refer=embed">#コスパ</a> <a
+                                target="_blank" title="♬ オリジナル楽曲  - CareNaviAI"
+                                href="https://www.tiktok.com/music/オリジナル楽曲-CareNaviAI-7615127011236973328?refer=embed">♬
+                                オリジナル楽曲 - CareNaviAI</a>
+                        </section>
+                    </blockquote>
+
+                </div>
+                <div class="gallery-item" data-category="tiktok">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@carenaviai/video/7607293194170109201"
+                        data-video-id="7607293194170109201" style="max-width: 605px;min-width: 325px;">
+                        <section> <a target="_blank" title="@carenaviai"
+                                href="https://www.tiktok.com/@carenaviai?refer=embed">@carenaviai</a>
+                            <p>文章考えるの、もう限界？😩 そんな時は“CarenaviAI”におまかせ！💥 スカウトメールも社内通達もスピーチ原稿も、 ぜ〜んぶ一瞬で作れる✨ 考える時間、もういらない！
+                                #CarenaviAI があなたの仕事を軽くする💪 資料の下書きが一瞬📝 今後も紹介していくので フォロー＆いいねお願いします！</p> <a
+                                target="_blank" title="♬ オリジナル楽曲  - CareNaviAI"
+                                href="https://www.tiktok.com/music/オリジナル楽曲-CareNaviAI-7607293443664251666?refer=embed">♬
+                                オリジナル楽曲 - CareNaviAI</a>
+                        </section>
+                    </blockquote>
+
+                </div>
+                <div class="gallery-item" data-category="tiktok">
+                    <blockquote class="tiktok-embed"
+                        cite="https://www.tiktok.com/@xeno_ai.music/video/7396858647688613121"
+                        data-video-id="7396858647688613121">
+                        <section> <a target="_blank" title="@xeno_ai.music"
+                                href="https://www.tiktok.com/@xeno_ai.music?refer=embed">@xeno_ai.music</a> 心を癒す音楽 <a
+                                title="オリジナル曲" target="_blank"
+                                href="https://www.tiktok.com/tag/%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E6%9B%B2?refer=embed">#オリジナル曲</a>
+                            <a title="フリー音源" target="_blank"
+                                href="https://www.tiktok.com/tag/%E3%83%95%E3%83%AA%E3%83%BC%E9%9F%B3%E6%BA%90?refer=embed">#フリー音源</a>
+                            <a title="睡眠用bgm" target="_blank"
+                                href="https://www.tiktok.com/tag/%E7%9D%A1%E7%9C%A0%E7%94%A8bgm?refer=embed">#睡眠用bgm</a>
+                            <a title="作業用bgm" target="_blank"
+                                href="https://www.tiktok.com/tag/%E4%BD%9C%E6%A5%AD%E7%94%A8bgm?refer=embed">#作業用bgm</a>
+                            <a title="リラックス" target="_blank"
+                                href="https://www.tiktok.com/tag/%E3%83%AA%E3%83%A9%E3%83%83%E3%82%AF%E3%82%B9?refer=embed">#リラックス</a>
+                            <a title="sleep" target="_blank"
+                                href="https://www.tiktok.com/tag/sleep?refer=embed">#sleep</a>
+                            <a title="relax" target="_blank"
+                                href="https://www.tiktok.com/tag/relax?refer=embed">#relax</a>
+                            <a title="healingmusic" target="_blank"
+                                href="https://www.tiktok.com/tag/healingmusic?refer=embed">#healingmusic</a> <a
+                                title="healing" target="_blank"
+                                href="https://www.tiktok.com/tag/healing?refer=embed">#healing</a> <a
+                                title="meditationmusic" target="_blank"
+                                href="https://www.tiktok.com/tag/meditationmusic?refer=embed">#meditationmusic</a> <a
+                                title="relaxmusic" target="_blank"
+                                href="https://www.tiktok.com/tag/relaxmusic?refer=embed">#relaxmusic</a> <a
+                                title="follwinng" target="_blank"
+                                href="https://www.tiktok.com/tag/follwinng?refer=embed">#follwinng</a> <a title="fyp"
+                                target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> <a
+                                target="_blank" title="♬ オリジナル楽曲  - xeno_ai.music"
+                                href="https://www.tiktok.com/music/オリジナル楽曲-xenoaimusic-7396859122173479697?refer=embed">♬
+                                オリジナル楽曲 - xeno_ai.music</a>
+                        </section>
+                    </blockquote>
+
+                </div>
+                <div class="gallery-item" data-category="tiktok">
+                    <blockquote class="tiktok-embed"
+                        cite="https://www.tiktok.com/@xeno_ai.music/video/7396859316822609153"
+                        data-video-id="7396859316822609153">
+                        <section> <a target="_blank" title="@xeno_ai.music"
+                                href="https://www.tiktok.com/@xeno_ai.music?refer=embed">@xeno_ai.music</a> 心を癒す音楽 <a
+                                title="オリジナル曲" target="_blank"
+                                href="https://www.tiktok.com/tag/%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E6%9B%B2?refer=embed">#オリジナル曲</a>
+                            <a title="フリー音源" target="_blank"
+                                href="https://www.tiktok.com/tag/%E3%83%95%E3%83%AA%E3%83%BC%E9%9F%B3%E6%BA%90?refer=embed">#フリー音源</a>
+                            <a title="睡眠用bgm" target="_blank"
+                                href="https://www.tiktok.com/tag/%E7%9D%A1%E7%9C%A0%E7%94%A8bgm?refer=embed">#睡眠用bgm</a>
+                            <a title="作業用bgm" target="_blank"
+                                href="https://www.tiktok.com/tag/%E4%BD%9C%E6%A5%AD%E7%94%A8bgm?refer=embed">#作業用bgm</a>
+                            <a title="リラックス" target="_blank"
+                                href="https://www.tiktok.com/tag/%E3%83%AA%E3%83%A9%E3%83%83%E3%82%AF%E3%82%B9?refer=embed">#リラックス</a>
+                            <a title="sleep" target="_blank"
+                                href="https://www.tiktok.com/tag/sleep?refer=embed">#sleep</a>
+                            <a title="relax" target="_blank"
+                                href="https://www.tiktok.com/tag/relax?refer=embed">#relax</a>
+                            <a title="healingmusic" target="_blank"
+                                href="https://www.tiktok.com/tag/healingmusic?refer=embed">#healingmusic</a> <a
+                                title="healing" target="_blank"
+                                href="https://www.tiktok.com/tag/healing?refer=embed">#healing</a> <a
+                                title="meditationmusic" target="_blank"
+                                href="https://www.tiktok.com/tag/meditationmusic?refer=embed">#meditationmusic</a> <a
+                                title="relaxmusic" target="_blank"
+                                href="https://www.tiktok.com/tag/relaxmusic?refer=embed">#relaxmusic</a> <a
+                                title="follwinng" target="_blank"
+                                href="https://www.tiktok.com/tag/follwinng?refer=embed">#follwinng</a> <a title="fyp"
+                                target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> <a
+                                target="_blank" title="♬ オリジナル楽曲  - xeno_ai.music"
+                                href="https://www.tiktok.com/music/オリジナル楽曲-xenoaimusic-7396859707849526033?refer=embed">♬
+                                オリジナル楽曲 - xeno_ai.music</a>
+                        </section>
+                    </blockquote>
+                </div>
+
+
+                <div class="gallery-item" data-category="tiktok">
+                    <blockquote class="tiktok-embed"
+                        cite="https://www.tiktok.com/@xeno_ryo_ai/video/7385375023843872007"
+                        data-video-id="7385375023843872007">
+                        <section> <a target="_blank" title="@xeno_ryo_ai"
+                                href="https://www.tiktok.com/@xeno_ryo_ai?refer=embed">@xeno_ryo_ai</a> アバター動画生成AIが優秀すぎる
+                            <a title="ai" target="_blank" href="https://www.tiktok.com/tag/ai?refer=embed">#ai</a> <a
+                                title="aitools" target="_blank"
+                                href="https://www.tiktok.com/tag/aitools?refer=embed">#aitools</a> <a title="フリーランス"
+                                target="_blank"
+                                href="https://www.tiktok.com/tag/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9?refer=embed">#フリーランス</a>
+                            <a title="副業" target="_blank"
+                                href="https://www.tiktok.com/tag/%E5%89%AF%E6%A5%AD?refer=embed">#副業</a> <a
+                                title="tiktok教室" target="_blank"
+                                href="https://www.tiktok.com/tag/tiktok%E6%95%99%E5%AE%A4?refer=embed">#tiktok教室</a> <a
+                                title="openai" target="_blank"
+                                href="https://www.tiktok.com/tag/openai?refer=embed">#openai</a> <a title="chatgpt"
+                                target="_blank" href="https://www.tiktok.com/tag/chatgpt?refer=embed">#ChatGPT</a> <a
+                                target="_blank" title="♬ オリジナル楽曲 - xeno_ryo | AI動画専門家 - xeno_ryo | AI専門家"
+                                href="https://www.tiktok.com/music/オリジナル楽曲-xenoryo-AI動画専門家-7385375529819540240?refer=embed">♬
+                                オリジナル楽曲 - xeno_ryo | AI動画専門家 - xeno_ryo | AI専門家</a>
+                        </section>
+                    </blockquote>
+
+                </div>
+                <div class="gallery-item" data-category="tiktok">
+                    <blockquote class="tiktok-embed"
+                        cite="https://www.tiktok.com/@xeno_ryo_ai/video/7371474503492291848"
+                        data-video-id="7371474503492291848">
+                        <section> <a target="_blank" title="@xeno_ryo_ai"
+                                href="https://www.tiktok.com/@xeno_ryo_ai?refer=embed">@xeno_ryo_ai</a>
+                            写真から動画にするAI、Runwayを超えるかも？AI動画生成ソフトを紹介！ <a title="aitools" target="_blank"
+                                href="https://www.tiktok.com/tag/aitools?refer=embed">#aitools</a> <a title="ai動画"
+                                target="_blank"
+                                href="https://www.tiktok.com/tag/ai%E5%8B%95%E7%94%BB?refer=embed">#ai動画</a>
+                            <a title="フリーランス" target="_blank"
+                                href="https://www.tiktok.com/tag/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9?refer=embed">#フリーランス</a>
+                            <a title="副業" target="_blank"
+                                href="https://www.tiktok.com/tag/%E5%89%AF%E6%A5%AD?refer=embed">#副業</a> <a
+                                title="tiktok教室" target="_blank"
+                                href="https://www.tiktok.com/tag/tiktok%E6%95%99%E5%AE%A4?refer=embed">#tiktok教室</a> <a
+                                title="tiktok動画" target="_blank"
+                                href="https://www.tiktok.com/tag/tiktok%E5%8B%95%E7%94%BB?refer=embed">#TikTok動画</a> <a
+                                title="haiper" target="_blank"
+                                href="https://www.tiktok.com/tag/haiper?refer=embed">#Haiper</a> <a title="haiperai"
+                                target="_blank" href="https://www.tiktok.com/tag/haiperai?refer=embed">#haiperai</a> <a
+                                target="_blank" title="♬ オリジナル楽曲 - xeno_ryo | AI動画専門家 - xeno_ryo | AI専門家"
+                                href="https://www.tiktok.com/music/オリジナル楽曲-xenoryo-AI動画専門家-7371475380521634561?refer=embed">♬
+                                オリジナル楽曲 - xeno_ryo | AI動画専門家 - xeno_ryo | AI専門家</a>
+                        </section>
+                    </blockquote>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Contact -->
+        <section id="contact">
+            <div class="container">
+                <div class="sec-label"><i class="ti ti-mail"></i>お問い合わせ</div>
+                <p class="contact-note">お仕事のご依頼・コラボレーションのご提案など、お気軽にご連絡ください。</p>
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-card-icon" style="background:var(--amber-pale);color:#854F0B">
+                            <i class="ti ti-mail"></i>
+                        </div>
+                        <div class="contact-card-label">メール</div>
+                        <a href="mailto:guts.kasugai@gmail.com" class="contact-card-value">guts.kasugai@gmail.com</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-card-icon" style="background:var(--teal-pale);color:#0F6E56">
+                            <i class="ti ti-phone"></i>
+                        </div>
+                        <div class="contact-card-label">電話</div>
+                        <a href="tel:0568-20-1111" class="contact-card-value">0568-20-1111</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-card-icon"
+                            style="background:var(--map-pin, var(--pink-pale));color:#72243E">
+                            <i class="ti ti-map-pin"></i>
+                        </div>
+                        <div class="contact-card-label">所在地</div>
+                        <span class="contact-card-value" style="cursor:default">愛知県春日井市六軒屋町6-146KANBEビル1階</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>© 2025 GUTS × Xeno. All rights reserved.</p>
+    </footer>
+    <script async src="https://www.tiktok.com/embed.js"></script>
+
+    <script>
+        // Filter
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const f = btn.dataset.filter;
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    item.style.display = (f === 'all' || item.dataset.category === f) ? 'block' : 'none';
+                });
+            });
+        });
+
+        // Lightbox
+        function openLightbox(el) {
+            const lb = document.getElementById('lightbox');
+            document.getElementById('lb-title').textContent = el.dataset.title;
+            document.getElementById('lb-desc').textContent = el.dataset.desc;
+            const ph = el.querySelector('.img-placeholder');
+            document.getElementById('lb-img').style.cssText = ph.style.cssText + ';min-height:340px';
+            document.getElementById('lb-img').innerHTML = ph.innerHTML;
+            lb.classList.add('open');
+        }
+
+        function closeLightbox(e) {
+            if (!e || e.target === document.getElementById('lightbox') || e.currentTarget.tagName === 'BUTTON') {
+                document.getElementById('lightbox').classList.remove('open');
+            }
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+        });
+    </script>
+</body>
+
+</html>
