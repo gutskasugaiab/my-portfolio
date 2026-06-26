@@ -1,760 +1,924 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio — Xeno / GUTS</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — Xeno / GUTS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  :root {
-    --amber: #EF9F27;
-    --amber-light: #FAC775;
-    --amber-pale: #FAEEDA;
-    --coral: #D85A30;
-    --coral-light: #F0997B;
-    --coral-pale: #FAECE7;
-    --pink: #D4537E;
-    --pink-light: #ED93B1;
-    --pink-pale: #FBEAF0;
-    --teal: #1D9E75;
-    --teal-light: #5DCAA5;
-    --teal-pale: #E1F5EE;
-    --purple: #7F77DD;
-    --purple-light: #AFA9EC;
-    --purple-pale: #EEEDFE;
-    --blue: #378ADD;
-    --blue-light: #85B7EB;
-    --blue-pale: #E6F1FB;
-    --green: #639922;
-    --green-light: #97C459;
-    --green-pale: #EAF3DE;
-    --gray-100: #F7F6F3;
-    --gray-200: #EEEDE8;
-    --gray-400: #888780;
-    --gray-700: #444441;
-    --text: #1a1a18;
-    --text-muted: #6b6a65;
-    --border: rgba(0,0,0,0.1);
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 20px;
-    --radius-pill: 999px;
-  }
+        :root {
+            --amber: #EF9F27;
+            --amber-light: #FAC775;
+            --amber-pale: #FAEEDA;
+            --coral: #D85A30;
+            --coral-light: #F0997B;
+            --coral-pale: #FAECE7;
+            --pink: #D4537E;
+            --pink-light: #ED93B1;
+            --pink-pale: #FBEAF0;
+            --teal: #1D9E75;
+            --teal-light: #5DCAA5;
+            --teal-pale: #E1F5EE;
+            --purple: #7F77DD;
+            --purple-light: #AFA9EC;
+            --purple-pale: #EEEDFE;
+            --blue: #378ADD;
+            --blue-light: #85B7EB;
+            --blue-pale: #E6F1FB;
+            --green: #639922;
+            --green-light: #97C459;
+            --green-pale: #EAF3DE;
+            --gray-100: #F7F6F3;
+            --gray-200: #EEEDE8;
+            --gray-400: #888780;
+            --gray-700: #444441;
+            --text: #1a1a18;
+            --text-muted: #6b6a65;
+            --border: rgba(0, 0, 0, 0.1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-pill: 999px;
+        }
 
-  html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-  body {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--text);
-    background: var(--gray-100);
-    min-height: 100vh;
-  }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--gray-100);
+            min-height: 100vh;
+        }
 
-  /* ── Nav ── */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(247,246,243,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--border);
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 56px;
-  }
-  .nav-logo {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text);
-    text-decoration: none;
-    letter-spacing: -0.02em;
-  }
-  .nav-links {
-    display: flex;
-    gap: 1.5rem;
-    list-style: none;
-  }
-  .nav-links a {
-    font-size: 13px;
-    color: var(--text-muted);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color .15s;
-  }
-  .nav-links a:hover { color: var(--text); }
+        /* ── Nav ── */
+        body > nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(247, 246, 243, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 0.5px solid var(--border);
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+        }
 
-  /* ── Layout ── */
-  .container {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
 
-  section { padding: 4rem 0; }
-  section + section { border-top: 0.5px solid var(--border); }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
 
-  .sec-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-  }
-  .sec-label i { font-size: 15px; }
+        .nav-links a {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color .15s;
+        }
 
-  /* ── Hero ── */
-  #hero {
-    padding: 5rem 0 4rem;
-    position: relative;
-    overflow: hidden;
-  }
+        .nav-links a:hover {
+            color: var(--text);
+        }
 
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 40% at 80% 20%, var(--amber-pale) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 50% at 10% 80%, var(--pink-pale) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 60% at 50% 50%, var(--teal-pale) 0%, transparent 70%);
-    z-index: 0;
-  }
+        /* ── Layout ── */
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
 
-  .hero-inner {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-  }
+        section {
+            padding: 4rem 0;
+        }
 
-  .hero-avatar {
-    flex-shrink: 0;
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--amber-light), var(--coral-light));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-    border: 3px solid white;
-    box-shadow: 0 2px 16px rgba(239,159,39,0.25);
-  }
+        section+section {
+            border-top: 0.5px solid var(--border);
+        }
 
-  .hero-text h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    color: var(--text);
-    line-height: 1.2;
-    margin-bottom: 0.35rem;
-  }
+        .sec-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
 
-  .hero-text .tagline {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-bottom: 0.75rem;
-  }
+        .sec-label i {
+            font-size: 15px;
+        }
 
-  .hero-text .bio {
-    font-size: 14px;
-    color: var(--text-muted);
-    max-width: 480px;
-    line-height: 1.75;
-  }
+        /* ── Hero ── */
+        #hero {
+            padding: 5rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-  .badge-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 1rem;
-  }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 40% at 80% 20%, var(--amber-pale) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 50% at 10% 80%, var(--pink-pale) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 60% at 50% 50%, var(--teal-pale) 0%, transparent 70%);
+            z-index: 0;
+        }
 
-  .badge {
-    font-size: 12px;
-    font-weight: 500;
-    padding: 4px 12px;
-    border-radius: var(--radius-pill);
-    border: none;
-  }
-  .badge-amber { background: var(--amber-pale); color: #854F0B; }
-  .badge-pink  { background: var(--pink-pale);  color: #72243E; }
-  .badge-blue  { background: var(--blue-pale);  color: #185FA5; }
-  .badge-teal  { background: var(--teal-pale);  color: #0F6E56; }
-  .badge-purple{ background: var(--purple-pale);color: #534AB7; }
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
 
-  /* ── Skills ── */
-  .skill-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
-  }
+        .hero-avatar {
+            flex-shrink: 0;
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--amber-light), var(--coral-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            border: 3px solid white;
+            box-shadow: 0 2px 16px rgba(239, 159, 39, 0.25);
+        }
 
-  .skill-card {
-    background: white;
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 1rem 1.125rem;
-  }
+        .hero-text h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            line-height: 1.2;
+            margin-bottom: 0.35rem;
+        }
 
-  .skill-card .sk-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    margin-bottom: 0.625rem;
-  }
+        .hero-text .tagline {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
 
-  .skill-card .sk-name {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 2px;
-  }
+        .hero-text .bio {
+            font-size: 14px;
+            color: var(--text-muted);
+            max-width: 480px;
+            line-height: 1.75;
+        }
 
-  .skill-card .sk-sub {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 10px;
-  }
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1rem;
+        }
 
-  .sk-bar {
-    height: 4px;
-    background: var(--gray-200);
-    border-radius: 99px;
-    overflow: hidden;
-  }
-  .sk-fill {
-    height: 100%;
-    border-radius: 99px;
-    transition: width 1s ease;
-  }
+        .badge {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: var(--radius-pill);
+            border: none;
+        }
 
-  /* ── Works ── */
-  .work-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 14px;
-  }
+        .badge-amber { background: var(--amber-pale); color: #854F0B; }
+        .badge-pink  { background: var(--pink-pale);  color: #72243E; }
+        .badge-blue  { background: var(--blue-pale);  color: #185FA5; }
+        .badge-teal  { background: var(--teal-pale);  color: #0F6E56; }
+        .badge-purple{ background: var(--purple-pale);color: #534AB7; }
 
-  .work-card {
-    background: white;
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    transition: transform .15s, box-shadow .15s;
-  }
-  .work-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  }
+        /* ── Skills ── */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
 
-  .work-thumb {
-    height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-  }
+        .skill-card {
+            background: white;
+            border: 0.5px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.125rem;
+        }
 
-  .work-body {
-    padding: 0.875rem 1rem 1rem;
-    flex: 1;
-  }
+        .skill-card .sk-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-bottom: 0.625rem;
+        }
 
-  .work-tag {
-    font-size: 11px;
-    font-weight: 500;
-    padding: 2px 10px;
-    border-radius: 99px;
-    display: inline-block;
-    margin-bottom: 6px;
-  }
+        .skill-card .sk-name {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
 
-  .work-title {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 4px;
-    color: var(--text);
-  }
+        .skill-card .sk-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
 
-  .work-desc {
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.55;
-  }
+        .sk-bar {
+            height: 4px;
+            background: var(--gray-200);
+            border-radius: 99px;
+            overflow: hidden;
+        }
 
-  .work-link {
-    padding: 0.5rem 1rem 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    border-top: 0.5px solid var(--border);
-  }
-  .work-link i { font-size: 14px; }
+        .sk-fill {
+            height: 100%;
+            border-radius: 99px;
+        }
 
-  /* ── SNS Links ── */
-  .sns-group { margin-bottom: 1.5rem; }
-  .sns-group:last-child { margin-bottom: 0; }
+        /* ── Works ── */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
 
-  .sns-group-label {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 0.5rem;
-  }
+        .work-card {
+            background: white;
+            border: 0.5px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            transition: transform .15s, box-shadow .15s;
+        }
 
-  .link-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+        .work-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
 
-  .sns-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 7px 16px;
-    border-radius: var(--radius-pill);
-    border: 0.5px solid;
-    text-decoration: none;
-    transition: opacity .15s, transform .1s;
-  }
-  .sns-btn:hover { opacity: .75; transform: translateY(-1px); }
-  .sns-btn i { font-size: 15px; }
+        .work-thumb {
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
 
-  .sns-btn-ig { background: var(--pink-pale); color: #72243E; border-color: var(--pink-light); }
-  .sns-btn-yt { background: var(--coral-pale); color: #712B13; border-color: var(--coral-light); }
-  .sns-btn-tk { background: var(--gray-200); color: var(--gray-700); border-color: #c5c4bc; }
-  .sns-btn-fb { background: var(--blue-pale); color: #185FA5; border-color: var(--blue-light); }
-  .sns-btn-web { background: var(--teal-pale); color: #0F6E56; border-color: var(--teal-light); }
-  .sns-btn-other { background: var(--purple-pale); color: #534AB7; border-color: var(--purple-light); }
+        .work-body {
+            padding: 0.875rem 1rem 1rem;
+            flex: 1;
+        }
 
-  /* ── Contact ── */
-  .contact-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 14px;
-    margin-top: 0.5rem;
-  }
+        .work-tag {
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 10px;
+            border-radius: 99px;
+            display: inline-block;
+            margin-bottom: 6px;
+        }
 
-  .contact-card {
-    background: white;
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 1.25rem 1.375rem;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+        .work-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: var(--text);
+        }
 
-  .contact-card-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-  }
+        .work-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
 
-  .contact-card-label {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
+        .work-link {
+            padding: 0.5rem 1rem 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            text-decoration: none;
+            border-top: 0.5px solid var(--border);
+        }
 
-  .contact-card-value {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--text);
-    text-decoration: none;
-    word-break: break-all;
-  }
+        .work-link i { font-size: 14px; }
 
-  .contact-card-value:hover { text-decoration: underline; }
+        /* ── SNS Links ── */
+        .sns-group { margin-bottom: 1.5rem; }
+        .sns-group:last-child { margin-bottom: 0; }
 
-  .contact-note {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.7;
-    margin-bottom: 1.25rem;
-  }
+        .sns-group-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
 
-  /* ── Footer ── */
-  footer {
-    background: white;
-    border-top: 0.5px solid var(--border);
-    padding: 2rem 1.5rem;
-    text-align: center;
-    font-size: 12px;
-    color: var(--text-muted);
-  }
+        .link-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
 
-  /* ── Responsive ── */
-  @media (max-width: 640px) {
-    nav { padding: 0 1rem; }
-    .nav-links { display: none; }
-    .hero-inner { flex-direction: column; text-align: center; }
-    .hero-text h1 { font-size: 24px; }
-    .badge-row { justify-content: center; }
-    .contact-wrap { grid-template-columns: 1fr; }
-    section { padding: 2.5rem 0; }
-  }
+        .sns-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 7px 16px;
+            border-radius: var(--radius-pill);
+            border: 0.5px solid;
+            text-decoration: none;
+            transition: opacity .15s, transform .1s;
+        }
 
-  @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; animation: none !important; }
-  }
-</style>
+        .sns-btn:hover { opacity: .75; transform: translateY(-1px); }
+        .sns-btn i { font-size: 15px; }
+
+        .sns-btn-ig  { background: var(--pink-pale);   color: #72243E; border-color: var(--pink-light); }
+        .sns-btn-yt  { background: var(--coral-pale);  color: #712B13; border-color: var(--coral-light); }
+        .sns-btn-tk  { background: var(--gray-200);    color: var(--gray-700); border-color: #c5c4bc; }
+        .sns-btn-fb  { background: var(--blue-pale);   color: #185FA5; border-color: var(--blue-light); }
+        .sns-btn-web { background: var(--teal-pale);   color: #0F6E56; border-color: var(--teal-light); }
+        .sns-btn-other { background: var(--purple-pale); color: #534AB7; border-color: var(--purple-light); }
+
+        /* ── Contact ── */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin-top: 0.5rem;
+        }
+
+        .contact-card {
+            background: white;
+            border: 0.5px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.25rem 1.375rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .contact-card-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .contact-card-value {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-card-value:hover { text-decoration: underline; }
+
+        .contact-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: white;
+            border-top: 0.5px solid var(--border);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* ── ハンバーガー ── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            transition: background .15s;
+        }
+
+        .hamburger:hover { background: var(--gray-200); }
+
+        .hamburger span {
+            display: block;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+            transform-origin: center;
+        }
+
+        .hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.is-open span:nth-child(2) { opacity: 0; }
+        .hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ── ドロワー ── */
+        .drawer {
+            position: fixed;
+            top: 56px;
+            right: 0;
+            bottom: 0;
+            width: min(280px, 80vw);
+            background: white;
+            z-index: 150;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+            border-left: 0.5px solid var(--border);
+            box-shadow: -4px 0 24px rgba(0,0,0,0.08);
+        }
+
+        .drawer.is-open { transform: translateX(0); }
+
+        .drawer__nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .drawer__link:first-child {
+            border-top: 0.5px solid var(--border);
+        }
+
+        .drawer__link {
+            padding: 0.875rem 1.5rem;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 0.5px solid var(--border);
+            transition: color .15s, background .15s;
+        }
+
+        .drawer__link:hover {
+            color: var(--text);
+            background: var(--gray-100);
+        }
+
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 140;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .drawer-overlay.is-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            nav { padding: 0 1rem; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+
+            .hero-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 { font-size: 24px; }
+
+            .badge-row { justify-content: center; }
+
+            section { padding: 2.5rem 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { transition: none !important; animation: none !important; }
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- Nav -->
-<nav>
-  <a href="#hero" class="nav-logo">GUTS × Xeno</a>
-  <ul class="nav-links">
-    <li><a href="png.html">デザイン</a></li>
-    <li><a href="video.html">動画</a></li>
-    <li><a href="#about">プロフィール</a></li>
-    <li><a href="#skills">スキル</a></li>
-    <li><a href="#works">制作事例</a></li>
-    <li><a href="#portfolio">ポートフォリオ</a></li>
-    <li><a href="#contact">お問い合わせ</a></li>
-  </ul>
-</nav>
+    <!-- Nav -->
+    <nav>
+        <a href="#hero" class="nav-logo">GUTS × Xeno</a>
+        <ul class="nav-links">
+            <li><a href="png.html">デザイン</a></li>
+            <li><a href="video.html">動画</a></li>
+            <li><a href="#about">プロフィール</a></li>
+            <li><a href="#skills">スキル</a></li>
+            <li><a href="#works">制作事例</a></li>
+            <li><a href="#portfolio">ポートフォリオ</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
 
-<!-- Hero / Profile -->
-<section id="hero" style="padding:5rem 0 4rem">
-  <div class="container">
-    <div class="hero-bg"></div>
-    <div class="hero-inner">
-      <div class="hero-avatar">
-        <i class="ti ti-sparkles" style="color:#412402"></i>
-      </div>
-      <div class="hero-text">
-        <h1>Xeno / GUTS クリエイター</h1>
-        <p class="tagline">AI × SNS × コンテンツ制作 ｜ 春日井ベース</p>
-        <p class="bio">AIを活用したコンテンツ制作・SNS運用・動画編集・Web制作など幅広く手がけています。春日井を拠点に福祉・地域・テクノロジーをつなぐ発信をしています。</p>
-        <div class="badge-row">
-          <span class="badge badge-amber">AI活用</span>
-          <span class="badge badge-blue">動画編集</span>
-          <span class="badge badge-pink">SNS運用</span>
-          <span class="badge badge-teal">Web制作</span>
-          <span class="badge badge-purple">グラフィック</span>
-        </div>
-      </div>
+    <!-- ドロワーメニュー（SP用） -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+        <nav class="drawer__nav">
+            <a href="png.html" class="drawer__link">デザイン</a>
+            <a href="video.html" class="drawer__link">動画</a>
+            <a href="#about" class="drawer__link">プロフィール</a>
+            <a href="#skills" class="drawer__link">スキル</a>
+            <a href="#works" class="drawer__link">制作事例</a>
+            <a href="#portfolio" class="drawer__link">ポートフォリオ</a>
+            <a href="#contact" class="drawer__link">お問い合わせ</a>
+        </nav>
     </div>
-  </div>
-</section>
+    <div class="drawer-overlay" id="drawerOverlay"></div>
 
-<!-- Skills -->
-<section id="skills">
-  <div class="container">
-    <div class="sec-label"><i class="ti ti-tools"></i>スキル</div>
-    <div class="skill-grid">
-      <div class="skill-card">
-        <div class="sk-icon" style="background:var(--amber-pale);color:#854F0B">
-          <i class="ti ti-robot"></i>
+    <!-- Hero -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-bg"></div>
+            <div class="hero-inner">
+                <div class="hero-avatar">
+                    <i class="ti ti-sparkles" style="color:#412402"></i>
+                </div>
+                <div class="hero-text">
+                    <h1>Xeno / GUTS クリエイター</h1>
+                    <p class="tagline">AI × SNS × コンテンツ制作 ｜ 春日井ベース</p>
+                    <p class="bio">AIを活用したコンテンツ制作・SNS運用・動画編集・Web制作など幅広く手がけています。春日井を拠点に福祉・地域・テクノロジーをつなぐ発信をしています。</p>
+                    <div class="badge-row">
+                        <span class="badge badge-amber">AI活用</span>
+                        <span class="badge badge-blue">動画編集</span>
+                        <span class="badge badge-pink">SNS運用</span>
+                        <span class="badge badge-teal">Web制作</span>
+                        <span class="badge badge-purple">グラフィック</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="sk-name">AI / 自動化</div>
-        <div class="sk-sub">ChatGPT / Claude</div>
-        <div class="sk-bar"><div class="sk-fill" style="width:90%;background:var(--amber)"></div></div>
-      </div>
-      <div class="skill-card">
-        <div class="sk-icon" style="background:var(--coral-pale);color:#712B13">
-          <i class="ti ti-video"></i>
-        </div>
-        <div class="sk-name">動画制作</div>
-        <div class="sk-sub">YouTube / TikTok</div>
-        <div class="sk-bar"><div class="sk-fill" style="width:85%;background:var(--coral)"></div></div>
-      </div>
-      <div class="skill-card">
-        <div class="sk-icon" style="background:var(--teal-pale);color:#0F6E56">
-          <i class="ti ti-world"></i>
-        </div>
-        <div class="sk-name">Web制作</div>
-        <div class="sk-sub">LP / HP / ゲーム</div>
-        <div class="sk-bar"><div class="sk-fill" style="width:75%;background:var(--teal)"></div></div>
-      </div>
-      <div class="skill-card">
-        <div class="sk-icon" style="background:var(--purple-pale);color:#534AB7">
-          <i class="ti ti-palette"></i>
-        </div>
-        <div class="sk-name">グラフィック</div>
-        <div class="sk-sub">Behance / デザイン</div>
-        <div class="sk-bar"><div class="sk-fill" style="width:80%;background:var(--purple)"></div></div>
-      </div>
-      <div class="skill-card">
-        <div class="sk-icon" style="background:var(--pink-pale);color:#72243E">
-          <i class="ti ti-share"></i>
-        </div>
-        <div class="sk-name">SNS運用</div>
-        <div class="sk-sub">IG / FB / TikTok</div>
-        <div class="sk-bar"><div class="sk-fill" style="width:88%;background:var(--pink)"></div></div>
-      </div>
-      <div class="skill-card">
-        <div class="sk-icon" style="background:var(--blue-pale);color:#185FA5">
-          <i class="ti ti-shopping-bag"></i>
-        </div>
-        <div class="sk-name">EC / 販売</div>
-        <div class="sk-sub">ココナラ</div>
-        <div class="sk-bar"><div class="sk-fill" style="width:70%;background:var(--blue)"></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Works -->
-<section id="works">
-  <div class="container">
-    <div class="sec-label"><i class="ti ti-layout-grid"></i>制作事例</div>
-    <div class="work-grid">
-
-      <div class="work-card">
-        <div class="work-thumb" style="background:var(--amber-pale)">
-          <i class="ti ti-briefcase" style="color:#854F0B"></i>
+    <!-- Skills -->
+    <section id="skills">
+        <div class="container">
+            <div class="sec-label"><i class="ti ti-tools"></i>スキル</div>
+            <div class="skill-grid">
+                <div class="skill-card">
+                    <div class="sk-icon" style="background:var(--amber-pale);color:#854F0B"><i class="ti ti-robot"></i></div>
+                    <div class="sk-name">AI / 自動化</div>
+                    <div class="sk-sub">ChatGPT / Claude</div>
+                    <div class="sk-bar"><div class="sk-fill" style="width:90%;background:var(--amber)"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="sk-icon" style="background:var(--coral-pale);color:#712B13"><i class="ti ti-video"></i></div>
+                    <div class="sk-name">動画制作</div>
+                    <div class="sk-sub">YouTube / TikTok</div>
+                    <div class="sk-bar"><div class="sk-fill" style="width:85%;background:var(--coral)"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="sk-icon" style="background:var(--teal-pale);color:#0F6E56"><i class="ti ti-world"></i></div>
+                    <div class="sk-name">Web制作</div>
+                    <div class="sk-sub">LP / HP / ゲーム</div>
+                    <div class="sk-bar"><div class="sk-fill" style="width:75%;background:var(--teal)"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="sk-icon" style="background:var(--purple-pale);color:#534AB7"><i class="ti ti-palette"></i></div>
+                    <div class="sk-name">グラフィック</div>
+                    <div class="sk-sub">Behance / デザイン</div>
+                    <div class="sk-bar"><div class="sk-fill" style="width:80%;background:var(--purple)"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="sk-icon" style="background:var(--pink-pale);color:#72243E"><i class="ti ti-share"></i></div>
+                    <div class="sk-name">SNS運用</div>
+                    <div class="sk-sub">IG / FB / TikTok</div>
+                    <div class="sk-bar"><div class="sk-fill" style="width:88%;background:var(--pink)"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="sk-icon" style="background:var(--blue-pale);color:#185FA5"><i class="ti ti-shopping-bag"></i></div>
+                    <div class="sk-name">EC / 販売</div>
+                    <div class="sk-sub">ココナラ</div>
+                    <div class="sk-bar"><div class="sk-fill" style="width:70%;background:var(--blue)"></div></div>
+                </div>
+            </div>
         </div>
-        <div class="work-body">
-          <span class="work-tag" style="background:var(--amber-pale);color:#854F0B">SNS運用</span>
-          <div class="work-title">いろんなしごと春日井</div>
-          <div class="work-desc">春日井の仕事・地域情報をInstagram・YouTube・Facebookで多チャンネル発信</div>
+    </section>
+
+    <!-- Works -->
+    <section id="works">
+        <div class="container">
+            <div class="sec-label"><i class="ti ti-layout-grid"></i>制作事例</div>
+            <div class="work-grid">
+
+                <div class="work-card">
+                    <div class="work-thumb" style="background:var(--amber-pale)">
+                        <i class="ti ti-briefcase" style="color:#854F0B"></i>
+                    </div>
+                    <div class="work-body">
+                        <span class="work-tag" style="background:var(--amber-pale);color:#854F0B">SNS運用</span>
+                        <div class="work-title">いろんなしごと春日井</div>
+                        <div class="work-desc">春日井の仕事・地域情報をInstagram・YouTube・Facebookで多チャンネル発信</div>
+                    </div>
+                    <a href="https://www.instagram.com/ironnashigotoab/" target="_blank" class="work-link" style="color:var(--coral)">
+                        <i class="ti ti-external-link"></i>Instagramを見る
+                    </a>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-thumb" style="background:var(--teal-pale)">
+                        <i class="ti ti-robot" style="color:#0F6E56"></i>
+                    </div>
+                    <div class="work-body">
+                        <span class="work-tag" style="background:var(--teal-pale);color:#0F6E56">AI × 介護</span>
+                        <div class="work-title">carenaviAI</div>
+                        <div class="work-desc">AIを活用した介護情報メディア。LP・HP・全SNSチャンネルを一貫して運用</div>
+                    </div>
+                    <a href="https://guts10kasugai.shop/" target="_blank" class="work-link" style="color:var(--teal)">
+                        <i class="ti ti-external-link"></i>LPを見る
+                    </a>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-thumb" style="background:var(--pink-pale)">
+                        <i class="ti ti-paw" style="color:#72243E"></i>
+                    </div>
+                    <div class="work-body">
+                        <span class="work-tag" style="background:var(--pink-pale);color:#72243E">福祉</span>
+                        <div class="work-title">介助犬アカウント</div>
+                        <div class="work-desc">介助犬の普及啓発を目的としたInstagram運用・コンテンツ制作</div>
+                    </div>
+                    <a href="https://www.instagram.com/kaijyoken_life/" target="_blank" class="work-link" style="color:var(--pink)">
+                        <i class="ti ti-external-link"></i>Instagramを見る
+                    </a>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-thumb" style="background:var(--green-pale)">
+                        <i class="ti ti-device-gamepad-2" style="color:#3B6D11"></i>
+                    </div>
+                    <div class="work-body">
+                        <span class="work-tag" style="background:var(--green-pale);color:#3B6D11">Web</span>
+                        <div class="work-title">トレーニングゲームHP</div>
+                        <div class="work-desc">GUTSオリジナルのゲーム専用WebサイトをGitHub Pagesで公開</div>
+                    </div>
+                    <a href="https://gutskasugaiab.github.io/GUTStrainingGames/" target="_blank" class="work-link" style="color:var(--green)">
+                        <i class="ti ti-external-link"></i>サイトを見る
+                    </a>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-thumb" style="background:var(--purple-pale)">
+                        <i class="ti ti-palette" style="color:#534AB7"></i>
+                    </div>
+                    <div class="work-body">
+                        <span class="work-tag" style="background:var(--purple-pale);color:#534AB7">デザイン</span>
+                        <div class="work-title">小縣さんポートフォリオ</div>
+                        <div class="work-desc">グラフィックデザイン・ビジュアル制作の実績をBehanceで公開</div>
+                    </div>
+                    <a href="https://www.behance.net/390ea0f2" target="_blank" class="work-link" style="color:var(--purple)">
+                        <i class="ti ti-external-link"></i>Behanceを見る
+                    </a>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-thumb" style="background:var(--blue-pale)">
+                        <i class="ti ti-music" style="color:#185FA5"></i>
+                    </div>
+                    <div class="work-body">
+                        <span class="work-tag" style="background:var(--blue-pale);color:#185FA5">AI音楽</span>
+                        <div class="work-title">xeno_ai.music</div>
+                        <div class="work-desc">AIを活用した音楽コンテンツをTikTokで発信するクリエイティブチャンネル</div>
+                    </div>
+                    <a href="https://www.tiktok.com/@xeno_ai.music" target="_blank" class="work-link" style="color:var(--blue)">
+                        <i class="ti ti-external-link"></i>TikTokを見る
+                    </a>
+                </div>
+
+            </div>
         </div>
-        <a href="https://www.instagram.com/ironnashigotoab/" target="_blank" class="work-link" style="color:var(--coral)">
-          <i class="ti ti-external-link"></i>Instagramを見る
-        </a>
-      </div>
+    </section>
 
-      <div class="work-card">
-        <div class="work-thumb" style="background:var(--teal-pale)">
-          <i class="ti ti-robot" style="color:#0F6E56"></i>
+    <!-- Portfolio / SNS -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="sec-label"><i class="ti ti-share"></i>ポートフォリオ</div>
+
+            <div class="sns-group">
+                <div class="sns-group-label">Instagram</div>
+                <div class="link-row">
+                    <a href="https://www.instagram.com/ironnashigotoab/" target="_blank" class="sns-btn sns-btn-ig">
+                        <i class="ti ti-brand-instagram"></i>いろんなしごと春日井
+                    </a>
+                    <a href="https://www.instagram.com/carenaviai/" target="_blank" class="sns-btn sns-btn-ig">
+                        <i class="ti ti-brand-instagram"></i>carenaviAI
+                    </a>
+                    <a href="https://www.instagram.com/kaijyoken_life/" target="_blank" class="sns-btn sns-btn-ig">
+                        <i class="ti ti-brand-instagram"></i>介助犬
+                    </a>
+                </div>
+            </div>
+
+            <div class="sns-group">
+                <div class="sns-group-label">YouTube</div>
+                <div class="link-row">
+                    <a href="https://youtube.com/@gutsab-k1t" target="_blank" class="sns-btn sns-btn-yt">
+                        <i class="ti ti-brand-youtube"></i>いろんなしごと春日井
+                    </a>
+                    <a href="https://youtube.com/@CareNaviAI" target="_blank" class="sns-btn sns-btn-yt">
+                        <i class="ti ti-brand-youtube"></i>carenaviAI
+                    </a>
+                </div>
+            </div>
+
+            <div class="sns-group">
+                <div class="sns-group-label">TikTok</div>
+                <div class="link-row">
+                    <a href="https://www.tiktok.com/@xeno_ryo_ai" target="_blank" class="sns-btn sns-btn-tk">
+                        <i class="ti ti-brand-tiktok"></i>xeno_ryo_ai
+                    </a>
+                    <a href="https://www.tiktok.com/@xeno_ai.music" target="_blank" class="sns-btn sns-btn-tk">
+                        <i class="ti ti-brand-tiktok"></i>xeno_ai
+                    </a>
+                    <a href="https://www.tiktok.com/@carenaviai" target="_blank" class="sns-btn sns-btn-tk">
+                        <i class="ti ti-brand-tiktok"></i>carenaviAI
+                    </a>
+                </div>
+            </div>
+
+            <div class="sns-group">
+                <div class="sns-group-label">Facebook</div>
+                <div class="link-row">
+                    <a href="https://www.facebook.com/profile.php?id=61585256669465" target="_blank" class="sns-btn sns-btn-fb">
+                        <i class="ti ti-brand-facebook"></i>いろんなしごと春日井
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61585492525302" target="_blank" class="sns-btn sns-btn-fb">
+                        <i class="ti ti-brand-facebook"></i>carenaviAI
+                    </a>
+                </div>
+            </div>
+
+            <div class="sns-group">
+                <div class="sns-group-label">Web</div>
+                <div class="link-row">
+                    <a href="https://guts-work.com/" target="_blank" class="sns-btn sns-btn-web">
+                        <i class="ti ti-world"></i>いろんなしごとHP
+                    </a>
+                    <a href="https://guts10kasugai.shop/" target="_blank" class="sns-btn sns-btn-web">
+                        <i class="ti ti-world"></i>carenaviAI LP
+                    </a>
+                </div>
+            </div>
+
+            <div class="sns-group">
+                <div class="sns-group-label">その他</div>
+                <div class="link-row">
+                    <a href="https://www.behance.net/390ea0f2" target="_blank" class="sns-btn sns-btn-other">
+                        <i class="ti ti-palette"></i>Behance
+                    </a>
+                    <a href="https://coconala.com/users/5705506" target="_blank" class="sns-btn sns-btn-other">
+                        <i class="ti ti-shopping-bag"></i>ココナラ
+                    </a>
+                    <a href="https://gutskasugaiab.github.io/GUTStrainingGames/" target="_blank" class="sns-btn sns-btn-other">
+                        <i class="ti ti-device-gamepad-2"></i>ゲームHP
+                    </a>
+                    <a href="https://note.com/Xeno_AI" target="_blank" class="sns-btn sns-btn-other">
+                        <i class="ti ti-article"></i>note
+                    </a>
+                </div>
+            </div>
+
         </div>
-        <div class="work-body">
-          <span class="work-tag" style="background:var(--teal-pale);color:#0F6E56">AI × 介護</span>
-          <div class="work-title">carenaviAI</div>
-          <div class="work-desc">AIを活用した介護情報メディア。LP・HP・全SNSチャンネルを一貫して運用</div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <div class="sec-label"><i class="ti ti-mail"></i>お問い合わせ</div>
+            <p class="contact-note">お仕事のご依頼・コラボレーションのご提案など、お気軽にご連絡ください。</p>
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-card-icon" style="background:var(--amber-pale);color:#854F0B">
+                        <i class="ti ti-mail"></i>
+                    </div>
+                    <div class="contact-card-label">メール</div>
+                    <a href="mailto:guts.kasugai@gmail.com" class="contact-card-value">guts.kasugai@gmail.com</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon" style="background:var(--teal-pale);color:#0F6E56">
+                        <i class="ti ti-phone"></i>
+                    </div>
+                    <div class="contact-card-label">電話</div>
+                    <a href="tel:0568-20-1111" class="contact-card-value">0568-20-1111</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon" style="background:var(--pink-pale);color:#72243E">
+                        <i class="ti ti-map-pin"></i>
+                    </div>
+                    <div class="contact-card-label">所在地</div>
+                    <span class="contact-card-value" style="cursor:default">愛知県春日井市六軒屋町6-146KANBEビル1階</span>
+                </div>
+            </div>
         </div>
-        <a href="https://guts10kasugai.shop/" target="_blank" class="work-link" style="color:var(--teal)">
-          <i class="ti ti-external-link"></i>LPを見る
-        </a>
-      </div>
+    </section>
 
-      <div class="work-card">
-        <div class="work-thumb" style="background:var(--pink-pale)">
-          <i class="ti ti-paw" style="color:#72243E"></i>
-        </div>
-        <div class="work-body">
-          <span class="work-tag" style="background:var(--pink-pale);color:#72243E">福祉</span>
-          <div class="work-title">介助犬アカウント</div>
-          <div class="work-desc">介助犬の普及啓発を目的としたInstagram運用・コンテンツ制作</div>
-        </div>
-        <a href="https://www.instagram.com/kaijyoken_life/" target="_blank" class="work-link" style="color:var(--pink)">
-          <i class="ti ti-external-link"></i>Instagramを見る
-        </a>
-      </div>
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 GUTS × Xeno. All rights reserved.</p>
+    </footer>
 
-      <div class="work-card">
-        <div class="work-thumb" style="background:var(--green-pale)">
-          <i class="ti ti-device-gamepad-2" style="color:#3B6D11"></i>
-        </div>
-        <div class="work-body">
-          <span class="work-tag" style="background:var(--green-pale);color:#3B6D11">Web</span>
-          <div class="work-title">トレーニングゲームHP</div>
-          <div class="work-desc">GUTSオリジナルのゲーム専用WebサイトをGitHub Pagesで公開</div>
-        </div>
-        <a href="https://gutskasugaiab.github.io/GUTStrainingGames/" target="_blank" class="work-link" style="color:var(--green)">
-          <i class="ti ti-external-link"></i>サイトを見る
-        </a>
-      </div>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const drawer = document.getElementById('drawer');
+        const overlay = document.getElementById('drawerOverlay');
 
-      <div class="work-card">
-        <div class="work-thumb" style="background:var(--purple-pale)">
-          <i class="ti ti-palette" style="color:#534AB7"></i>
-        </div>
-        <div class="work-body">
-          <span class="work-tag" style="background:var(--purple-pale);color:#534AB7">デザイン</span>
-          <div class="work-title">小縣さんポートフォリオ</div>
-          <div class="work-desc">グラフィックデザイン・ビジュアル制作の実績をBehanceで公開</div>
-        </div>
-        <a href="https://www.behance.net/390ea0f2" target="_blank" class="work-link" style="color:var(--purple)">
-          <i class="ti ti-external-link"></i>Behanceを見る
-        </a>
-      </div>
+        function openDrawer() {
+            hamburger.classList.add('is-open');
+            drawer.classList.add('is-open');
+            overlay.classList.add('is-open');
+            hamburger.setAttribute('aria-expanded', 'true');
+            drawer.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
 
-      <div class="work-card">
-        <div class="work-thumb" style="background:var(--blue-pale)">
-          <i class="ti ti-music" style="color:#185FA5"></i>
-        </div>
-        <div class="work-body">
-          <span class="work-tag" style="background:var(--blue-pale);color:#185FA5">AI音楽</span>
-          <div class="work-title">xeno_ai.music</div>
-          <div class="work-desc">AIを活用した音楽コンテンツをTikTokで発信するクリエイティブチャンネル</div>
-        </div>
-        <a href="https://www.tiktok.com/@xeno_ai.music" target="_blank" class="work-link" style="color:var(--blue)">
-          <i class="ti ti-external-link"></i>TikTokを見る
-        </a>
-      </div>
+        function closeDrawer() {
+            hamburger.classList.remove('is-open');
+            drawer.classList.remove('is-open');
+            overlay.classList.remove('is-open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            drawer.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
 
-    </div>
-  </div>
-</section>
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.contains('is-open') ? closeDrawer() : openDrawer();
+        });
 
-<!-- Portfolio / SNS -->
-<section id="portfolio">
-  <div class="container">
-    <div class="sec-label"><i class="ti ti-share"></i>ポートフォリオ</div>
+        overlay.addEventListener('click', closeDrawer);
 
-    <div class="sns-group">
-      <div class="sns-group-label">Instagram</div>
-      <div class="link-row">
-        <a href="https://www.instagram.com/ironnashigotoab/" target="_blank" class="sns-btn sns-btn-ig">
-          <i class="ti ti-brand-instagram"></i>いろんなしごと春日井
-        </a>
-        <a href="https://www.instagram.com/carenaviai/" target="_blank" class="sns-btn sns-btn-ig">
-          <i class="ti ti-brand-instagram"></i>carenaviAI
-        </a>
-        <a href="https://www.instagram.com/kaijyoken_life/" target="_blank" class="sns-btn sns-btn-ig">
-          <i class="ti ti-brand-instagram"></i>介助犬
-        </a>
-      </div>
-    </div>
-
-    <div class="sns-group">
-      <div class="sns-group-label">YouTube</div>
-      <div class="link-row">
-        <a href="https://youtube.com/@gutsab-k1t" target="_blank" class="sns-btn sns-btn-yt">
-          <i class="ti ti-brand-youtube"></i>いろんなしごと春日井
-        </a>
-        <a href="https://youtube.com/@CareNaviAI" target="_blank" class="sns-btn sns-btn-yt">
-          <i class="ti ti-brand-youtube"></i>carenaviAI
-        </a>
-      </div>
-    </div>
-
-    <div class="sns-group">
-      <div class="sns-group-label">TikTok</div>
-      <div class="link-row">
-        <a href="https://www.tiktok.com/@xeno_ryo_ai" target="_blank" class="sns-btn sns-btn-tk">
-          <i class="ti ti-brand-tiktok"></i>xeno_ryo_ai
-        </a>
-        <a href="https://www.tiktok.com/@xeno_ai.music" target="_blank" class="sns-btn sns-btn-tk">
-          <i class="ti ti-brand-tiktok"></i>xeno_ai
-        </a>
-        <a href="https://www.tiktok.com/@carenaviai" target="_blank" class="sns-btn sns-btn-tk">
-          <i class="ti ti-brand-tiktok"></i>carenaviAI
-        </a>
-      </div>
-    </div>
-
-    <div class="sns-group">
-      <div class="sns-group-label">Facebook</div>
-      <div class="link-row">
-        <a href="https://www.facebook.com/profile.php?id=61585256669465" target="_blank" class="sns-btn sns-btn-fb">
-          <i class="ti ti-brand-facebook"></i>いろんなしごと春日井
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61585492525302" target="_blank" class="sns-btn sns-btn-fb">
-          <i class="ti ti-brand-facebook"></i>carenaviAI
-        </a>
-      </div>
-    </div>
-
-    <div class="sns-group">
-      <div class="sns-group-label">Web</div>
-      <div class="link-row">
-        <a href="https://guts-work.com/" target="_blank" class="sns-btn sns-btn-web">
-          <i class="ti ti-world"></i>いろんなしごとHP
-        </a>
-        <a href="https://guts10kasugai.shop/" target="_blank" class="sns-btn sns-btn-web">
-          <i class="ti ti-world"></i>carenaviAI LP
-        </a>
-      </div>
-    </div>
-
-    <div class="sns-group">
-      <div class="sns-group-label">その他</div>
-      <div class="link-row">
-        <a href="https://www.behance.net/390ea0f2" target="_blank" class="sns-btn sns-btn-other">
-          <i class="ti ti-palette"></i>Behance
-        </a>
-        <a href="https://coconala.com/users/5705506" target="_blank" class="sns-btn sns-btn-other">
-          <i class="ti ti-shopping-bag"></i>ココナラ
-        </a>
-        <a href="https://gutskasugaiab.github.io/GUTStrainingGames/" target="_blank" class="sns-btn sns-btn-other">
-          <i class="ti ti-device-gamepad-2"></i>ゲームHP
-        </a>
-        <a href="https://note.com/Xeno_AI" target="_blank" class="sns-btn sns-btn-other">
-          <i class="ti ti-article"></i>note
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact">
-  <div class="container">
-    <div class="sec-label"><i class="ti ti-mail"></i>お問い合わせ</div>
-    <p class="contact-note">お仕事のご依頼・コラボレーションのご提案など、お気軽にご連絡ください。</p>
-    <div class="contact-cards">
-      <div class="contact-card">
-        <div class="contact-card-icon" style="background:var(--amber-pale);color:#854F0B">
-          <i class="ti ti-mail"></i>
-        </div>
-        <div class="contact-card-label">メール</div>
-        <a href="mailto:guts.kasugai@gmail.com" class="contact-card-value">guts.kasugai@gmail.com</a>
-      </div>
-      <div class="contact-card">
-        <div class="contact-card-icon" style="background:var(--teal-pale);color:#0F6E56">
-          <i class="ti ti-phone"></i>
-        </div>
-        <div class="contact-card-label">電話</div>
-        <a href="tel:0568-20-1111" class="contact-card-value">0568-20-1111</a>
-      </div>
-      <div class="contact-card">
-        <div class="contact-card-icon" style="background:var(--map-pin, var(--pink-pale));color:#72243E">
-          <i class="ti ti-map-pin"></i>
-        </div>
-        <div class="contact-card-label">所在地</div>
-        <span class="contact-card-value" style="cursor:default">愛知県春日井市六軒屋町6-146KANBEビル1階</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <p>© 2025 GUTS × Xeno. All rights reserved.</p>
-</footer>
+        drawer.querySelectorAll('.drawer__link').forEach(link => {
+            link.addEventListener('click', closeDrawer);
+        });
+    </script>
 
 </body>
 </html>
