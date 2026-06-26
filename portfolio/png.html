@@ -62,7 +62,7 @@
         }
 
         /* ── Nav ── */
-        nav {
+        body>nav {
             position: sticky;
             top: 0;
             z-index: 100;
@@ -106,28 +106,8 @@
         }
 
         .nav-links a.active {
-            color: var(--text);
             border-bottom: 2px solid var(--amber);
             padding-bottom: 2px;
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 13px;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color .15s;
-        }
-
-        .back-btn:hover {
-            color: var(--text);
-        }
-
-        .back-btn i {
-            font-size: 15px;
         }
 
         /* ── Container ── */
@@ -157,7 +137,7 @@
             color: var(--text-muted);
         }
 
-        /* ── Filter tabs ── */
+        /* ── Filter ── */
         .filter-bar {
             display: flex;
             flex-wrap: wrap;
@@ -189,23 +169,24 @@
             border-color: var(--text);
         }
 
-        /* ── Masonry grid ── */
+        /* ── Gallery ── */
         .gallery {
+            width: 100%;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
 
         .gallery-item {
-            break-inside: avoid;
-            margin-bottom: 14px;
+            display: block;
+            width: 100%;
+            position: relative;
             border-radius: var(--radius-md);
             overflow: hidden;
             background: white;
             border: 0.5px solid var(--border);
             cursor: pointer;
             transition: transform .18s, box-shadow .18s;
-            display: block;
         }
 
         .gallery-item:hover {
@@ -215,32 +196,10 @@
 
         .gallery-item img {
             width: 100%;
-            overflow: hidden;
+            aspect-ratio: 16/9;
             object-fit: contain;
+            display: block;
         }
-
-        /* Placeholder image area */
-        .img-placeholder {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 28px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .img-placeholder .ph-label {
-            font-size: 11px;
-            font-weight: 500;
-            opacity: 0.5;
-            font-family: 'Space Grotesk', sans-serif;
-            letter-spacing: .05em;
-        }
-
-        /* Replace .img-placeholder with <img src="your-image.png"> when ready */
 
         .item-body {
             padding: 0.75rem 1rem 0.875rem;
@@ -302,6 +261,12 @@
             min-height: 340px;
         }
 
+        .lightbox-img img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
         .lightbox-body {
             padding: 1.25rem 1.5rem 1.5rem;
             border-top: 0.5px solid var(--border);
@@ -341,6 +306,10 @@
         }
 
         /* ── Contact ── */
+        .container {
+            margin: 20px auto;
+        }
+
         .contact-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -403,9 +372,108 @@
             text-align: center;
             font-size: 12px;
             color: var(--text-muted);
-            margin: 20px auto;
+            margin-top: 2rem;
         }
 
+        /* ── ハンバーガー ── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            transition: background .15s;
+        }
+
+        .hamburger:hover {
+            background: var(--gray-200);
+        }
+
+        .hamburger span {
+            display: block;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+            transform-origin: center;
+        }
+
+        .hamburger.is-open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.is-open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.is-open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ── ドロワー ── */
+        .drawer {
+            position: fixed;
+            top: 56px;
+            right: 0;
+            bottom: 0;
+            width: min(280px, 80vw);
+            background: white;
+            z-index: 150;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+            border-left: 0.5px solid var(--border);
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .drawer.is-open {
+            transform: translateX(0);
+        }
+
+        .drawer__nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .drawer__link:first-child {
+            border-top: 0.5px solid var(--border);
+        }
+
+        .drawer__link {
+            padding: 0.875rem 1.5rem;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 0.5px solid var(--border);
+            transition: color .15s, background .15s;
+        }
+
+        .drawer__link:hover {
+            color: var(--text);
+            background: var(--gray-100);
+        }
+
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 140;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .drawer-overlay.is-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
         /* ── Responsive ── */
         @media (max-width: 640px) {
@@ -413,16 +481,20 @@
                 padding: 0 1rem;
             }
 
-            .gallery {
-                grid-template-columns: repeat(1, 1fr);
+            .nav-links {
+                display: none;
             }
 
-            .gallery-item {
-                margin-bottom: 10px;
+            .hamburger {
+                display: flex;
             }
 
             .page-header h1 {
                 font-size: 22px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -436,7 +508,6 @@
 
 <body>
 
-    <!-- Nav -->
     <nav>
         <a href="index.html" class="nav-logo">GUTS × Xeno</a>
         <ul class="nav-links">
@@ -444,17 +515,27 @@
             <li><a href="png.html" class="active">デザイン</a></li>
             <li><a href="video.html">動画</a></li>
         </ul>
+        <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
+
+    <div class="drawer" id="drawer" aria-hidden="true">
+        <nav class="drawer__nav">
+            <a href="index.html" class="drawer__link">トップ</a>
+            <a href="png.html" class="drawer__link active">デザイン</a>
+            <a href="video.html" class="drawer__link">動画</a>
+        </nav>
+    </div>
+    <div class="drawer-overlay" id="drawerOverlay"></div>
 
     <div class="container">
 
-        <!-- Page header -->
         <div class="page-header">
             <h1>デザイン</h1>
             <p>SNSバナー・ロゴ・グラフィックなどの制作実績</p>
         </div>
 
-        <!-- Filter -->
         <div class="filter-bar">
             <button class="filter-btn active" data-filter="all">すべて</button>
             <button class="filter-btn" data-filter="banner">バナー</button>
@@ -464,10 +545,8 @@
             <button class="filter-btn" data-filter="portfolio">個人デザイン</button>
         </div>
 
-        <!-- Gallery -->
         <div class="gallery" id="gallery">
 
-            <!-- item 01 — tall -->
             <div class="gallery-item" data-category="banner" data-title="carenaviAI メインバナー"
                 data-desc="介護情報AIメディアのヒーローバナー。ターゲットは40〜60代の介護者。" onclick="openLightbox(this)">
                 <img src="img/バナー4.png" alt="banner">
@@ -478,7 +557,6 @@
                 </div>
             </div>
 
-            <!-- item 02 — short -->
             <div class="gallery-item" data-category="logo" data-title="carenaviAI ロゴ"
                 data-desc="AI × 介護をコンセプトにしたロゴデザイン。" onclick="openLightbox(this)">
                 <img src="img/アイコン.png" alt="icon">
@@ -489,7 +567,6 @@
                 </div>
             </div>
 
-            <!-- item 03 -->
             <div class="gallery-item" data-category="sns" data-title="いろんなしごと Instagram投稿"
                 data-desc="春日井の地域仕事紹介シリーズ。統一感のあるグリッドデザイン。" onclick="openLightbox(this)">
                 <img src="img/定型2.png" alt="instagram">
@@ -500,9 +577,6 @@
                 </div>
             </div>
 
-        
-
-            <!-- item 05 -->
             <div class="gallery-item" data-category="sns" data-title="carenaviAI TikTok サムネイル"
                 data-desc="TikTok動画のサムネイル。目を引くテキストレイアウト。" onclick="openLightbox(this)">
                 <img src="img/スクリーンショット 2026-06-25 142043.png" alt="サムネイル">
@@ -513,7 +587,6 @@
                 </div>
             </div>
 
-            <!-- item 06 -->
             <div class="gallery-item" data-category="banner" data-title="介助犬 認知向上バナー"
                 data-desc="介助犬の普及啓発用SNSバナー。温かみのある配色。" onclick="openLightbox(this)">
                 <img src="img/介助犬バナー.png" alt="banner">
@@ -523,8 +596,8 @@
                     <div class="item-desc">普及啓発用SNSバナー・温かみある配色</div>
                 </div>
             </div>
-                <!-- item 04 -->
-            <div class="gallery-item" data-category="logo" data-title="GUTSゲーム チラシ"
+
+            <div class="gallery-item" data-category="logo" data-title="GUTSゲーム logo"
                 data-desc="トレーニングゲームの告知チラシ。ポップで元気のあるビジュアル。" onclick="openLightbox(this)">
                 <img src="img/スクリーンショット 2026-06-25 141628.png" alt="logo">
                 <div class="item-body">
@@ -534,7 +607,6 @@
                 </div>
             </div>
 
-            <!-- item 07 -->
             <div class="gallery-item" data-category="logo" data-title="いろんなしごと ロゴ" data-desc="春日井の地域仕事紹介メディアのロゴ。"
                 onclick="openLightbox(this)">
                 <img src="img/いろんなしごと春日井ロゴ.png" alt="logo">
@@ -545,9 +617,8 @@
                 </div>
             </div>
 
-            <!-- item 08 -->
-            <div class="gallery-item" data-category="sns" data-title="xeno_ryo_ai AI活用投稿"
-                data-desc="AI活用ノウハウ系TikTok・SNS投稿バナー。" onclick="openLightbox(this)">
+            <div class="gallery-item" data-category="sns" data-title="AI活用ノウハウ投稿" data-desc="AI活用ノウハウ系TikTok・SNS投稿バナー。"
+                onclick="openLightbox(this)">
                 <img src="img/バナー (4).png" alt="banner">
                 <div class="item-body">
                     <span class="item-tag" style="background:var(--gray-200);color:var(--gray-700)">SNS投稿</span>
@@ -556,9 +627,8 @@
                 </div>
             </div>
 
-            <!-- item 09 -->
-            <div class="gallery-item" data-category="portfolio" data-title="xeno_ryo_ai AI活用投稿"
-                data-desc="AI活用ノウハウ系TikTok・SNS投稿バナー。" onclick="openLightbox(this)">
+            <div class="gallery-item" data-category="portfolio" data-title="淺尾デザイン" data-desc="淺尾さんポートフォリオ"
+                onclick="openLightbox(this)">
                 <img src="img/淺尾.png" alt="個人">
                 <div class="item-body">
                     <span class="item-tag" style="background:var(--teal-pale);color:#0F6E56">淺尾デザイン</span>
@@ -566,9 +636,8 @@
                 </div>
             </div>
 
-            <!-- item 09 -->
-            <div class="gallery-item" data-category="portfolio" data-title="xeno_ryo_ai AI活用投稿"
-                data-desc="AI活用ノウハウ系TikTok・SNS投稿バナー。" onclick="openLightbox(this)">
+            <div class="gallery-item" data-category="portfolio" data-title="小縣デザイン" data-desc="小縣さんポートフォリオ"
+                onclick="openLightbox(this)">
                 <img src="img/小縣.png" alt="個人">
                 <div class="item-body">
                     <span class="item-tag" style="background:var(--teal-pale);color:#0F6E56">小縣デザイン</span>
@@ -576,18 +645,17 @@
                 </div>
             </div>
 
-            <!-- item 010 -->
-            <div class="gallery-item" data-category="portfolio" data-title="xeno_ryo_ai AI活用投稿"
-                data-desc="AI活用ノウハウ系TikTok・SNS投稿バナー。" onclick="openLightbox(this)">
+            <div class="gallery-item" data-category="portfolio" data-title="東村デザイン" data-desc="東村さんポートフォリオ"
+                onclick="openLightbox(this)">
                 <img src="img/東村.png" alt="個人">
                 <div class="item-body">
                     <span class="item-tag" style="background:var(--teal-pale);color:#0F6E56">東村デザイン</span>
                     <div class="item-desc">東村さんポートフォリオ</div>
                 </div>
             </div>
-            <!-- item 010 -->
-            <div class="gallery-item" data-category="portfolio" data-title="xeno_ryo_ai AI活用投稿"
-                data-desc="AI活用ノウハウ系TikTok・SNS投稿バナー。" onclick="openLightbox(this)">
+
+            <div class="gallery-item" data-category="portfolio" data-title="島内デザイン" data-desc="島内さんポートフォリオ"
+                onclick="openLightbox(this)">
                 <img src="img/島内.png" alt="個人">
                 <div class="item-body">
                     <span class="item-tag" style="background:var(--teal-pale);color:#0F6E56">島内デザイン</span>
@@ -595,19 +663,17 @@
                 </div>
             </div>
 
-            <!-- item 011 -->
-            <div class="gallery-item" data-category="portfolio" data-title="xeno_ryo_ai AI活用投稿"
-                data-desc="AI活用ノウハウ系TikTok・SNS投稿バナー。" onclick="openLightbox(this)">
-                <img src="img/" alt="個人">
+            <div class="gallery-item" data-category="portfolio" data-title="石川デザイン" data-desc="石川さんポートフォリオ"
+                onclick="openLightbox(this)">
+                <img src="img/石川.png" alt="個人">
                 <div class="item-body">
                     <span class="item-tag" style="background:var(--teal-pale);color:#0F6E56">石川デザイン</span>
                     <div class="item-desc">石川さんポートフォリオ</div>
                 </div>
             </div>
 
-            <!-- item 012 -->
-            <div class="gallery-item" data-category="portfolio" data-title="xeno_ryo_ai AI活用投稿"
-                data-desc="AI活用ノウハウ系TikTok・SNS投稿バナー。" onclick="openLightbox(this)">
+            <div class="gallery-item" data-category="portfolio" data-title="可児デザイン" data-desc="可児さんポートフォリオ"
+                onclick="openLightbox(this)">
                 <img src="img/可児.png" alt="個人">
                 <div class="item-body">
                     <span class="item-tag" style="background:var(--teal-pale);color:#0F6E56">可児デザイン</span>
@@ -615,7 +681,7 @@
                 </div>
             </div>
 
-        </div><!-- /gallery -->
+        </div>
     </div>
 
     <!-- Lightbox -->
@@ -629,30 +695,27 @@
             </div>
         </div>
     </div>
-    <!-- Contact -->
+
     <section id="contact">
         <div class="container">
             <div class="sec-label"><i class="ti ti-mail"></i>お問い合わせ</div>
             <p class="contact-note">お仕事のご依頼・コラボレーションのご提案など、お気軽にご連絡ください。</p>
             <div class="contact-cards">
                 <div class="contact-card">
-                    <div class="contact-card-icon" style="background:var(--amber-pale);color:#854F0B">
-                        <i class="ti ti-mail"></i>
-                    </div>
+                    <div class="contact-card-icon" style="background:var(--amber-pale);color:#854F0B"><i
+                            class="ti ti-mail"></i></div>
                     <div class="contact-card-label">メール</div>
                     <a href="mailto:guts.kasugai@gmail.com" class="contact-card-value">guts.kasugai@gmail.com</a>
                 </div>
                 <div class="contact-card">
-                    <div class="contact-card-icon" style="background:var(--teal-pale);color:#0F6E56">
-                        <i class="ti ti-phone"></i>
-                    </div>
+                    <div class="contact-card-icon" style="background:var(--teal-pale);color:#0F6E56"><i
+                            class="ti ti-phone"></i></div>
                     <div class="contact-card-label">電話</div>
                     <a href="tel:0568-20-1111" class="contact-card-value">0568-20-1111</a>
                 </div>
                 <div class="contact-card">
-                    <div class="contact-card-icon" style="background:var(--map-pin, var(--pink-pale));color:#72243E">
-                        <i class="ti ti-map-pin"></i>
-                    </div>
+                    <div class="contact-card-icon" style="background:var(--pink-pale);color:#72243E"><i
+                            class="ti ti-map-pin"></i></div>
                     <div class="contact-card-label">所在地</div>
                     <span class="contact-card-value" style="cursor:default">愛知県春日井市六軒屋町6-146KANBEビル1階</span>
                 </div>
@@ -664,8 +727,37 @@
         <p>© 2025 GUTS × Xeno. All rights reserved.</p>
     </footer>
 
-
     <script>
+        const hamburger = document.getElementById('hamburger');
+        const drawer = document.getElementById('drawer');
+        const overlay = document.getElementById('drawerOverlay');
+
+        function openDrawer() {
+            hamburger.classList.add('is-open');
+            drawer.classList.add('is-open');
+            overlay.classList.add('is-open');
+            hamburger.setAttribute('aria-expanded', 'true');
+            drawer.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            hamburger.classList.remove('is-open');
+            drawer.classList.remove('is-open');
+            overlay.classList.remove('is-open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            drawer.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.contains('is-open') ? closeDrawer() : openDrawer();
+        });
+        overlay.addEventListener('click', closeDrawer);
+        drawer.querySelectorAll('.drawer__link').forEach(link => {
+            link.addEventListener('click', closeDrawer);
+        });
+
         // Filter
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -683,9 +775,15 @@
             const lb = document.getElementById('lightbox');
             document.getElementById('lb-title').textContent = el.dataset.title;
             document.getElementById('lb-desc').textContent = el.dataset.desc;
-            const ph = el.querySelector('.img-placeholder');
-            document.getElementById('lb-img').style.cssText = ph.style.cssText + ';min-height:340px';
-            document.getElementById('lb-img').innerHTML = ph.innerHTML;
+            const img = el.querySelector('img');
+            const lbImg = document.getElementById('lb-img');
+            lbImg.innerHTML = '';
+            if (img) {
+                const clone = document.createElement('img');
+                clone.src = img.src;
+                clone.alt = img.alt;
+                lbImg.appendChild(clone);
+            }
             lb.classList.add('open');
         }
 
