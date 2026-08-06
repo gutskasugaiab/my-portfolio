@@ -183,6 +183,8 @@
             width: 100%;
             position: relative;
             overflow: hidden;
+            color: inherit;
+            text-decoration: none;
         }
 
         .gallery-item img {
@@ -213,6 +215,18 @@
             font-size: 3rem;
             color: #fff;
             text-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        }
+
+        .gallery-item[data-category="youtube"] {
+            cursor: pointer;
+        }
+
+        .gallery-item[data-category="youtube"] img {
+            transition: transform .3s ease;
+        }
+
+        .gallery-item[data-category="youtube"]:hover img {
+            transform: scale(1.04);
         }
 
         /* ── Contact ── */
@@ -414,6 +428,10 @@
             .gallery {
                 grid-template-columns: 1fr;
             }
+
+            .yt-modal-close {
+                top: -40px;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -462,30 +480,30 @@
 
         <div id="galleryWrap">
             <div class="gallery" id="youtubeGallery">
-                <div class="gallery-item" data-category="youtube">
+                <a class="gallery-item" data-category="youtube" href="https://www.youtube.com/watch?v=a5dixJpWqmo" target="_blank" rel="noopener">
                     <img src="https://img.youtube.com/vi/a5dixJpWqmo/maxresdefault.jpg" alt="YouTube">
                     <span class="yt-btn">▶</span>
-                </div>
-                <div class="gallery-item" data-category="youtube">
+                </a>
+                <a class="gallery-item" data-category="youtube" href="https://www.youtube.com/watch?v=kn3GqyoQTDg" target="_blank" rel="noopener">
                     <img src="https://img.youtube.com/vi/kn3GqyoQTDg/maxresdefault.jpg" alt="YouTube">
                     <span class="yt-btn">▶</span>
-                </div>
-                <div class="gallery-item" data-category="youtube">
+                </a>
+                <a class="gallery-item" data-category="youtube" href="https://www.youtube.com/watch?v=MGHPqIliQ0E" target="_blank" rel="noopener">
                     <img src="https://img.youtube.com/vi/MGHPqIliQ0E/maxresdefault.jpg" alt="YouTube">
                     <span class="yt-btn">▶</span>
-                </div>
-                <div class="gallery-item" data-category="youtube">
+                </a>
+                <a class="gallery-item" data-category="youtube" href="https://www.youtube.com/watch?v=jXylkMJZioQ" target="_blank" rel="noopener">
                     <img src="https://img.youtube.com/vi/jXylkMJZioQ/maxresdefault.jpg" alt="YouTube">
                     <span class="yt-btn">▶</span>
-                </div>
-                <div class="gallery-item" data-category="youtube">
+                </a>
+                <a class="gallery-item" data-category="youtube" href="https://www.youtube.com/watch?v=-YzLN1rWjUs" target="_blank" rel="noopener">
                     <img src="https://img.youtube.com/vi/-YzLN1rWjUs/maxresdefault.jpg" alt="YouTube">
                     <span class="yt-btn">▶</span>
-                </div>
-                <div class="gallery-item" data-category="youtube">
+                </a>
+                <a class="gallery-item" data-category="youtube" href="https://www.youtube.com/watch?v=KV0GVivScTE" target="_blank" rel="noopener">
                     <img src="https://img.youtube.com/vi/KV0GVivScTE/maxresdefault.jpg" alt="YouTube">
                     <span class="yt-btn">▶</span>
-                </div>
+                </a>
             </div>
 
             <div class="gallery" id="tiktokGallery">
