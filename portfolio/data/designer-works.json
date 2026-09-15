@@ -77,13 +77,13 @@
     "videoUrl": "https://www.youtube.com/shorts/jXylkMJZioQ",
     "order": 4
   },
-   {
+  {
     "designerSlug": "higashimura",
     "title": "portfolioショート1",
     "videoUrl": "https://www.youtube.com/shorts/ZJRXE78ipXU",
     "order": 6
   },
-   {
+  {
     "designerSlug": "higashimura",
     "title": "portfolioショート2",
     "videoUrl": "https://www.youtube.com/shorts/MGHPqIliQ0E",
@@ -491,9 +491,9 @@
   },
   {
     "designerSlug": "higashimura",
-    "title": "スクリーンショット 2026 06 26 141835",
+    "title": "YouTube",
     "description": "",
-    "image": "img/designers/higashimura/スクリーンショット 2026-06-26 141835.png",
+    "image": "img/designers/higashimura/YouTube.png",
     "sitePath": "",
     "videoUrl": "",
     "order": 1,
@@ -501,9 +501,9 @@
   },
   {
     "designerSlug": "higashimura",
-    "title": "東村",
+    "title": "スクリーンショット 2026 06 26 141835",
     "description": "",
-    "image": "img/designers/higashimura/東村.png",
+    "image": "img/designers/higashimura/スクリーンショット 2026-06-26 141835.png",
     "sitePath": "",
     "videoUrl": "",
     "order": 2,
