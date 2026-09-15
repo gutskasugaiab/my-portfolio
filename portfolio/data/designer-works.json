@@ -19,15 +19,21 @@
   },
   {
     "designerSlug": "katouy",
-    "title": "tiktok",
+    "title": "tiktok AImusic",
     "videoUrl": "https://www.tiktok.com/@xeno_ai.music",
     "order": 1
   },
   {
     "designerSlug": "katouy",
-    "title": "tiktok",
+    "title": "tiktok AI専門家",
     "videoUrl": "https://www.tiktok.com/@xeno_ryo_ai",
     "order": 2
+  },
+  {
+    "designerSlug": "suganuma",
+    "title": "carenavi動画",
+    "videoUrl": "https://www.instagram.com/p/DaUIZFnlelU/?next=%2F&hl=ja",
+    "order": 1
   },
   {
     "designerSlug": "kawamura",

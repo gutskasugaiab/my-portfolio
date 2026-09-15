@@ -1,12 +1,14 @@
 [
-  { "name": "淺尾", "slug": "asao", "role": "デザイナー", "avatar": "", "bio": "", "order": 1 },
-  { "name": "小縣", "slug": "ogata", "role": "デザイナー", "avatar": "", "bio": "", "order": 2 },
-  { "name": "東村", "slug": "higashimura", "role": "デザイナー", "avatar": "", "bio": "", "order": 3 },
-  { "name": "島内", "slug": "shimanouchi", "role": "デザイナー", "avatar": "", "bio": "", "order": 4 },
-  { "name": "石川", "slug": "ishikawa", "role": "デザイナー", "avatar": "", "bio": "", "order": 5 },
-  { "name": "可児", "slug": "kani", "role": "デザイナー", "avatar": "", "bio": "", "order": 6 },
-  { "name": "石黒", "slug": "isiguro", "role": "デザイナー", "avatar": "", "bio": "", "order": 7 },
-  { "name": "河村", "slug": "kawamura", "role": "デザイナー", "avatar": "", "bio": "", "order": 8 },
-  { "name": "山元", "slug": "yamamoto", "role": "デザイナー", "avatar": "", "bio": "", "order": 9 },
-  { "name": "代表", "slug": "katouy", "role": "社長", "avatar": "", "bio": "", "order": 15 }
+  { "name": "MA", "slug": "asao", "role": "デザイナー、コーダー", "avatar": "", "bio": "", "order": 1 },
+  { "name": "SO", "slug": "ogata", "role": "デザイナー", "avatar": "", "bio": "", "order": 2 },
+  { "name": "HH", "slug": "higashimura", "role": "オールラウンダー", "avatar": "", "bio": "", "order": 3 },
+  { "name": "YS", "slug": "shimanouchi", "role": "デザイナー、オフィスワーカー", "avatar": "", "bio": "", "order": 4 },
+  { "name": "MI", "slug": "ishikawam", "role": "デザイナー", "avatar": "", "bio": "", "order": 5 },
+  { "name": "KK", "slug": "kani", "role": "デザイナー", "avatar": "", "bio": "", "order": 6 },
+  { "name": "AI", "slug": "isiguro", "role": "ビデオクリエイター", "avatar": "", "bio": "", "order": 7 },
+  { "name": "KK", "slug": "kawamura", "role": "ライター", "avatar": "", "bio": "", "order": 8 },
+  { "name": "MY", "slug": "yamamoto", "role": "コーダー", "avatar": "", "bio": "", "order": 9 },
+  { "name": "IS", "slug": "suganuma", "role": "ビデオクリエイター", "avatar": "", "bio": "", "order": 10 },
+  { "name": "TY", "slug": "yamasaki", "role": "デザイナー", "avatar": "", "bio": "", "order": 11 },
+  { "name": "YK", "slug": "katouy", "role": "代表", "avatar": "", "bio": "", "order": 15 }
 ]
