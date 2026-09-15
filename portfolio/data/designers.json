@@ -1,0 +1,11 @@
+[
+  { "name": "淺尾", "slug": "asao", "role": "デザイナー", "avatar": "", "bio": "", "order": 1 },
+  { "name": "小縣", "slug": "ogata", "role": "デザイナー", "avatar": "", "bio": "", "order": 2 },
+  { "name": "東村", "slug": "higashimura", "role": "デザイナー", "avatar": "", "bio": "", "order": 3 },
+  { "name": "島内", "slug": "shimanouchi", "role": "デザイナー", "avatar": "", "bio": "", "order": 4 },
+  { "name": "石川", "slug": "ishikawa", "role": "デザイナー", "avatar": "", "bio": "", "order": 5 },
+  { "name": "可児", "slug": "kani", "role": "デザイナー", "avatar": "", "bio": "", "order": 6 },
+  { "name": "石黒", "slug": "isiguro", "role": "デザイナー", "avatar": "", "bio": "", "order": 7 },
+  { "name": "河村", "slug": "kawamura", "role": "デザイナー", "avatar": "", "bio": "", "order": 8 },
+  { "name": "加藤良和", "slug": "katouyosikazu", "role": "社長", "avatar": "", "bio": "", "order": 10 }
+]

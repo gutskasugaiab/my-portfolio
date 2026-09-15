@@ -201,6 +201,17 @@
             display: block;
         }
 
+        .work-icon {
+            width: 100%;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gray-100);
+            color: var(--text-muted);
+            font-size: 32px;
+        }
+
         .item-body {
             padding: 0.75rem 1rem 0.875rem;
         }
@@ -303,6 +314,18 @@
 
         .lightbox-close:hover {
             background: rgba(0, 0, 0, 0.35);
+        }
+
+        .lightbox-inner--wide {
+            max-width: 1100px;
+        }
+
+        .lightbox-iframe {
+            width: 100%;
+            height: 60vh;
+            border: none;
+            display: block;
+            background: var(--gray-100);
         }
 
         /* ── Contact ── */
@@ -504,72 +527,62 @@
             }
         }
 
-        /* ── Designer cards ── */
-        .designer-grid {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+        /* ── Designer header ── */
+        .designer-header {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
         }
 
-        .designer-card {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            background: white;
-            border: 0.5px solid var(--border);
-            transition: transform .18s, box-shadow .18s;
-            text-align: center;
-            padding: 2rem 1rem 1.5rem;
-        }
-
-        .designer-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
-        }
-
-        .designer-avatar {
-            width: 84px;
-            height: 84px;
+        .designer-header-avatar {
+            width: 88px;
+            height: 88px;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 1rem;
-            display: block;
+            flex-shrink: 0;
             background: var(--gray-200);
         }
 
-        .designer-avatar-fallback {
-            width: 84px;
-            height: 84px;
+        .designer-header-avatar-fallback {
+            width: 88px;
+            height: 88px;
             border-radius: 50%;
-            margin: 0 auto 1rem;
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             background: var(--teal-pale);
             color: #0F6E56;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 28px;
+            font-size: 30px;
             font-weight: 700;
         }
 
-        .designer-name {
-            font-size: 15px;
-            font-weight: 500;
-            margin-bottom: 2px;
-        }
-
-        .designer-role {
-            font-size: 12px;
+        .designer-header-role {
+            font-size: 13px;
             color: var(--text-muted);
+            margin-bottom: 4px;
         }
 
-        @media (max-width: 640px) {
-            .designer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .designer-header-bio {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-top: 4px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 1.25rem;
+        }
+
+        .back-link:hover {
+            color: var(--text);
         }
     </style>
 </head>
@@ -597,15 +610,40 @@
 
     <div class="container">
 
-        <div class="page-header">
-            <h1>個人デザイン</h1>
-            <p>所属クリエイターのポートフォリオ</p>
+        <a href="png.html" class="back-link">← 個人デザイン一覧へ</a>
+
+        <div class="page-header" id="designerHeader">
+            <p style="color:var(--text-muted)">読み込み中...</p>
         </div>
 
-        <div class="designer-grid" id="designerGrid">
-            <p class="gallery-loading" style="padding:2rem 0;color:var(--text-muted);grid-column:1/-1">読み込み中...</p>
+        <div class="gallery" id="gallery">
         </div>
 
+    </div>
+
+    <!-- Lightbox（画像作品用） -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-inner">
+            <button class="lightbox-close" onclick="closeLightbox()"><i class="ti ti-x"></i></button>
+            <div class="lightbox-img" id="lb-img"></div>
+            <div class="lightbox-body">
+                <h2 id="lb-title"></h2>
+                <p id="lb-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox（LP・HPプレビュー用） -->
+    <div class="lightbox" id="siteLightbox" onclick="closeSiteLightbox(event)">
+        <div class="lightbox-inner lightbox-inner--wide">
+            <button class="lightbox-close" onclick="closeSiteLightbox()"><i class="ti ti-x"></i></button>
+            <iframe id="site-iframe" class="lightbox-iframe" src="" title="LP・HPプレビュー"></iframe>
+            <div class="lightbox-body">
+                <h2 id="site-title"></h2>
+                <p id="site-desc"></p>
+                <p style="margin-top:8px"><a id="site-open-link" href="#" target="_blank" rel="noopener" style="font-size:13px;color:var(--text);text-decoration:underline">新しいタブで開く →</a></p>
+            </div>
+        </div>
     </div>
 
     <section id="contact">
@@ -640,54 +678,279 @@
     </footer>
 
     <script>
-        // ── data/designers.jsonからデザイナー一覧を取得（CMS不要・GitHubにpushするだけで反映）
-        async function fetchDesigners() {
+        function getSlug() {
+            return new URLSearchParams(window.location.search).get('slug');
+        }
+
+        // ── data/designers.jsonからスラッグ一致のデザイナーを1件取得（CMS不要）
+        async function fetchDesigner(slug) {
             const res = await fetch('data/designers.json');
             if (!res.ok) throw new Error('designers.json fetch failed: ' + res.status);
             const data = await res.json();
-            return (data || []).slice().sort((a, b) => (a.order || 0) - (b.order || 0));
+            return (data || []).find(d => d.slug === slug) || null;
         }
 
-        // ── デザイナーカードを描画
-        function renderDesigners(designers) {
-            const grid = document.getElementById('designerGrid');
-            grid.innerHTML = '';
+        // ── data/designer-works.jsonから該当デザイナーの作品一覧を取得（CMS不要）
+        async function fetchDesignerWorks(slug) {
+            const res = await fetch('data/designer-works.json');
+            if (!res.ok) throw new Error('designer-works.json fetch failed: ' + res.status);
+            const data = await res.json();
+            return (data || [])
+                .filter(w => w.designerSlug === slug)
+                .sort((a, b) => (a.order || 0) - (b.order || 0));
+        }
 
-            if (designers.length === 0) {
-                grid.innerHTML = '<p style="padding:2rem 0;color:var(--text-muted);grid-column:1/-1">まだ登録されていません。</p>';
+        // ── デザイナーのプロフィールを描画
+        function renderDesignerHeader(d) {
+            document.title = `${d.name} — 個人デザイン — GUTS × Xeno`;
+            const header = document.getElementById('designerHeader');
+            const avatarHtml = d.avatar
+                ? `<img class="designer-header-avatar" src="${d.avatar}" alt="${d.name}">`
+                : `<div class="designer-header-avatar-fallback">${(d.name || '?').charAt(0)}</div>`;
+            header.innerHTML = `
+                <div class="designer-header">
+                    ${avatarHtml}
+                    <div>
+                        <h1>${d.name}</h1>
+                        ${d.role ? `<div class="designer-header-role">${d.role}</div>` : ''}
+                        ${d.bio ? `<div class="designer-header-bio">${d.bio}</div>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // ── 作品一覧を描画
+        // ── URLからYouTubeの動画IDを抽出
+        function extractYoutubeId(url) {
+            const m = (url || '').match(/(?:v=|youtu\.be\/)([\w-]{11})/);
+            return m ? m[1] : null;
+        }
+
+        // ── 動画URLからプラットフォームを自動判定（platform未入力でも対応）
+        function detectPlatform(url) {
+            if (!url) return null;
+            if (/youtube\.com|youtu\.be/.test(url)) return 'youtube';
+            if (/tiktok\.com/.test(url)) return 'tiktok';
+            if (/instagram\.com/.test(url)) return 'instagram';
+            return null;
+        }
+
+        function renderWorks(items) {
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = '';
+
+            if (items.length === 0) {
+                gallery.innerHTML = '<p style="padding:2rem 0;color:var(--text-muted);grid-column:1/-1">まだ作品が登録されていません。</p>';
                 return;
             }
 
-            designers.forEach(d => {
-                const a = document.createElement('a');
-                a.className = 'designer-card';
-                a.href = `designer.html?slug=${encodeURIComponent(d.slug)}`;
+            items.forEach(item => {
+                // ── 入力されたフィールドから自動判定（workTypeの選択は不要）
+                let type = 'image';
+                if (item.sitePath) {
+                    type = 'lp';
+                } else if (item.siteUrl) {
+                    type = 'lp-external';
+                } else if (item.videoUrl) {
+                    type = 'video';
+                }
+                const title = item.title || (type === 'lp' || type === 'lp-external' ? 'LP・HP作品' : type === 'video' ? '動画作品' : 'デザイン作品');
 
-                const avatarHtml = d.avatar
-                    ? `<img class="designer-avatar" src="${d.avatar}" alt="${d.name}">`
-                    : `<div class="designer-avatar-fallback">${(d.name || '?').charAt(0)}</div>`;
+                // ── 動画（YouTube / TikTok / Instagram）：クリックで各プラットフォームを新しいタブで開く
+                if (type === 'video') {
+                    const el = document.createElement('a');
+                    el.className = 'gallery-item';
+                    el.target = '_blank';
+                    el.rel = 'noopener';
+                    el.href = item.videoUrl || '#';
 
-                a.innerHTML = `
-                    ${avatarHtml}
-                    <div class="designer-name">${d.name}</div>
-                    ${d.role ? `<div class="designer-role">${d.role}</div>` : ''}
+                    const platform = item.platform || detectPlatform(item.videoUrl);
+
+                    const platformIcons = {
+                        tiktok: 'ti-brand-tiktok',
+                        instagram: 'ti-brand-instagram'
+                    };
+                    const platformLabels = {
+                        tiktok: 'TikTok',
+                        instagram: 'Instagram',
+                        youtube: 'YouTube'
+                    };
+
+                    let thumbHtml;
+                    if (platform === 'youtube') {
+                        const id = extractYoutubeId(item.videoUrl);
+                        thumbHtml = id
+                            ? `<img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg" alt="${title}">`
+                            : `<div class="work-icon"><i class="ti ti-brand-youtube"></i></div>`;
+                    } else if (item.image) {
+                        thumbHtml = `<img src="${item.image}" alt="${title}">`;
+                    } else {
+                        thumbHtml = `<div class="work-icon"><i class="ti ${platformIcons[platform] || 'ti-video'}"></i></div>`;
+                    }
+
+                    el.innerHTML = `
+                        ${thumbHtml}
+                        <div class="item-body">
+                            <span class="item-tag" style="background:var(--gray-200);color:var(--gray-700)">${platformLabels[platform] || '動画'}</span>
+                            <div class="item-title">${title}</div>
+                            <div class="item-desc">${item.description || ''}</div>
+                        </div>
+                    `;
+                    gallery.appendChild(el);
+                    return;
+                }
+
+                // ── LP・HP（フォルダ内蔵）：クリックでサイトプレビューを開く
+                if (type === 'lp') {
+                    const el = document.createElement('div');
+                    el.className = 'gallery-item';
+                    el.dataset.workType = 'lp';
+                    el.dataset.title = title;
+                    el.dataset.desc = item.description || '';
+                    el.dataset.sitePath = item.sitePath || '';
+
+                    const thumbHtml = item.image
+                        ? `<img src="${item.image}" alt="${title}">`
+                        : `<div class="work-icon"><i class="ti ti-world"></i></div>`;
+
+                    el.innerHTML = `
+                        ${thumbHtml}
+                        <div class="item-body">
+                            <span class="item-tag" style="background:var(--blue-pale);color:#185FA5">LP・HP</span>
+                            <div class="item-title">${title}</div>
+                            <div class="item-desc">${item.description || ''}</div>
+                        </div>
+                    `;
+                    gallery.appendChild(el);
+                    return;
+                }
+
+                // ── LP・HP（外部URL）：他サイトのため新しいタブで直接開く
+                if (type === 'lp-external') {
+                    const el = document.createElement('a');
+                    el.className = 'gallery-item';
+                    el.target = '_blank';
+                    el.rel = 'noopener';
+                    el.href = item.siteUrl || '#';
+
+                    const thumbHtml = item.image
+                        ? `<img src="${item.image}" alt="${title}">`
+                        : `<div class="work-icon"><i class="ti ti-world"></i></div>`;
+
+                    el.innerHTML = `
+                        ${thumbHtml}
+                        <div class="item-body">
+                            <span class="item-tag" style="background:var(--blue-pale);color:#185FA5">LP・HP</span>
+                            <div class="item-title">${title}</div>
+                            <div class="item-desc">${item.description || ''}</div>
+                        </div>
+                    `;
+                    gallery.appendChild(el);
+                    return;
+                }
+
+                // ── 画像作品（デフォルト）：クリックで拡大表示
+                const imgUrl = item.image || '';
+                const el = document.createElement('div');
+                el.className = 'gallery-item';
+                el.dataset.workType = 'image';
+                el.dataset.title = title;
+                el.dataset.desc = item.description || '';
+
+                el.innerHTML = `
+                    <img src="${imgUrl}" alt="${title}">
+                    <div class="item-body">
+                        <div class="item-title">${title}</div>
+                        <div class="item-desc">${item.description || ''}</div>
+                    </div>
                 `;
-                grid.appendChild(a);
+                gallery.appendChild(el);
             });
         }
 
-        // ── 初期化：data/designers.jsonから取得して描画
-        async function initDesigners() {
-            const grid = document.getElementById('designerGrid');
+        // ── 初期化：スラッグからデザイナーと作品を取得して描画
+        async function initDesignerPage() {
+            const slug = getSlug();
+            const header = document.getElementById('designerHeader');
+            const gallery = document.getElementById('gallery');
+
+            if (!slug) {
+                header.innerHTML = '<p style="color:var(--text-muted)">デザイナーが指定されていません。<a href="png.html" style="color:var(--text);text-decoration:underline">一覧に戻る</a></p>';
+                return;
+            }
+
             try {
-                const designers = await fetchDesigners();
-                renderDesigners(designers);
+                const designer = await fetchDesigner(slug);
+                if (!designer) {
+                    header.innerHTML = '<p style="color:var(--text-muted)">デザイナーが見つかりませんでした。<a href="png.html" style="color:var(--text);text-decoration:underline">一覧に戻る</a></p>';
+                    return;
+                }
+                renderDesignerHeader(designer);
+                const works = await fetchDesignerWorks(designer.slug);
+                renderWorks(works);
             } catch (e) {
                 console.error(e);
-                grid.innerHTML = '<p style="padding:2rem 0;color:var(--text-muted);grid-column:1/-1">読み込みに失敗しました。時間を置いて再読み込みしてください。</p>';
+                header.innerHTML = '<p style="color:var(--text-muted)">読み込みに失敗しました。時間を置いて再読み込みしてください。</p>';
             }
         }
-        initDesigners();
+        initDesignerPage();
+
+        // Lightbox（動的に追加される要素にも対応するイベント委譲）
+        document.getElementById('gallery').addEventListener('click', (e) => {
+            const el = e.target.closest('.gallery-item');
+            if (!el || el.tagName === 'A') return; // video型は通常のリンク遷移に任せる
+            if (el.dataset.workType === 'lp') {
+                openSiteLightbox(el);
+            } else {
+                openLightbox(el);
+            }
+        });
+
+        function openLightbox(el) {
+            const lb = document.getElementById('lightbox');
+            document.getElementById('lb-title').textContent = el.dataset.title;
+            document.getElementById('lb-desc').textContent = el.dataset.desc;
+            const img = el.querySelector('img');
+            const lbImg = document.getElementById('lb-img');
+            lbImg.innerHTML = '';
+            if (img) {
+                const clone = document.createElement('img');
+                clone.src = img.src;
+                clone.alt = img.alt;
+                lbImg.appendChild(clone);
+            }
+            lb.classList.add('open');
+        }
+
+        function closeLightbox(e) {
+            if (!e || e.target === document.getElementById('lightbox') || e.currentTarget.tagName === 'BUTTON') {
+                document.getElementById('lightbox').classList.remove('open');
+            }
+        }
+
+        // ── LP・HPプレビュー用ライトボックス
+        function openSiteLightbox(el) {
+            const lb = document.getElementById('siteLightbox');
+            document.getElementById('site-title').textContent = el.dataset.title;
+            document.getElementById('site-desc').textContent = el.dataset.desc;
+            document.getElementById('site-iframe').src = el.dataset.sitePath;
+            document.getElementById('site-open-link').href = el.dataset.sitePath;
+            lb.classList.add('open');
+        }
+
+        function closeSiteLightbox(e) {
+            if (!e || e.target === document.getElementById('siteLightbox') || e.currentTarget.tagName === 'BUTTON') {
+                document.getElementById('siteLightbox').classList.remove('open');
+                document.getElementById('site-iframe').src = ''; // 裏で動き続けないように停止
+            }
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                document.getElementById('lightbox').classList.remove('open');
+                closeSiteLightbox();
+            }
+        });
     </script>
 </body>
 
