@@ -18,5 +18,35 @@
     "videoUrl": "",
     "order": 1,
     "auto": true
+  },
+  {
+    "designerSlug": "asao",
+    "title": "中部脊髄損傷者協会HP",
+    "siteUrl": "https://chubusekison.com",
+    "order": 3
+  },
+  {
+    "designerSlug": "yamamoto",
+    "title": "GUTSゲームHP",
+    "siteUrl": "https://chubusekison.com",
+    "order": 3
+  },
+  {
+    "designerSlug": "higashimura",
+    "title": "中村鍼灸HP",
+    "siteUrl": "https://gutskasugaiab.wixsite.com/nakamura8911harikyu",
+    "order": 3
+  },
+  {
+    "designerSlug": "katouyosikazu",
+    "title": "tiktok",
+    "videoUrl": "https://www.tiktok.com/@xeno_ai.music",
+    "order": 1
+  },
+  {
+    "designerSlug": "katouyosikazu",
+    "title": "tiktok",
+    "videoUrl": "https://www.tiktok.com/@xeno_ryo_ai",
+    "order": 2
   }
 ]

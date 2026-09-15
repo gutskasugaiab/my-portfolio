@@ -7,5 +7,6 @@
   { "name": "可児", "slug": "kani", "role": "デザイナー", "avatar": "", "bio": "", "order": 6 },
   { "name": "石黒", "slug": "isiguro", "role": "デザイナー", "avatar": "", "bio": "", "order": 7 },
   { "name": "河村", "slug": "kawamura", "role": "デザイナー", "avatar": "", "bio": "", "order": 8 },
-  { "name": "加藤良和", "slug": "katouyosikazu", "role": "社長", "avatar": "", "bio": "", "order": 10 }
+  { "name": "山元", "slug": "yamamoto", "role": "デザイナー", "avatar": "", "bio": "", "order": 9 },
+  { "name": "加藤良和", "slug": "katouyosikazu", "role": "社長", "avatar": "", "bio": "", "order": 15 }
 ]
