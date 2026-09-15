@@ -5,7 +5,7 @@
   { "name": "YS", "slug": "shimanouchi", "role": "デザイナー、オフィスワーカー", "avatar": "", "bio": "", "order": 4 },
   { "name": "MI", "slug": "ishikawam", "role": "デザイナー", "avatar": "", "bio": "", "order": 5 },
   { "name": "KK", "slug": "kani", "role": "デザイナー", "avatar": "", "bio": "", "order": 6 },
-  { "name": "AI", "slug": "isiguro", "role": "ビデオクリエイター", "avatar": "", "bio": "", "order": 7 },
+  { "name": "AI", "slug": "ishiguro", "role": "ビデオクリエイター", "avatar": "", "bio": "", "order": 7 },
   { "name": "KK", "slug": "kawamura", "role": "ライター", "avatar": "", "bio": "", "order": 8 },
   { "name": "MY", "slug": "yamamoto", "role": "コーダー", "avatar": "", "bio": "", "order": 9 },
   { "name": "IS", "slug": "suganuma", "role": "ビデオクリエイター", "avatar": "", "bio": "", "order": 10 },
