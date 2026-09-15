@@ -1,5 +1,35 @@
 [
   {
+    "designerSlug": "asao",
+    "title": "中部脊髄損傷者協会HP",
+    "siteUrl": "https://chubusekison.com/",
+     "order": 1
+  },
+  {
+    "designerSlug": "yamamoto",
+    "title": "GUTSゲームHP",
+    "siteUrl": "https://gutskasugaiab.github.io/GUTStrainingGames/",
+     "order": 1
+  },
+  {
+    "designerSlug": "higashimura",
+    "title": "中村鍼灸HP",
+    "siteUrl": "https://gutskasugaiab.wixsite.com/nakamura8911harikyu/",
+     "order": 1
+  },
+  {
+    "designerSlug": "katouy",
+    "title": "tiktok",
+    "videoUrl": "https://www.tiktok.com/@xeno_ai.music",
+     "order": 1
+  },
+  {
+    "designerSlug": "katouy",
+    "title": "tiktok",
+    "videoUrl": "https://www.tiktok.com/@xeno_ryo_ai",
+    "order": 2
+  },
+  {
     "designerSlug": "kawamura",
     "title": "バナー1",
     "description": "",
@@ -20,28 +50,14 @@
     "auto": true
   },
   {
-    "designerSlug": "asao",
-    "title": "中部脊髄損傷者協会HP",
-    "siteUrl": "https://chubusekison.com/"
-  },
-  {
-    "designerSlug": "yamamoto",
-    "title": "GUTSゲームHP",
-    "siteUrl": "https://gutskasugaiab.github.io/GUTStrainingGames/"
-  },
-  {
-    "designerSlug": "higashimura",
-    "title": "中村鍼灸HP",
-    "siteUrl": "https://gutskasugaiab.wixsite.com/nakamura8911harikyu/"
-  },
-  {
-    "designerSlug": "katouy",
-    "title": "tiktok",
-    "videoUrl": "https://www.tiktok.com/@xeno_ai.music"
-  },
-  {
-    "designerSlug": "katouy",
-    "title": "tiktok",
-    "videoUrl": "https://www.tiktok.com/@xeno_ryo_ai"
+    "designerSlug": "ogata",
+    "title": "guts LP LP",
+    "description": "",
+    "image": "",
+    "sitePath": "works/ogata/guts_LP_LP/index.html",
+    "videoUrl": "",
+    "order": 1,
+    "auto": true
+
   }
 ]
