@@ -1,7 +1,7 @@
-// portfolio/img/designers/<slug>/ 以下の画像と、
+// portfolio/img/designers/<slug>/ 以下の画像（直下のファイル、またはプロジェクトごとのサブフォルダ）と、
 // portfolio/works/<slug>/<work-slug>/index.html のLP・HPフォルダを、
 // 自動でdesigner-works.jsonに反映するスクリプト。
-// GitHub Actions（.github/workflows/sync-designer-works.yml）がpush時に実行する。
+// GitHub Actions（.github/workflows/sync-works.yml）がpush時に実行する。
 // 手動で追加した動画などの項目（auto: true が付いていないもの）はそのまま残す。
 
 const fs = require('fs');
@@ -38,23 +38,50 @@ function collectImageWorks() {
 
     slugs.forEach(slug => {
         const dir = path.join(IMG_DESIGNERS_DIR, slug);
-        const files = fs.readdirSync(dir)
-            .filter(f => IMAGE_EXTS.includes(path.extname(f).toLowerCase()))
-            .sort((a, b) => a.localeCompare(b, 'ja'));
+        const entries = fs.readdirSync(dir).sort((a, b) => a.localeCompare(b, 'ja'));
+        let order = 0;
 
-        files.forEach((file, index) => {
-            const metaFile = path.join(dir, file.replace(/\.[^.]+$/, '') + '.meta.json');
-            const meta = loadJson(metaFile, {});
-            items.push({
-                designerSlug: slug,
-                title: meta.title || titleFromFilename(file),
-                description: meta.description || '',
-                image: `img/designers/${slug}/${file}`,
-                sitePath: '',
-                videoUrl: '',
-                order: meta.order || (index + 1),
-                auto: true
-            });
+        entries.forEach(entry => {
+            const entryPath = path.join(dir, entry);
+
+            if (isDir(entryPath)) {
+                // ── サブフォルダ＝1つの作品として扱う（中の最初の画像を代表画像にする）
+                const innerFiles = fs.readdirSync(entryPath)
+                    .filter(f => IMAGE_EXTS.includes(path.extname(f).toLowerCase()))
+                    .sort((a, b) => a.localeCompare(b, 'ja'));
+                if (innerFiles.length === 0) return; // 画像が1枚も無いフォルダは無視
+
+                order += 1;
+                const meta = loadJson(path.join(entryPath, 'meta.json'), {});
+                items.push({
+                    designerSlug: slug,
+                    title: meta.title || titleFromFilename(entry),
+                    description: meta.description || '',
+                    image: `img/designers/${slug}/${entry}/${innerFiles[0]}`,
+                    sitePath: '',
+                    videoUrl: '',
+                    order: meta.order || order,
+                    auto: true
+                });
+                return;
+            }
+
+            if (IMAGE_EXTS.includes(path.extname(entry).toLowerCase())) {
+                // ── フラットな画像ファイル＝1つの作品として扱う
+                order += 1;
+                const metaFile = path.join(dir, entry.replace(/\.[^.]+$/, '') + '.meta.json');
+                const meta = loadJson(metaFile, {});
+                items.push({
+                    designerSlug: slug,
+                    title: meta.title || titleFromFilename(entry),
+                    description: meta.description || '',
+                    image: `img/designers/${slug}/${entry}`,
+                    sitePath: '',
+                    videoUrl: '',
+                    order: meta.order || order,
+                    auto: true
+                });
+            }
         });
     });
 
