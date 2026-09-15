@@ -1,14 +1,14 @@
 [
-  { "name": "MA", "slug": "asao", "role": "デザイナー、コーダー", "avatar": "img/designers/asao/無題81_20231114210955 (1).png", "bio": "", "order": 1 },
-  { "name": "SO", "slug": "ogata", "role": "デザイナー", "avatar": "", "bio": "", "order": 2 },
-  { "name": "HH", "slug": "higashimura", "role": "オールラウンダー", "avatar": "img/スクリーンショット 2026-09-15 152709.png", "bio": "", "order": 3 },
-  { "name": "YS", "slug": "shimanouchi", "role": "デザイナー、オフィスワーカー", "avatar": "img/スクリーンショット 2026-09-15 152407.png", "bio": "", "order": 4 },
-  { "name": "MI", "slug": "ishikawam", "role": "デザイナー", "avatar": "", "bio": "", "order": 5 },
-  { "name": "KK", "slug": "kani", "role": "デザイナー", "avatar": "", "bio": "", "order": 6 },
-  { "name": "AI", "slug": "ishiguro", "role": "ビデオクリエイター", "avatar": "img/23896066-1F9A-41AC-A986-6B1D6DF59B05.png", "bio": "", "order": 7 },
-  { "name": "KK", "slug": "kawamura", "role": "ライター", "avatar": "img/スクリーンショット 2026-09-15 152905.png", "bio": "", "order": 8 },
-  { "name": "MY", "slug": "yamamoto", "role": "コーダー", "avatar": "", "bio": "", "order": 9 },
-  { "name": "IS", "slug": "suganuma", "role": "ビデオクリエイター", "avatar": "", "bio": "", "order": 10 },
-  { "name": "TY", "slug": "yamasaki", "role": "デザイナー", "avatar": "", "bio": "", "order": 11 },
-  { "name": "YK", "slug": "katouy", "role": "代表", "avatar": "", "bio": "", "order": 15 }
+  { "name": "M･A", "slug": "asao", "role": "デザイナー、コーダー", "avatar": "img/designers/asao/無題81_20231114210955 (1).png", "bio": "", "order": 1 },
+  { "name": "S･O", "slug": "ogata", "role": "デザイナー", "avatar": "", "bio": "", "order": 2 },
+  { "name": "H･H", "slug": "higashimura", "role": "オールラウンダー", "avatar": "img/スクリーンショット 2026-09-15 152709.png", "bio": "", "order": 3 },
+  { "name": "Y･S", "slug": "shimanouchi", "role": "デザイナー、オフィスワーカー", "avatar": "img/スクリーンショット 2026-09-15 152407.png", "bio": "", "order": 4 },
+  { "name": "M･I", "slug": "ishikawam", "role": "デザイナー", "avatar": "", "bio": "", "order": 5 },
+  { "name": "K･K", "slug": "kani", "role": "デザイナー", "avatar": "", "bio": "", "order": 6 },
+  { "name": "A･I", "slug": "ishiguro", "role": "ビデオクリエイター", "avatar": "img/23896066-1F9A-41AC-A986-6B1D6DF59B05.png", "bio": "", "order": 7 },
+  { "name": "K･K", "slug": "kawamura", "role": "ライター", "avatar": "img/スクリーンショット 2026-09-15 152905.png", "bio": "", "order": 8 },
+  { "name": "M･Y", "slug": "yamamoto", "role": "コーダー", "avatar": "", "bio": "", "order": 9 },
+  { "name": "I･S", "slug": "suganuma", "role": "ビデオクリエイター", "avatar": "", "bio": "", "order": 10 },
+  { "name": "T･Y", "slug": "yamasaki", "role": "デザイナー", "avatar": "", "bio": "", "order": 11 },
+  { "name": "Y･K", "slug": "katouy", "role": "代表", "avatar": "", "bio": "", "order": 15 }
 ]
