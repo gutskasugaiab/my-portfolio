@@ -3,25 +3,25 @@
     "designerSlug": "asao",
     "title": "中部脊髄損傷者協会HP",
     "siteUrl": "https://chubusekison.com/",
-     "order": 1
+    "order": 1
   },
   {
     "designerSlug": "yamamoto",
     "title": "GUTSゲームHP",
     "siteUrl": "https://gutskasugaiab.github.io/GUTStrainingGames/",
-     "order": 1
+    "order": 1
   },
   {
     "designerSlug": "higashimura",
     "title": "中村鍼灸HP",
     "siteUrl": "https://gutskasugaiab.wixsite.com/nakamura8911harikyu/",
-     "order": 1
+    "order": 1
   },
   {
     "designerSlug": "katouy",
     "title": "tiktok",
     "videoUrl": "https://www.tiktok.com/@xeno_ai.music",
-     "order": 1
+    "order": 1
   },
   {
     "designerSlug": "katouy",
@@ -41,12 +41,342 @@
   },
   {
     "designerSlug": "ogata",
+    "title": "Gemini Generated Image 435nnb435nnb435n",
+    "description": "",
+    "image": "img/designers/ogata/Gemini_Generated_Image_435nnb435nnb435n.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 1,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "Gemini Generated Image 6c7f3n6c7f3n6c7f",
+    "description": "",
+    "image": "img/designers/ogata/Gemini_Generated_Image_6c7f3n6c7f3n6c7f.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 2,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "Gemini Generated Image hci144hci144hci1",
+    "description": "",
+    "image": "img/designers/ogata/Gemini_Generated_Image_hci144hci144hci1.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 3,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "Gemini Generated Image rlloj5rlloj5rllo",
+    "description": "",
+    "image": "img/designers/ogata/Gemini_Generated_Image_rlloj5rlloj5rllo.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 4,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "Gemini Generated Image rxoju4rxoju4rxoj",
+    "description": "",
+    "image": "img/designers/ogata/Gemini_Generated_Image_rxoju4rxoju4rxoj.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 5,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "Gemini Generated Image tukes9tukes9tuke",
+    "description": "",
+    "image": "img/designers/ogata/Gemini_Generated_Image_tukes9tukes9tuke.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 6,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "Gemini Generated Image y4fqiiy4fqiiy4fq",
+    "description": "",
+    "image": "img/designers/ogata/Gemini_Generated_Image_y4fqiiy4fqiiy4fq.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 7,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
     "title": "ゲームHPアイコン",
     "description": "",
     "image": "img/designers/ogata/ゲームHPアイコン.png",
     "sitePath": "",
     "videoUrl": "",
+    "order": 8,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "00AF36F8 9007 40C5 B6EC 335847DF71B4",
+    "description": "",
+    "image": "img/designers/shimanouchi/00AF36F8-9007-40C5-B6EC-335847DF71B4.png",
+    "sitePath": "",
+    "videoUrl": "",
     "order": 1,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "0249E4D0 8FDD 445A B13D 2BB9A1D7B5F4",
+    "description": "",
+    "image": "img/designers/shimanouchi/0249E4D0-8FDD-445A-B13D-2BB9A1D7B5F4.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 2,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "1B9D249D EAF4 4242 8188 D99615496607",
+    "description": "",
+    "image": "img/designers/shimanouchi/1B9D249D-EAF4-4242-8188-D99615496607.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 3,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "1CB83B5D 26E5 429C 8C8F 060D316D9850",
+    "description": "",
+    "image": "img/designers/shimanouchi/1CB83B5D-26E5-429C-8C8F-060D316D9850.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 4,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "47CCB998 7D8E 4CE0 945A D5E5810DA03F",
+    "description": "",
+    "image": "img/designers/shimanouchi/47CCB998-7D8E-4CE0-945A-D5E5810DA03F.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 5,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "4E0ECAAD 57B5 4766 9950 64EF381F1DC3",
+    "description": "",
+    "image": "img/designers/shimanouchi/4E0ECAAD-57B5-4766-9950-64EF381F1DC3.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 6,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "53F01FEC 870A 4D90 AF75 26F5B368261E",
+    "description": "",
+    "image": "img/designers/shimanouchi/53F01FEC-870A-4D90-AF75-26F5B368261E.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 7,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "6188E7ED 30BC 4158 9C74 E0FC63B9AFE9",
+    "description": "",
+    "image": "img/designers/shimanouchi/6188E7ED-30BC-4158-9C74-E0FC63B9AFE9.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 8,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "6ED0D3FA FF5F 493A AA42 702E6EDF4D9E",
+    "description": "",
+    "image": "img/designers/shimanouchi/6ED0D3FA-FF5F-493A-AA42-702E6EDF4D9E.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 9,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "86D41BBF 5F2B 4052 97E6 0F032BBD2D15",
+    "description": "",
+    "image": "img/designers/shimanouchi/86D41BBF-5F2B-4052-97E6-0F032BBD2D15.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 10,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "B9C7031E 30BF 49CE 8F05 3761A1C92514",
+    "description": "",
+    "image": "img/designers/shimanouchi/B9C7031E-30BF-49CE-8F05-3761A1C92514.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 11,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "BCO.b1aedde3 e5e4 4f20 b868 bd2655d73c00",
+    "description": "",
+    "image": "img/designers/shimanouchi/BCO.b1aedde3-e5e4-4f20-b868-bd2655d73c00.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 12,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "Copilot 20260630 141333",
+    "description": "",
+    "image": "img/designers/shimanouchi/Copilot_20260630_141333.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 13,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "Copilot 20260701 113152",
+    "description": "",
+    "image": "img/designers/shimanouchi/Copilot_20260701_113152.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 14,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "Copilot 20260701 114750",
+    "description": "",
+    "image": "img/designers/shimanouchi/Copilot_20260701_114750.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 15,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "Copilot 20260701 114900",
+    "description": "",
+    "image": "img/designers/shimanouchi/Copilot_20260701_114900.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 16,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "Copilot 20260701 115101",
+    "description": "",
+    "image": "img/designers/shimanouchi/Copilot_20260701_115101.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 17,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "Copilot 20260701 133625",
+    "description": "",
+    "image": "img/designers/shimanouchi/Copilot_20260701_133625.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 18,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "Copilot 20260701 133754",
+    "description": "",
+    "image": "img/designers/shimanouchi/Copilot_20260701_133754.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 19,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "Copilot 20260701 133955",
+    "description": "",
+    "image": "img/designers/shimanouchi/Copilot_20260701_133955.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 20,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "Copilot 20260701 135207",
+    "description": "",
+    "image": "img/designers/shimanouchi/Copilot_20260701_135207.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 21,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "Copilot 20260701 135357",
+    "description": "",
+    "image": "img/designers/shimanouchi/Copilot_20260701_135357.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 22,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "Copilot 20260701 135702",
+    "description": "",
+    "image": "img/designers/shimanouchi/Copilot_20260701_135702.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 23,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "Copilot 20260701 145847",
+    "description": "",
+    "image": "img/designers/shimanouchi/Copilot_20260701_145847.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 24,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "Gemini Generated Image 6v9ujy6v9ujy6v9u (1)",
+    "description": "",
+    "image": "img/designers/shimanouchi/Gemini_Generated_Image_6v9ujy6v9ujy6v9u (1).png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 25,
+    "auto": true
+  },
+  {
+    "designerSlug": "shimanouchi",
+    "title": "Gemini Generated Image 6v9ujy6v9ujy6v9u (2)",
+    "description": "",
+    "image": "img/designers/shimanouchi/Gemini_Generated_Image_6v9ujy6v9ujy6v9u (2).png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 26,
     "auto": true
   },
   {
@@ -58,6 +388,5 @@
     "videoUrl": "",
     "order": 1,
     "auto": true
-
   }
 ]
