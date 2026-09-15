@@ -36,6 +36,60 @@
     "order": 1
   },
   {
+    "designerSlug": "isiguro",
+    "title": "実績動画2",
+    "videoUrl": "https://www.youtube.com/watch?v=a5dixJpWqmo",
+    "order": 2
+  },
+  {
+    "designerSlug": "isiguro",
+    "title": "実績動画1",
+    "videoUrl": "https://www.youtube.com/watch?v=FSPS6TGpgxw",
+    "order": 1
+  },
+  {
+    "designerSlug": "isiguro",
+    "title": "portfolio動画1",
+    "videoUrl": "https://www.youtube.com/watch?v=kn3GqyoQTDg",
+    "order": 3
+  },
+  {
+    "designerSlug": "higashimura",
+    "title": "portfolio動画1",
+    "videoUrl": "https://www.youtube.com/watch?v=Z4SDpUh1mK0",
+    "order": 4
+  },
+  {
+    "designerSlug": "higashimura",
+    "title": "portfolio動画2",
+    "videoUrl": "https://www.youtube.com/watch?v=zviIxdElf1M",
+    "order": 5
+  },
+  {
+    "designerSlug": "isiguro",
+    "title": "portfolioショート1",
+    "videoUrl": "https://www.youtube.com/shorts/kKLR421F2X0",
+    "order": 4
+  },
+  {
+    "designerSlug": "isiguro",
+    "title": "portfolioショート2",
+    "videoUrl": "https://www.youtube.com/shorts/jXylkMJZioQ",
+    "order": 4
+  },
+   {
+    "designerSlug": "higashimura",
+    "title": "portfolioショート1",
+    "videoUrl": "https://www.youtube.com/shorts/ZJRXE78ipXU",
+    "order": 6
+  },
+   {
+    "designerSlug": "higashimura",
+    "title": "portfolioショート2",
+    "videoUrl": "https://www.youtube.com/shorts/MGHPqIliQ0E",
+    "order": 7
+  },
+  {
     "designerSlug": "asao",
     "title": "0B442FBC ED0D 4DDF A0F0 7196FE1C8333 L0 001 2025 11 17 16 29 07",
     "description": "",
