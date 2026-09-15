@@ -41,12 +41,92 @@
   },
   {
     "designerSlug": "ogata",
+    "title": "【自分軸を育てる朝】書籍表紙",
+    "description": "",
+    "image": "img/designers/ogata/【自分軸を育てる朝】書籍表紙/【自分軸を育てる朝・小さな習慣の魔法】_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 1,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "AIMERA",
+    "description": "",
+    "image": "img/designers/ogata/AIMERA/AIMERA_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 2,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "bunj",
+    "description": "",
+    "image": "img/designers/ogata/bunj/bunj_02.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 3,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "coreform",
+    "description": "",
+    "image": "img/designers/ogata/coreform/coreform_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 4,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "court heart",
+    "description": "",
+    "image": "img/designers/ogata/court heart/court heart_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 5,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "E Upstage",
+    "description": "",
+    "image": "img/designers/ogata/E-Upstage/E-Upstage_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 6,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "FIRST BREAK",
+    "description": "",
+    "image": "img/designers/ogata/FIRST BREAK/FIRST BREAK_01.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 7,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "FRIENDLY BONUS",
+    "description": "",
+    "image": "img/designers/ogata/FRIENDLY BONUS/01_FRIENDLY BOUNCE.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 8,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
     "title": "Gemini Generated Image 435nnb435nnb435n",
     "description": "",
     "image": "img/designers/ogata/Gemini_Generated_Image_435nnb435nnb435n.png",
     "sitePath": "",
     "videoUrl": "",
-    "order": 1,
+    "order": 9,
     "auto": true
   },
   {
@@ -56,7 +136,7 @@
     "image": "img/designers/ogata/Gemini_Generated_Image_6c7f3n6c7f3n6c7f.png",
     "sitePath": "",
     "videoUrl": "",
-    "order": 2,
+    "order": 10,
     "auto": true
   },
   {
@@ -66,7 +146,7 @@
     "image": "img/designers/ogata/Gemini_Generated_Image_hci144hci144hci1.png",
     "sitePath": "",
     "videoUrl": "",
-    "order": 3,
+    "order": 11,
     "auto": true
   },
   {
@@ -76,7 +156,7 @@
     "image": "img/designers/ogata/Gemini_Generated_Image_rlloj5rlloj5rllo.png",
     "sitePath": "",
     "videoUrl": "",
-    "order": 4,
+    "order": 12,
     "auto": true
   },
   {
@@ -86,7 +166,7 @@
     "image": "img/designers/ogata/Gemini_Generated_Image_rxoju4rxoju4rxoj.png",
     "sitePath": "",
     "videoUrl": "",
-    "order": 5,
+    "order": 13,
     "auto": true
   },
   {
@@ -96,7 +176,7 @@
     "image": "img/designers/ogata/Gemini_Generated_Image_tukes9tukes9tuke.png",
     "sitePath": "",
     "videoUrl": "",
-    "order": 6,
+    "order": 14,
     "auto": true
   },
   {
@@ -106,7 +186,147 @@
     "image": "img/designers/ogata/Gemini_Generated_Image_y4fqiiy4fqiiy4fq.png",
     "sitePath": "",
     "videoUrl": "",
-    "order": 7,
+    "order": 15,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "kasumisou",
+    "description": "",
+    "image": "img/designers/ogata/kasumisou/kasumisou_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 16,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "Kurasi + DRIVE",
+    "description": "",
+    "image": "img/designers/ogata/Kurasi + DRIVE/Kurasi + DRIVE_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 17,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "manaHome",
+    "description": "",
+    "image": "img/designers/ogata/manaHome/manahome_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 18,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "mien",
+    "description": "",
+    "image": "img/designers/ogata/mien/mien_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 19,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "NOWS",
+    "description": "",
+    "image": "img/designers/ogata/NOWS/NOWS_01.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 20,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "O W",
+    "description": "",
+    "image": "img/designers/ogata/O_W/O_W_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 21,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "ows",
+    "description": "",
+    "image": "img/designers/ogata/ows/NOWS_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 22,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "popcorn",
+    "description": "",
+    "image": "img/designers/ogata/popcorn/popcorn_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 23,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "popcorn Tシャツ",
+    "description": "",
+    "image": "img/designers/ogata/popcorn_Tシャツ/popcorn_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 24,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "yonesasa",
+    "description": "",
+    "image": "img/designers/ogata/yonesasa/yonesasa_blue.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 25,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "アルプスまつもと",
+    "description": "",
+    "image": "img/designers/ogata/アルプスまつもと/アルプスまつもと_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 26,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "うえの歯科医院",
+    "description": "",
+    "image": "img/designers/ogata/うえの歯科医院/うえの歯科医院_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 27,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "うみの蔵",
+    "description": "",
+    "image": "img/designers/ogata/うみの蔵/うみの蔵_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 28,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "お結び",
+    "description": "",
+    "image": "img/designers/ogata/お結び/お結び_02.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 29,
     "auto": true
   },
   {
@@ -116,7 +336,117 @@
     "image": "img/designers/ogata/ゲームHPアイコン.png",
     "sitePath": "",
     "videoUrl": "",
-    "order": 8,
+    "order": 30,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "つながる縁日",
+    "description": "",
+    "image": "img/designers/ogata/つながる縁日/つながる縁日_01.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 31,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "温泉施設",
+    "description": "",
+    "image": "img/designers/ogata/温泉施設/Gemini_Generated_Image_biw7ajbiw7ajbiw7.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 32,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "株式会社GOEN",
+    "description": "",
+    "image": "img/designers/ogata/株式会社GOEN/株式会社GOEN_01.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 33,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "空調アイコン",
+    "description": "",
+    "image": "img/designers/ogata/空調アイコン/icon_01.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 34,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "常盤こおろぎ",
+    "description": "",
+    "image": "img/designers/ogata/常盤こおろぎ/常盤こおろぎ_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 35,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "生成AIなんでも展示会",
+    "description": "",
+    "image": "img/designers/ogata/生成AIなんでも展示会/生成AIなんでも展示会_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 36,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "電気つけたり消したり",
+    "description": "",
+    "image": "img/designers/ogata/電気つけたり消したり/電気つけたり消したり_01.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 37,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "湯",
+    "description": "",
+    "image": "img/designers/ogata/湯/湯_01.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 38,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "葡萄KURANSA",
+    "description": "",
+    "image": "img/designers/ogata/葡萄KURANSA/葡萄KURANSA_01.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 39,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "迷惑チラシお断りシール",
+    "description": "",
+    "image": "img/designers/ogata/迷惑チラシお断りシール/迷惑チラシお断りシール_01.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 40,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "鮨処　六花",
+    "description": "",
+    "image": "img/designers/ogata/鮨処　六花/鮨処　六花_01.jpg",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 41,
     "auto": true
   },
   {
