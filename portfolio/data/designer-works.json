@@ -1,25 +1,5 @@
 [
   {
-    "designerSlug": "kawamura",
-    "title": "バナー1",
-    "description": "",
-    "image": "img/designers/kawamura/バナー1.png",
-    "sitePath": "",
-    "videoUrl": "",
-    "order": 1,
-    "auto": true
-  },
-  {
-    "designerSlug": "ogata",
-    "title": "ゲームHPアイコン",
-    "description": "",
-    "image": "img/designers/ogata/ゲームHPアイコン.png",
-    "sitePath": "",
-    "videoUrl": "",
-    "order": 1,
-    "auto": true
-  },
-  {
     "designerSlug": "asao",
     "title": "中部脊髄損傷者協会HP",
     "siteUrl": "https://chubusekison.com",
@@ -48,5 +28,35 @@
     "title": "tiktok",
     "videoUrl": "https://www.tiktok.com/@xeno_ryo_ai",
     "order": 2
+  },
+  {
+    "designerSlug": "kawamura",
+    "title": "バナー1",
+    "description": "",
+    "image": "img/designers/kawamura/バナー1.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 1,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "ゲームHPアイコン",
+    "description": "",
+    "image": "img/designers/ogata/ゲームHPアイコン.png",
+    "sitePath": "",
+    "videoUrl": "",
+    "order": 1,
+    "auto": true
+  },
+  {
+    "designerSlug": "ogata",
+    "title": "guts LP LP",
+    "description": "",
+    "image": "",
+    "sitePath": "works/ogata/guts_LP_LP/index.html",
+    "videoUrl": "",
+    "order": 1,
+    "auto": true
   }
 ]
