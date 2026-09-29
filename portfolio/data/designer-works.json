@@ -19,6 +19,18 @@
   },
   {
     "designerSlug": "katouy",
+    "title": "春日井つながり祭り出店者用",
+    "siteUrl": "https://guts-web.github.io/kasugai-tsunagari-halloween/exhibitor/",
+    "order": 1
+  },
+  {
+    "designerSlug": "katouy",
+    "title": "春日井つながり祭り来場者用",
+    "siteUrl": "https://guts-web.github.io/kasugai-tsunagari-halloween/",
+    "order": 1
+  },
+  {
+    "designerSlug": "katouy",
     "title": "tiktok AImusic",
     "videoUrl": "https://www.tiktok.com/@xeno_ai.music",
     "order": 1

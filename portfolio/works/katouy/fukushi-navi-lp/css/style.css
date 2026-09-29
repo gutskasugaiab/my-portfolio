@@ -1,0 +1,1066 @@
+/* ==========================================================
+   福祉のお仕事ナビゲーター LP - style.css
+
+   ■ このファイルの読み方(目次)
+   1. デザイントークン(:root)… 色・文字サイズ・余白の定義
+   2. vwスケーリング          … 画面幅に合わせた全体の拡縮
+   3. ベース・共通            … body / .inner / .sec / ボタン
+   4. ヘッダー
+   5. FV(ファーストビュー)
+   6. 選択肢ボタン(.opt)     … 診断フォームと共通部品
+   7. 悩み訴求(.worry_*)
+   8. 選ばれる理由(.reason_*)
+   9. 紹介施設・求人(.job_*)
+   10. 利用者の声(.voice_*)
+   11. 利用の流れ(.flow_*)
+   12. FAQ(.faq)
+   13. 応募フォーム(.entry / .form_box / .q_*)
+   14. フッター・SP固定CTA
+   15. SP対応(@media)
+
+   ■ 修正のルール
+   ・色やサイズを変えるときは、まず「1. デザイントークン」を確認。
+     定義済みの変数(var(--main) など)があれば必ずそれを使う。
+   ・新しい色・サイズが必要になったら :root に追加してから使う。
+     ※各所に直接カラーコードやpxを書かない(統一が崩れるため)
+   ・クラス名は「ブロック_要素」形式(例:voice_card, q_title)。
+   ・カラー:淡いブルー基調(求人サイト系・原色を避ける)
+========================================================== */
+:root{
+  /* ---------- カラー定義 ---------- */
+  --base:      #F2F7FA;  /* ページ背景(淡い青) */
+  --card:      #FFFFFF;  /* カード背景 */
+  --main:      #5A9BC5;  /* メインブルー(淡め) */
+  --main-deep: #35729B;  /* 濃いめブルー(リンク・強調) */
+  --navy:      #23445C;  /* 見出し・本文の濃色 */
+  --text-sub:  #3E5B70;  /* 本文サブ(カード内説明文) */
+  --text-note: #6B8296;  /* 注釈・補足 */
+  --accent:    #F0A860;  /* CTA用アクセント(あんず色) */
+  --accent-dk: #DE8F3F;  /* CTAグラデーションの下側 */
+  --line:      #D7E5EE;  /* 罫線・枠線 */
+  --mist:      #E4EFF6;  /* セクション交互背景 */
+  --ok:        #4CAF7D;  /* 成功・チェック */
+  --ng:        #D9534F;  /* エラー・必須ラベル */
+
+  /* ---------- 文字サイズ定義(rem基準)----------
+     1rem = 16px(html既定)。clamp(最小, 可変, 最大)で
+     画面幅に応じてなめらかに変わるためブレイクポイントで崩れない */
+  --fs-h1:    clamp(1.7rem, 3.6vw, 2.4rem);   /* FVの大見出し */
+  --fs-h2:    clamp(1.5rem, 3.4vw, 2.1rem);   /* セクション見出し */
+  --fs-h3:    1.15rem;                        /* カード内見出し */
+  --fs-lead:  clamp(0.95rem, 1.6vw, 1.1rem);  /* リード文 */
+  --fs-base:  1rem;                           /* 本文(=16px) */
+  --fs-s:     0.9rem;                         /* 小さめ本文 */
+  --fs-xs:    0.85rem;                        /* ラベル・バッジ */
+  --fs-note:  0.8rem;                         /* 注釈 */
+
+  /* ---------- 余白定義(remの倍数で統一)---------- */
+  --sp-1: 0.5rem;    /*  8px相当:チップ間など最小 */
+  --sp-2: 0.75rem;   /* 12px相当:カード内の小余白 */
+  --sp-3: 1rem;      /* 16px相当:標準の余白 */
+  --sp-4: 1.5rem;    /* 24px相当:要素間 */
+  --sp-5: 2.5rem;    /* 40px相当:見出し下など */
+  --sp-section: clamp(3.5rem, 8vw, 6rem);  /* セクション上下(56〜96px相当) */
+
+  /* ---------- レイアウト定義 ---------- */
+  --w-inner:  min(1080px, 92%);  /* コンテンツ最大幅(92%で左右に必ず余白) */
+  --w-form:   640px;             /* フォームの最大幅 */
+  --header-h: 4rem;              /* ヘッダー高さ(64px相当) */
+  --radius:   18px;
+  --radius-s: 14px;
+  --shadow:   0 8px 28px rgba(53,114,155,.12);
+
+  /* ---------- ブレイクポイント(メモ)----------
+     @media内ではCSS変数が使えないため、数値は直書きで統一する
+     ・タブレット/SP切替: max-width 860px
+     ・小さいSP:          max-width 480px */
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+/* ---------- vwスケーリング ----------
+   1rem の大きさ自体を画面幅(vw)に連動させる仕組み。
+   サイズはすべて rem で書いてあるので、ここを変えるだけで
+   ページ全体が画面幅に合わせてなめらかに拡大縮小する。
+   clamp(下限, vw, 上限) で「小さすぎ・大きすぎ」を防ぐのがポイント */
+html{
+  scroll-behavior:smooth;
+  /* PC:デザイン幅1080px基準 → 16 ÷ 1080 × 100 ≒ 1.48vw */
+  font-size: clamp(14px, 1.48vw, 18px);
+}
+@media (max-width: 860px){
+  html{
+    /* SP:デザイン幅390px基準 → 16 ÷ 390 × 100 ≒ 4.1vw */
+    font-size: clamp(13px, 4.1vw, 19px);
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.001s !important; transition-duration:.001s !important; }
+}
+
+body{
+  font-family:"Noto Sans JP", sans-serif;
+  font-size:var(--fs-base);
+  line-height:1.9;
+  color:var(--navy);
+  background:var(--base);
+  -webkit-font-smoothing:antialiased;
+}
+
+img{ max-width:100%; display:block; }
+a{ color:var(--main-deep); }
+
+h1,h2,h3,.disp{
+  font-family:"Zen Maru Gothic", "Noto Sans JP", sans-serif;
+  line-height:1.5;
+}
+
+.inner{
+  width:var(--w-inner);
+  margin:0 auto;
+}
+
+/* ---------- 共通:セクション見出し ---------- */
+.sec{ padding: var(--sp-section) 0; }
+.sec--mist{
+  position:relative;
+  background:var(--mist);
+}
+.sec--mist::before{
+  content:"";
+  position:absolute;
+  top:-2.4rem; left:0;
+  width:100%; height:2.5rem;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath d='M0,32 C240,62 480,2 720,32 C960,62 1200,2 1440,32 L1440,62 L0,62 Z' fill='%23E4EFF6'/%3E%3C/svg%3E") no-repeat;
+  background-size:100% 100%;
+  pointer-events:none;
+}
+
+.sec_eyebrow{
+  display:block;
+  text-align:center;
+  font-size:var(--fs-xs);
+  font-weight:700;
+  letter-spacing:.18em;
+  color:var(--main);
+  margin-bottom:var(--sp-1);
+}
+.sec_title{
+  text-align:center;
+  font-size: var(--fs-h2);
+  font-weight:900;
+  margin-bottom: clamp(1.75rem, 4vw, 3rem);
+}
+.sec_title::after{
+  content:"";
+  display:block;
+  width:3rem; height:0.3rem;
+  border-radius:999px;
+  background:linear-gradient(90deg, var(--main), var(--accent));
+  margin:0.7rem auto 0;
+}
+.sec_title .u{
+  background:linear-gradient(transparent 68%, rgba(240,168,96,.45) 68%);
+  padding:0 .1em;
+}
+
+/* ---------- ボタン ---------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5em;
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:700;
+  font-size:1.05rem;
+  padding: 1em 2.4em;
+  border:none;
+  border-radius:999px;
+  cursor:pointer;
+  text-decoration:none;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn:focus-visible{ outline:3px solid var(--main-deep); outline-offset:3px; }
+.btn--cta{
+  color:#fff;
+  background:linear-gradient(180deg, var(--accent), var(--accent-dk));
+  box-shadow:0 6px 18px rgba(222,143,63,.4);
+}
+.btn--cta:hover{ transform:translateY(-2px); box-shadow:0 10px 22px rgba(222,143,63,.5); }
+.btn--ghost{
+  color:var(--main-deep);
+  background:#fff;
+  border:2px solid var(--line);
+}
+.btn--ghost:hover{ background:var(--mist); }
+
+/* ---------- ヘッダー ---------- */
+.header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.header_inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:var(--header-h);
+}
+.logo{
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:900;
+  font-size:1.1rem;
+  color:var(--main-deep);
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:.4em;
+}
+.logo_mark{
+  width:30px; height:30px;
+  border-radius:50%;
+  background:radial-gradient(circle at 32% 30%, #8FC0E0, var(--main-deep));
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:.85rem;
+}
+.header .btn{ font-size:.9rem; padding:.6em 1.6em; }
+
+/* ---------- FV ---------- */
+.fv{
+  position:relative;
+  background:
+    radial-gradient(60% 80% at 85% 10%, rgba(143,192,224,.35), transparent 70%),
+    radial-gradient(50% 70% at 5% 90%, rgba(240,168,96,.16), transparent 70%),
+    linear-gradient(180deg, #EAF3F9, var(--base));
+  overflow:hidden;
+}
+.fv::before,
+.fv::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  border-radius:50%;
+}
+.fv::before{
+  width:18rem; height:18rem;
+  top:-5rem; right:-5rem;
+  background:rgba(90,155,197,.10);
+}
+.fv::after{
+  width:11rem; height:11rem;
+  bottom:-3.5rem; left:6%;
+  background:rgba(240,168,96,.14);
+}
+.fv_inner{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns: 1fr 1.08fr;
+  align-items:start;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items:center;
+  padding: clamp(3rem, 7vw, 5.5rem) 0;
+}
+.fv_eyebrow{
+  display:inline-block;
+  font-size:.9rem;
+  font-weight:700;
+  color:var(--main-deep);
+  background:#fff;
+  border:1.5px solid var(--line);
+  border-radius:999px;
+  padding:.3em 1.2em;
+  margin-bottom:1.125rem;
+}
+.fv_title{
+  font-size: var(--fs-h1);
+  font-weight:900;
+  letter-spacing:.02em;
+  margin-bottom:1rem;
+}
+.fv_title .u{
+  display:inline-block; /* 単語の途中で改行させない */
+  background:linear-gradient(transparent 66%, rgba(240,168,96,.5) 66%);
+}
+.fv_lead{
+  font-size: var(--fs-lead);
+  margin-bottom:1.5rem;
+}
+.fv_badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.625rem;
+  list-style:none;
+  margin-bottom:1.75rem;
+}
+.fv_badges li{
+  background:#fff;
+  border:1.5px solid var(--line);
+  border-radius:12px;
+  padding:.45em 1em;
+  font-size:.85rem;
+  font-weight:700;
+  color:var(--main-deep);
+  display:flex;
+  align-items:center;
+  gap:.4em;
+}
+.fv_badges li::before{
+  content:"✓";
+  color:var(--ok);
+  font-weight:900;
+}
+.fv_note{ font-size:.8rem; color:var(--text-note); margin-top:10px; }
+
+/* FV右:診断プレビューカード(署名的要素) */
+.fv_quiz{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:1.625rem 1.625rem 1.375rem;
+  position:relative;
+}
+.fv_quiz::before{
+  content:"かんたん30秒";
+  position:absolute;
+  top:-16px; left:22px;
+  background:var(--accent);
+  color:#fff;
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:700;
+  font-size:.85rem;
+  padding:.3em 1.1em;
+  border-radius:999px;
+  box-shadow:0 4px 10px rgba(222,143,63,.35);
+}
+.fv_quiz_q{
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:700;
+  font-size:1.05rem;
+  margin:0.5rem 0 1rem;
+}
+.fv_quiz_q em{
+  font-style:normal;
+  color:var(--main-deep);
+  margin-right:.4em;
+}
+.fv_quiz_opts{ display:grid; gap:10px; }
+
+/* ---------- 選択肢ボタン(共通) ---------- */
+.opt{
+  display:flex;
+  align-items:center;
+  gap:.7em;
+  width:100%;
+  text-align:left;
+  font-family:"Noto Sans JP", sans-serif;
+  font-size:1rem;
+  font-weight:500;
+  color:var(--navy);
+  background:#FBFDFE;
+  border:2px solid var(--line);
+  border-radius:var(--radius-s);
+  padding:.9em 1.1em;
+  cursor:pointer;
+  transition:border-color .15s ease, background .15s ease, transform .15s ease;
+}
+.opt::before{
+  content:"";
+  flex:0 0 20px;
+  width:20px; height:20px;
+  border-radius:50%;
+  border:2px solid var(--line);
+  background:#fff;
+  transition:all .15s ease;
+}
+.opt:hover{ border-color:var(--main); background:#F3F9FD; }
+.opt:focus-visible{ outline:3px solid var(--main-deep); outline-offset:2px; }
+.opt.is-selected{
+  border-color:var(--main);
+  background:#EAF4FB;
+}
+.opt.is-selected::before{
+  border-color:var(--main);
+  background:radial-gradient(circle, var(--main) 0 45%, #fff 50%);
+}
+.opt--check::before{ border-radius:6px; }
+.opt--check.is-selected::before{
+  content:"✓";
+  background:var(--main);
+  border-color:var(--main);
+  color:#fff;
+  font-size:.8rem;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ---------- 悩み訴求 ---------- */
+.worry_list{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:1rem;
+  list-style:none;
+  max-width:860px;
+  margin:0 auto 2.25rem;
+}
+.worry_list li{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:1.25rem 1.375rem;
+  display:flex;
+  gap:.7em;
+  align-items:flex-start;
+  font-weight:500;
+}
+.worry_list li::before{
+  content:"…";
+  flex:0 0 auto;
+  width:34px; height:34px;
+  border-radius:50%;
+  background:var(--mist);
+  color:var(--main-deep);
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.worry_answer{
+  text-align:center;
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-size:clamp(1.15rem, 2.4vw, 1.5rem);
+  font-weight:900;
+}
+.worry_answer strong{
+  color:var(--main-deep);
+}
+.worry_arrow{
+  width:0; height:0;
+  margin:0 auto 1.25rem;
+  border-left:26px solid transparent;
+  border-right:26px solid transparent;
+  border-top:20px solid var(--main);
+  opacity:.55;
+}
+
+/* ---------- 選ばれる理由 ---------- */
+.reason_grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:1.25rem;
+}
+.reason_card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:1.75rem 1.625rem;
+}
+.reason_num{
+  display:inline-flex;
+  align-items:center;
+  gap:.6em;
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:900;
+  color:var(--main);
+  font-size:.85rem;
+  letter-spacing:.14em;
+  margin-bottom:0.5rem;
+}
+.reason_num::before{
+  content:"";
+  width:28px; height:3px;
+  border-radius:2px;
+  background:var(--accent);
+}
+.reason_card h3{
+  font-size:var(--fs-h3);
+  font-weight:700;
+  margin-bottom:0.5rem;
+}
+.reason_card p{ font-size:.95rem; color:var(--text-sub); }
+
+/* ---------- 紹介施設・求人 ---------- */
+.facility_chips{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:0.625rem;
+  list-style:none;
+  margin-bottom:2.5rem;
+}
+.facility_chips li{
+  background:#fff;
+  border:1.5px solid var(--line);
+  color:var(--main-deep);
+  font-weight:700;
+  font-size:.9rem;
+  border-radius:999px;
+  padding:.5em 1.3em;
+}
+.job_grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:1.125rem;
+}
+.job_card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.job_head{
+  background:linear-gradient(135deg, var(--main), var(--main-deep));
+  color:#fff;
+  padding:0.875rem 1.125rem;
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:700;
+  font-size:.95rem;
+}
+.job_body{ padding:18px; flex:1; }
+.job_salary{
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:900;
+  font-size:1.3rem;
+  color:var(--accent-dk);
+  margin-bottom:0.375rem;
+}
+.job_tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.375rem;
+  list-style:none;
+}
+.job_tags li{
+  font-size:.78rem;
+  font-weight:700;
+  color:var(--main-deep);
+  background:var(--mist);
+  border-radius:6px;
+  padding:.2em .7em;
+}
+.job_note{
+  text-align:center;
+  font-size:.8rem;
+  color:var(--text-note);
+  margin-top:1.125rem;
+}
+
+/* ---------- 利用者の声 ---------- */
+.voice_grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:1.125rem;
+}
+.voice_card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:1.5rem 1.375rem;
+  position:relative;
+}
+.voice_card::before{
+  content:"“";
+  position:absolute;
+  top:4px; left:16px;
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-size:3rem;
+  color:var(--mist);
+  line-height:1;
+}
+.voice_meta{
+  display:flex;
+  align-items:center;
+  gap:0.625rem;
+  margin-bottom:0.75rem;
+}
+.voice_icon{
+  width:44px; height:44px;
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, #B9D8EC, var(--main));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:900;
+}
+.voice_meta p{ font-size:.85rem; font-weight:700; line-height:1.5; }
+.voice_meta span{ display:block; font-weight:400; color:var(--text-note); font-size:.78rem; }
+.voice_card h3{ font-size:1rem; margin-bottom:8px; color:var(--main-deep); }
+.voice_card > p{ font-size:.92rem; color:var(--text-sub); }
+
+/* ---------- 利用の流れ ---------- */
+.flow_list{
+  list-style:none;
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:1rem;
+  counter-reset:flow;
+}
+.flow_list li{
+  counter-increment:flow;
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:3.25rem 1.25rem 1.375rem;
+  position:relative;
+}
+.flow_list li::before{
+  content:"STEP " counter(flow);
+  position:absolute;
+  top:14px; left:20px;
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:900;
+  font-size:.8rem;
+  letter-spacing:.14em;
+  color:#fff;
+  background:var(--main);
+  border-radius:999px;
+  padding:.25em 1em;
+}
+.flow_list li:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  right:-14px; top:50%;
+  width:0; height:0;
+  border-top:9px solid transparent;
+  border-bottom:9px solid transparent;
+  border-left:12px solid var(--main);
+  opacity:.5;
+}
+.flow_list h3{ font-size:1.02rem; margin-bottom:6px; }
+.flow_list p{ font-size:.88rem; color:var(--text-sub); }
+
+/* ---------- FAQ ---------- */
+.faq{ max-width:820px; margin:0 auto; display:grid; gap:12px; }
+.faq details{
+  background:var(--card);
+  border-radius:var(--radius-s);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.faq summary{
+  list-style:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:.8em;
+  padding:1.125rem 1.25rem;
+  font-weight:700;
+}
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::before{
+  content:"Q";
+  flex:0 0 30px;
+  width:30px; height:30px;
+  border-radius:50%;
+  background:var(--main);
+  color:#fff;
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.9rem;
+}
+.faq summary::after{
+  content:"+";
+  margin-left:auto;
+  font-size:1.4rem;
+  color:var(--main);
+  transition:transform .2s ease;
+}
+.faq details[open] summary::after{ transform:rotate(45deg); }
+.faq_a{
+  display:flex;
+  gap:.8em;
+  padding:0 1.25rem 1.25rem;
+  font-size:.95rem;
+  color:var(--text-sub);
+}
+.faq_a::before{
+  content:"A";
+  flex:0 0 30px;
+  width:30px; height:30px;
+  border-radius:50%;
+  background:var(--accent);
+  color:#fff;
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.9rem;
+}
+
+/* ---------- 応募フォーム(診断) ---------- */
+.entry{
+  background:linear-gradient(180deg, var(--mist), var(--base));
+}
+.form_box{
+  max-width:var(--w-form);
+  margin:0 auto;
+  background:var(--card);
+  border-radius:22px;
+  box-shadow:0 14px 40px rgba(53,114,155,.18);
+  padding:clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* 進捗バー */
+.progress{ margin-bottom:26px; }
+.progress_label{
+  display:flex;
+  justify-content:space-between;
+  font-size:.82rem;
+  font-weight:700;
+  color:var(--main-deep);
+  margin-bottom:0.375rem;
+}
+.progress_bar{
+  height:10px;
+  border-radius:999px;
+  background:var(--mist);
+  overflow:hidden;
+}
+.progress_bar span{
+  display:block;
+  height:100%;
+  width:25%;
+  border-radius:999px;
+  background:linear-gradient(90deg, var(--main), var(--accent));
+  transition:width .35s ease;
+}
+
+.q_step{ display:none; }
+.q_step.is-active{ display:block; animation:fadein .3s ease; }
+@keyframes fadein{
+  from{ opacity:0; transform:translateY(8px); }
+  to{ opacity:1; transform:none; }
+}
+.q_title{
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:900;
+  font-size:1.15rem;
+  margin-bottom:0.25rem;
+}
+.q_title em{ font-style:normal; color:var(--main-deep); margin-right:.4em; }
+.q_hint{
+  font-size:.82rem;
+  color:var(--text-note);
+  margin-bottom:1rem;
+}
+.q_opts{ display:grid; gap:10px; margin-bottom:22px; }
+
+.q_nav{
+  display:flex;
+  justify-content:space-between;
+  gap:0.75rem;
+}
+.q_nav .btn{ font-size:.95rem; padding:.8em 1.8em; }
+.q_nav .btn--cta{ margin-left:auto; }
+
+.req{
+  display:inline-block;
+  font-size:.7rem;
+  font-weight:700;
+  color:#fff;
+  background:var(--ng);
+  border-radius:5px;
+  padding:.1em .6em;
+  margin-left:.6em;
+  vertical-align:middle;
+}
+
+/* 入力フォーム */
+.field{ margin-bottom:18px; }
+.field label{
+  display:block;
+  font-weight:700;
+  font-size:.92rem;
+  margin-bottom:0.375rem;
+}
+.field input,
+.field select{
+  width:100%;
+  font-family:inherit;
+  font-size:1rem;
+  color:var(--navy);
+  background:#FBFDFE;
+  border:2px solid var(--line);
+  border-radius:12px;
+  padding:.8em 1em;
+  transition:border-color .15s ease;
+}
+.field input:focus,
+.field select:focus{
+  outline:none;
+  border-color:var(--main);
+  background:#fff;
+}
+.field.is-error input,
+.field.is-error select{ border-color:var(--ng); background:#FEF6F6; }
+.field_err{
+  display:none;
+  font-size:.8rem;
+  color:var(--ng);
+  font-weight:700;
+  margin-top:0.25rem;
+}
+.field.is-error .field_err{ display:block; }
+.form_privacy{
+  font-size:.8rem;
+  color:var(--text-note);
+  background:var(--mist);
+  border-radius:10px;
+  padding:0.75rem 0.875rem;
+  margin-bottom:1.25rem;
+}
+.q_err{
+  display:none;
+  font-size:.85rem;
+  font-weight:700;
+  color:var(--ng);
+  margin:-0.625rem 0 0.875rem;
+}
+.q_err.is-show{ display:block; }
+
+/* サンクス */
+.thanks{ text-align:center; }
+.thanks_icon{
+  width:72px; height:72px;
+  margin:0 auto 1.125rem;
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, #7FD6A9, var(--ok));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:2rem;
+  font-weight:900;
+}
+.thanks h3{
+  font-size:1.3rem;
+  font-weight:900;
+  margin-bottom:0.75rem;
+}
+.thanks p{ font-size:.95rem; color:var(--text-sub); margin-bottom:8px; }
+
+/* ---------- フッター ---------- */
+.footer{
+  background:var(--navy);
+  color:#C9DAE7;
+  padding:2.5rem 0 6rem;
+  font-size:.85rem;
+}
+.footer_inner{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+.footer_links{
+  display:flex;
+  gap:1.25rem;
+  list-style:none;
+}
+.footer_links a{ color:#C9DAE7; text-decoration:none; }
+.footer_links a:hover{ text-decoration:underline; }
+.footer_copy{ font-size:.78rem; opacity:.7; }
+
+/* ---------- SP固定CTA ---------- */
+.sp_cta{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  z-index:90;
+  padding:0.625rem 0.875rem calc(0.625rem + env(safe-area-inset-bottom));
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(8px);
+  border-top:1px solid var(--line);
+  display:none;
+}
+.sp_cta .btn{ width:100%; }
+
+/* ---------- スクロール時のふわっと表示 ---------- */
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .5s ease, transform .5s ease; }
+.reveal.is-in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; }
+}
+
+/* ==========================================================
+   SP(スマホ)対応
+========================================================== */
+@media (max-width: 860px){
+  .fv_inner{ grid-template-columns:1fr; padding:40px 0 48px; }
+  .reason_grid{ grid-template-columns:1fr; }
+  .worry_list{ grid-template-columns:1fr; }
+  .job_grid{ grid-template-columns:1fr; }
+  .voice_grid{ grid-template-columns:1fr; }
+  .flow_list{ grid-template-columns:1fr; }
+  .flow_list li:not(:last-child)::after{
+    right:auto; left:50%; top:auto; bottom:-15px;
+    transform:translateX(-50%) rotate(90deg);
+  }
+  .header_inner .btn span.pc_only{ display:none; }
+  .sp_cta{ display:block; }
+  .footer{ padding-bottom:110px; }
+}
+@media (max-width: 480px){
+  .q_nav{ flex-direction:column-reverse; }
+  .q_nav .btn{ width:100%; }
+}
+
+
+/* ---------- デザイン改善:カードのホバー ---------- */
+.reason_card,
+.job_card,
+.voice_card{
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.reason_card:hover,
+.job_card:hover,
+.voice_card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 34px rgba(53,114,155,.2);
+}
+
+/* ---------- デザイン改善:CTAまわり ---------- */
+.cta_micro{
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:700;
+  font-size:var(--fs-s);
+  color:var(--accent-dk);
+  margin-bottom:0.4rem;
+}
+.cta_micro::before{ content:"\\ "; }
+.cta_micro::after{ content:" /"; }
+
+/* ---------- デザイン改善:FV診断カードの残り表示 ---------- */
+.fv_quiz_count{
+  position:absolute;
+  top:1.25rem; right:1.5rem;
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:700;
+  font-size:var(--fs-note);
+  color:var(--main);
+  background:var(--mist);
+  border-radius:999px;
+  padding:0.15rem 0.8rem;
+}
+
+
+/* ==========================================================
+   FV改善:診断フォーム統合・実績数字・装飾アニメ
+========================================================== */
+
+/* FV内の診断フォームカード */
+.fv_form{
+  position:relative;
+  background:var(--card);
+  border-radius:22px;
+  box-shadow:0 14px 40px rgba(53,114,155,.18);
+  padding:clamp(1.5rem, 3vw, 2.2rem);
+}
+.fv_form::before{
+  content:"かんたん30秒診断";
+  position:absolute;
+  top:-1rem; left:1.4rem;
+  background:var(--accent);
+  color:#fff;
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:700;
+  font-size:var(--fs-xs);
+  padding:0.3em 1.1em;
+  border-radius:999px;
+  box-shadow:0 4px 10px rgba(222,143,63,.35);
+  z-index:2;
+}
+/* 中のform_boxは二重カードにならないよう装飾を打ち消す */
+.fv_form .form_box{
+  max-width:none;
+  padding:0;
+  background:transparent;
+  box-shadow:none;
+  border-radius:0;
+}
+
+/* 実績の数字ブロック */
+.fv_stats{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:0.75rem;
+  max-width:27rem;
+  margin-bottom:1rem;
+}
+.fv_stat{
+  background:#fff;
+  border:1.5px solid var(--line);
+  border-radius:var(--radius-s);
+  padding:0.7rem 0.4rem 0.6rem;
+  text-align:center;
+  box-shadow:0 4px 14px rgba(53,114,155,.08);
+}
+.fv_stat_label{
+  display:block;
+  font-size:var(--fs-note);
+  font-weight:700;
+  color:var(--text-note);
+  line-height:1.4;
+}
+.fv_stat_num{
+  display:block;
+  font-family:"Zen Maru Gothic", sans-serif;
+  font-weight:900;
+  font-size:1.7rem;
+  line-height:1.25;
+  color:var(--main-deep);
+}
+.fv_stat_num small{
+  font-size:0.95rem;
+  color:var(--accent-dk);
+  margin-left:0.1em;
+}
+.fv_point{
+  font-size:var(--fs-note);
+  font-weight:700;
+  color:var(--main-deep);
+  margin-bottom:1.5rem;
+}
+
+/* 背景の装飾円をゆっくり浮遊させる */
+@keyframes floaty{
+  0%, 100%{ transform:translateY(0); }
+  50%     { transform:translateY(-0.8rem); }
+}
+.fv::before{ animation:floaty 7s ease-in-out infinite; }
+.fv::after { animation:floaty 9s ease-in-out infinite reverse; }
+
+/* 最終CTAバンド */
+.cta_band{
+  background:linear-gradient(135deg, var(--main), var(--main-deep));
+  text-align:center;
+}
+.cta_band_title{
+  color:#fff;
+  font-size:var(--fs-h2);
+  font-weight:900;
+  margin-bottom:0.8rem;
+}
+.cta_micro--w{ color:#FFE3C2; }
+.cta_band .btn--cta{
+  font-size:1.1rem;
+  padding:1.1em 3em;
+  box-shadow:0 8px 22px rgba(0,0,0,.25);
+}
