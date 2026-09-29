@@ -20,9 +20,7 @@
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <div class="container">
       <a href="#top" class="brand">
-        <a href="#top" class="brand">
-          <img src="img/header-banner.png" alt="GUTS LP STUDIO">
-        </a>
+        <img src="img/header-banner.png" alt="GUTS LP STUDIO">
 
         <!-- <span class="brand-mark">guts1.0</span>
         <span class="brand-sub">GUTS&nbsp;LP&nbsp;STUDIO</span>
@@ -36,12 +34,11 @@
           <li><a href="#works">Works</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#voice">Voice</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <a href="#contact" class="btn btn-outline">資料請求</a>
+        <a href="#contact" class="btn btn-outline">Contact</a>
         <!-- <a href="#contact" class="btn btn-solid">Contact</a> -->
         <label for="nav-toggle" class="nav-toggle-label" aria-label="メニューを開く"><span></span></label>
       </div>
@@ -59,7 +56,7 @@
       <div class="hero-inner">
         <div class="hero-copy">
           <h1> <span class="dot-char">伝</span><span class="dot-char">わ</span><span class="dot-char">る</span>言葉と<br>
-            &emsp;&emsp; <span class="dot-char">選</span><span class="dot-char">ば</span><span
+            <span class="indent-space">&emsp;&emsp;</span> <span class="dot-char">選</span><span class="dot-char">ば</span><span
               class="dot-char">れ</span><span class="dot-char">る</span>LPデザインを</h1>
           <p>企画・コピーライティング・デザイン・実装まで<br>
             少人数のチームが一貫して手がけるLP制作スタジオです。<br>
@@ -83,7 +80,7 @@
           </p>
           <p>大きな制作会社のような分業ではなく、企画・コピー・デザイン・コーディングを少人数のチームで担当。窓口はいつも同じ顔ぶれなので、意図がすり替わらないまま最後まで走りきれます。</p>
 
-          <div class="about-stats">
+          <!-- <div class="about-stats">
             <div>
               <div class="num">120<sup>件+</sup></div>
               <div class="lbl">制作実績</div>
@@ -96,7 +93,7 @@
               <div class="num">94<sup>%</sup></div>
               <div class="lbl">継続・紹介率</div>
             </div>
-          </div>
+          </div> -->
         </div>
 
         <div class="about-visual">
@@ -161,7 +158,7 @@
               <h3>フィットネスアプリ「Fit Connect」<br>ブランドLP</h3>
               <p>単なる機能の紹介にとどめず、スマホ1台ですぐに始められる手軽さと、本格的なパーソナライズ体験を視覚的に伝えることで、ユーザーが日常の中でトレーニングを取り入れる具体的な未来像を描ける構成に組み替えました。
               </p>
-              <div class="work-meta">
+              <!-- <div class="work-meta">
                 <div>
                   <div class="num">×2.6</div>
                   <div class="lbl">資料請求数</div>
@@ -170,7 +167,7 @@
                   <div class="num">-38%</div>
                   <div class="lbl">直帰率</div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </article>
 
@@ -182,7 +179,7 @@
               <span class="tag">SaaS・業務ツール</span>
               <h3>予約管理SaaS「よやくの葉」<br>サービス紹介LP</h3>
               <p>機能一覧の羅列をやめ、導入前後の一日の流れを比較する構成に変更。専門用語には都度、言い換えを添えました。</p>
-              <div class="work-meta">
+              <!-- <div class="work-meta">
                 <div>
                   <div class="num">×1.9</div>
                   <div class="lbl">無料トライアル申込</div>
@@ -191,7 +188,7 @@
                   <div class="num">+52%</div>
                   <div class="lbl">滞在時間</div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </article>
 
@@ -203,7 +200,7 @@
               <span class="tag">D2Cブランド</span>
               <h3>染織ブランド「四葉衣（よつばい）」<br>新商品LP</h3>
               <p>つくり手の顔と工程が伝わるよう、購入導線よりも先に「誰がどうつくったか」を配置。単価を上げても支持されるページに。</p>
-              <div class="work-meta">
+              <!-- <div class="work-meta">
                 <div>
                   <div class="num">×3.1</div>
                   <div class="lbl">初回購入率</div>
@@ -212,7 +209,7 @@
                   <div class="num">+21%</div>
                   <div class="lbl">平均単価</div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </article>
 
@@ -315,16 +312,64 @@
       </div>
     </section>
 
-    <!-- ===== CTA ===== -->
+    <!-- ===== CTA / CONTACT FORM ===== -->
     <section aria-label="お問い合わせ" id="contact">
       <div class="cta">
         <p class="eyebrow">Contact</p>
         <h2>まずは、話を聞かせてください。</h2>
         <p>お見積りだけのご相談も歓迎です。ページの目的が定まっていない段階からでも、一緒に整理させていただきます。</p>
-        <div class="cta-actions">
-          <a href="#" class="btn btn-solid btn-lg">お問い合わせフォームへ</a>
-          <a href="#" class="btn btn-outline btn-lg">資料をダウンロード</a>
-        </div>
+
+        <form class="contact-form" action="#" method="post" novalidate>
+          <div class="form-row">
+            <label for="cf-name">お名前<span class="required">必須</span></label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required placeholder="山田 太郎">
+          </div>
+
+          <div class="form-row">
+            <label for="cf-company">会社名・屋号</label>
+            <input type="text" id="cf-company" name="company" autocomplete="organization" placeholder="株式会社◯◯">
+          </div>
+
+          <div class="form-row-group">
+            <div class="form-row">
+              <label for="cf-email">メールアドレス<span class="required">必須</span></label>
+              <input type="email" id="cf-email" name="email" autocomplete="email" required
+                placeholder="you@example.com">
+            </div>
+            <div class="form-row">
+              <label for="cf-tel">電話番号</label>
+              <input type="tel" id="cf-tel" name="tel" autocomplete="tel" placeholder="090-1234-5678">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="cf-budget">ご予算感</label>
+            <select id="cf-budget" name="budget">
+              <option value="">選択してください</option>
+              <option value="under50">〜50万円</option>
+              <option value="50to100">50〜100万円</option>
+              <option value="100to300">100〜300万円</option>
+              <option value="over300">300万円以上</option>
+              <option value="unknown">未定・相談しながら決めたい</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="cf-message">お問い合わせ内容<span class="required">必須</span></label>
+            <textarea id="cf-message" name="message" rows="5" required
+              placeholder="現在の課題や、LPで実現したいことなどをご記入ください。"></textarea>
+          </div>
+
+          <div class="form-row form-row-check">
+            <label class="checkbox-label">
+              <input type="checkbox" name="privacy" required>
+              <span><a href="#">プライバシーポリシー</a>に同意のうえ、送信する</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-solid btn-lg">この内容で送信する</button>
+        </form>
+
       </div>
     </section>
 

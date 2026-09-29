@@ -35,6 +35,12 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   background: var(--ivory);
@@ -97,17 +103,17 @@ label:focus-visible {
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: .6em;
+  gap: .8em;
   font-family: var(--hand);
-  font-size: 1.05rem;
+  font-size: 1.7rem;
   color: var(--sky-deep);
-  letter-spacing: .08em;
-  margin-bottom: 1.1em;
+  letter-spacing: .06em;
+  margin-bottom: .9em;
 }
 
 .eyebrow::before {
   content: "";
-  width: 26px;
+  width: 34px;
   height: 1px;
   background: var(--coral);
 }
@@ -120,7 +126,6 @@ label:focus-visible {
   background: rgba(251, 249, 244, .92);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line);
-  margin-left: -4rem;
 }
 
 .site-header .container {
@@ -294,6 +299,18 @@ label:focus-visible {
   background: var(--ink);
   color: var(--ivory);
 }
+/* ヘッダーのContactボタン：営業時間コンテナと同じ色 */
+.header-actions .btn-outline {
+  background: #666666;
+  border-color: #666666;
+  color: var(--ivory);
+}
+
+.header-actions .btn-outline:hover {
+  background: var(--ink);      /* ホバー時は少し濃く */
+  border-color: var(--ink);
+  color: var(--ivory);
+}
 
 .btn-lg {
   padding: 1.05em 2.6em;
@@ -308,7 +325,8 @@ label:focus-visible {
   margin: 28px auto 0;
   border-radius: 6px;
   overflow: hidden;
-  min-height: 640px;
+  /* ヘッダー高さ(110px)+上マージン(28px)+余白(32px)を差し引き、PCの初期画面に収まる高さに */
+  height: clamp(520px, calc(100vh - 170px), 820px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -446,6 +464,15 @@ section {
   background: var(--paper);
 }
 
+/* About → Service の間隔を縮める（7.5rem + 7.5rem = 15rem → 5rem + 5rem = 10rem） */
+#about {
+  padding-bottom: 5rem;
+}
+
+#service {
+  padding-top: 5rem;
+}
+
 .section-head {
   max-width: 760px;
   margin-bottom: 3.6rem;
@@ -458,7 +485,7 @@ section {
   font-weight: 700;
 }
 
-.section-head p {
+.section-head p:not(.eyebrow) {
   margin-top: 1.2rem;
   color: var(--ink-soft);
   font-size: .95rem;
@@ -476,6 +503,7 @@ section {
   grid-template-columns: 1.05fr .95fr;
   gap: 4.5rem;
   align-items: center;
+  margin-top: -5rem;
 }
 
 .about-copy h2 {
@@ -485,7 +513,7 @@ section {
   font-weight: 700;
 }
 
-.about-copy p {
+.about-copy p:not(.eyebrow) {
   margin-top: 1.4rem;
   color: var(--ink-soft);
   font-size: .95rem;
@@ -587,17 +615,21 @@ section {
 .works-showcase {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 6rem;                 /* 事例どうしの間隔 */
 }
 
 .work-feature {
   display: flex;
   align-items: center;
   gap: 3.5rem;
+  width: 100%;               /* 3例とも同じ幅のコンテナに */
+  min-width: 0;
+  box-sizing: border-box;
   padding: 2.5rem;
-  background: var(--ivory);
-  border-radius: 8px;
-  box-shadow: 0 8px 30px -12px rgba(28, 27, 24, .12);
+  background: var(--white);  /* 背景(ivory)と区別して、コンテナの輪郭を出す */
+  border-radius: 16px;       /* 角丸 */
+  box-shadow: 0 14px 40px -14px rgba(28, 27, 24, .28);
+  overflow: hidden;          /* 中身がはみ出してもコンテナ内に収める */
 }
 
 .work-feature:nth-child(even) {
@@ -614,6 +646,7 @@ section {
 
 .work-thumb img {
   width: 100%;
+  max-width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
@@ -801,7 +834,7 @@ section {
   font-weight: 700;
 }
 
-.cta p {
+.cta p:not(.eyebrow) {
   margin-top: 1.2rem;
   color: rgba(251, 249, 244, .72);
   font-size: .92rem;
@@ -813,6 +846,125 @@ section {
   gap: 1.1rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* ---------- Contact form ---------- */
+.contact-form {
+  margin: 3rem auto 0;
+  max-width: 640px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+
+.form-row-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+
+.form-row label {
+  font-size: .82rem;
+  letter-spacing: .04em;
+  color: rgba(251, 249, 244, .8);
+}
+
+.form-row .required {
+  display: inline-block;
+  margin-left: .6em;
+  padding: .15em .65em;
+  font-size: .62rem;
+  letter-spacing: .05em;
+  color: var(--coral);
+  border: 1px solid var(--coral);
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: .9em 1.1em;
+  background: rgba(251, 249, 244, .08);
+  border: 1px solid rgba(251, 249, 244, .25);
+  border-radius: 6px;
+  color: var(--ivory);
+  font-family: inherit;
+  font-size: .92rem;
+  letter-spacing: .02em;
+  transition: border-color .25s ease, background .25s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(251, 249, 244, .4);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--sky);
+  background: rgba(251, 249, 244, .12);
+}
+
+.contact-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(251, 249, 244, .6) 50%),
+    linear-gradient(135deg, rgba(251, 249, 244, .6) 50%, transparent 50%);
+  background-position: calc(100% - 1.35em) center, calc(100% - 1em) center;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.contact-form select option {
+  color: var(--ink);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.8;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: .7em;
+  font-size: .85rem;
+  color: rgba(251, 249, 244, .8);
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-top: .25em;
+  width: 16px;
+  height: 16px;
+  flex: none;
+  accent-color: var(--sky);
+}
+
+.checkbox-label a {
+  color: var(--sky);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.contact-form .btn {
+  align-self: center;
+  margin-top: .6rem;
 }
 
 .cta .btn-solid {
@@ -863,62 +1015,71 @@ section {
 
 .footer-brand p {
   margin-top: -0.1rem;
+  margin-left: auto;
+  margin-right: auto;
   font-size: .90rem;
-  /* ← .82rem から数値を小さくする */
   color: var(--ink-soft);
   max-width: 380px;
-  padding-left: 2rem;      
-  /* ← 追加。数値を増やすほど右にずれる */
-  
+  text-align: center;
 }
 .footer-brand-hours{
-  margin-top: 1rem;
+  margin: 1rem auto 0;       /* 中央寄せ */
   display: flex;
   flex-direction: column;
-  gap: .2.5rem;
+  gap: .4rem;
   font-size: .82rem;
-  color: var(--ink-soft);
+  color: var(--ivory);       /* グレー背景の上で読めるよう白系に */
   align-items: center;
+  width: fit-content;
+  padding: 1rem 2.2rem;
+  background: #666666;       /* ロゴ「LP▶STUDIO」バッジのグレー */
+  border-radius: 14px;       /* 角丸 */
 }
 .footer-nav-group {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0rem;
   background: var(--paper);
-  padding: 2rem 2rem 2rem 2rem;
+  padding: 2rem 1.2rem;      /* 左右の余白を 2rem → 1.2rem に */
   margin-top: -2rem;
 }
 .footer-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;             /* 見出しとリストで左端を共有する */
+  justify-content: center;   /* 列の中央に、見出し+リストのかたまりを置く */
+  align-content: start;
   background: var(--paper);
-  padding: 1.5rem 1rem;
+  padding: 1.5rem .5rem;     /* 左右の余白を 1rem → .5rem に */
   border-radius: 4px;
   
 }
 .footer-col h3 {
-  font-size: 1rem;
+  font-size: 1.25rem;        /* 1rem → 1.25rem */
   letter-spacing: .1em;
   color: var(--ink-faint);
   margin-bottom: 1.2rem;
-  text-align: center;    /* ← 文字も中央揃えに */
+  text-align: center;        /* リスト（かたまり）の中央に見出しを置く */
+}
+
+.footer-col > ul,
+.service-details {
+  justify-self: center;      /* 見出しのほうが広い場合も、リストを中央に */
 }
 
 .footer-col ul {
   display: flex;
   flex-direction: column;
   gap: .75rem;
-  align-items: flex-start; /* ← ul自体は中央に来るが、中のliは左揃えのまま */
+  align-items: center;     /* 各項目を、見出しの真下に中央揃え */
   width: fit-content; 
 }
 .service-details {
-  padding-left: 2.5rem;
+  padding-left: 0;           /* 2.5rem → 0 */
 }
 .footer-col a {
   font-size: .85rem;
   color: var(--ink-soft);
   transition: color .2s ease;
+  white-space: nowrap;       /* 折り返し防止 */
 }
 
 .footer-col a:hover {
@@ -959,7 +1120,7 @@ section {
   }
 
   .works-showcase {
-    gap: 3.5rem;
+    gap: 5rem;
   }
 
   .work-feature,
@@ -1028,12 +1189,14 @@ section {
   .hero {
     width: calc(100% - 4vw * 2);
     margin: 16px auto 0;
-    min-height: 480px;
+    height: auto;
+    min-height: 520px;
   }
 
   .hero-copy {
+    top: 9%;
     left: 50%;
-    width: 88%;
+    width: 90%;
   }
 
   .hero-copy h1,
@@ -1041,15 +1204,54 @@ section {
     left: 0;
   }
 
+  .hero-copy h1 {
+    font-size: clamp(1.4rem, 6.4vw, 2.15rem);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-copy h1 .dot-char::before {
+    width: 6px;
+    height: 6px;
+  }
+
+  .hero-copy .indent-space {
+    display: none;
+  }
+
+  .hero-copy p {
+    font-size: .85rem;
+    padding: 1em 1.2em;
+    line-height: 1.7;
+  }
+
   .seal-badge {
-    width: 96px;
-    height: 96px;
+    width: 82px;
+    height: 82px;
     right: 5%;
-    bottom: 8%;
+    bottom: 7%;
+  }
+
+  .seal-badge span {
+    font-size: .74rem;
   }
 
   section {
     padding: 4.5rem 0;
+  }
+
+  #about {
+    padding-bottom: 3rem;
+  }
+
+  #service {
+    padding-top: 3rem;
+  }
+
+  /* Process見出しを1行に収める（画面幅に合わせて文字サイズを縮める） */
+  #process .section-head h2 {
+    font-size: min(1.7rem, 6.2vw);
+    white-space: nowrap;
   }
 
   .service-grid {
@@ -1066,12 +1268,74 @@ section {
     gap: 2.4rem;
   }
 
+  .footer-brand p,
+  .footer-brand-banner {
+    padding-left: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-nav-group {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1.2rem;
+  }
+
+  .service-details {
+    padding-left: 0;
+  }
+
   .works-showcase {
-    gap: 3rem;
+    gap: 4rem;
   }
 
   .work-feature {
     padding: 1.6rem;
     gap: 1.8rem;
+  }
+
+  .contact-form {
+    margin-top: 2.2rem;
+    gap: 1.1rem;
+  }
+
+  .form-row-group {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+
+}
+
+/* ---- 極小幅（〜420px）向けの追加調整 ---- */
+@media (max-width: 420px) {
+  .hero {
+    min-height: 460px;
+  }
+
+  .hero-copy {
+    top: 7%;
+    width: 94%;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.25rem, 7vw, 1.7rem);
+  }
+
+  .hero-copy p {
+    font-size: .8rem;
+    padding: .9em 1em;
+  }
+
+  .seal-badge {
+    width: 68px;
+    height: 68px;
+  }
+
+  .seal-badge span {
+    font-size: .62rem;
+  }
+
+  .cta {
+    padding: 4rem 1.2rem;
   }
 }
