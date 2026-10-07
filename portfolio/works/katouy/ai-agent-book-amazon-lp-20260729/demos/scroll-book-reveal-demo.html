@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Scroll book reveal effect</title>
+    <style>
+      :root { font-family: system-ui, sans-serif; color: #173d58; background: #dff5ff; }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 200vh; }
+      .hero { position: relative; min-height: 760px; overflow: hidden; background: #dff5ff; }
+      .hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 56% 51%; filter: brightness(1.1); }
+      .hero::after { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(247,253,255,.96), rgba(247,253,255,.16) 75%); content: ""; }
+      .copy { position: relative; z-index: 2; padding: 64px 26px; width: min(100%, 430px); }
+      .copy p { color: #e65683; font-weight: 800; }
+      .copy h1 { margin: 0; font-size: clamp(36px, 10vw, 56px); line-height: 1.13; }
+      .book {
+        --book-x: -118%; --book-y: 20px; --book-rotate: -16deg; --book-opacity: 0;
+        position: absolute; z-index: 3; bottom: 28px; left: 28px; width: 136px; height: 184px;
+        display: grid; place-content: center; border-radius: 3px; color: #fff; background: linear-gradient(155deg, #174d7a, #8b63d7 58%, #ff7198);
+        box-shadow: 15px 18px 24px rgba(31, 72, 103, .28); font-weight: 900; line-height: 1.35; text-align: center;
+        opacity: var(--book-opacity); transform: translate3d(var(--book-x), var(--book-y), 0) rotate(var(--book-rotate)); transform-origin: left bottom; will-change: transform, opacity;
+      }
+      .next { display: grid; min-height: 100vh; place-items: center; padding: 24px; color: #fff; background: linear-gradient(135deg, #7c79ed, #ff759d); text-align: center; }
+      @media (prefers-reduced-motion: reduce) { .book { opacity: 1; transform: none; } }
+    </style>
+  </head>
+  <body>
+    <section class="hero" data-book-hero>
+      <img src="../assets/hero-japanese-ai-author.png" alt="" />
+      <div class="copy"><p>SCROLL TO REVEAL</p><h1>本が、<br />左から現れる。</h1></div>
+      <div class="book" data-book-reveal>AI<br />WORKFLOW<br />BOOK</div>
+    </section>
+    <section class="next"><h2>次のセクションへ</h2></section>
+    <script>
+      (() => {
+        const hero = document.querySelector("[data-book-hero]");
+        const book = document.querySelector("[data-book-reveal]");
+        if (!hero || !book || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        let ticking = false;
+        const update = () => {
+          const start = Math.max(hero.offsetTop - 24, 0);
+          const range = Math.min(Math.max(innerHeight * 0.42, 180), 300);
+          const progress = Math.min(Math.max((scrollY - start) / range, 0), 1);
+          book.style.setProperty("--book-x", `${Math.round(-118 + progress * 118)}%`);
+          book.style.setProperty("--book-y", `${Math.round((1 - progress) * 20)}px`);
+          book.style.setProperty("--book-rotate", `${Math.round(-16 + progress * 16)}deg`);
+          book.style.setProperty("--book-opacity", progress.toFixed(3));
+          ticking = false;
+        };
+        const queueUpdate = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+        update(); addEventListener("scroll", queueUpdate, { passive: true }); addEventListener("resize", queueUpdate);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#68cfff" />
+    <meta
+      name="description"
+      content="Claude CodeやCodexなどのコーディングエージェントで、コード調査・実装・テスト・レビューを進める考え方を紹介する架空書籍LPの制作サンプルです。※掲載の実績・レビューは架空のデモ表現です。"
+    />
+    <title>全て丸投げAIエージェント！｜ChatGPTとの違い・使い方を学ぶ本【出版サンプル】</title>
+    <link rel="stylesheet" href="css/site.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">本文へ移動</a>
+
+    <div class="launch-intro" data-launch-intro aria-hidden="true">
+      <div class="launch-intro__orb launch-intro__orb--one"></div>
+      <div class="launch-intro__orb launch-intro__orb--two"></div>
+      <p class="launch-intro__eyebrow">AI WORKFLOW / 01</p>
+      <p class="launch-intro__small">質問するだけの毎日から</p>
+      <p class="launch-intro__title"><span>CHAT</span><i>→</i><strong>AGENT</strong></p>
+      <p class="launch-intro__footer">全て丸投げAIエージェント！</p>
+    </div>
+
+    <div class="page-backdrop" aria-hidden="true">
+      <span class="glow glow-one"></span>
+      <span class="glow glow-two"></span>
+    </div>
+
+    <div class="site-shell">
+      <header class="sample-ribbon">
+        <span class="ribbon-dot" aria-hidden="true"></span>
+        <span>架空書籍のLP制作サンプル</span>
+      </header>
+
+      <main id="main-content">
+        <section class="hero section-dark" aria-labelledby="hero-title">
+          <div class="hero-photo" aria-hidden="true">
+            <img src="assets/hero-japanese-ai-author.png" alt="" />
+          </div>
+          <div class="hero-shade" aria-hidden="true"></div>
+          <div class="hero-confetti" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+          <div class="hero-content">
+            <p class="eyebrow"><span>Amazon 新刊</span><span class="eyebrow-line"></span><span>発売記念</span></p>
+            <p class="hero-kicker">Claude CodeとCodexを、開発の相棒にするために。</p>
+            <h1 id="hero-title">
+              <span class="hero-title-line">まだChatGPTを使ってる？</span><br />
+              <span class="hero-title-line">Chatの時代はもう終わり、</span><br />
+              <em class="hero-title-line">全て丸投げAIエージェント！</em>
+            </h1>
+            <p class="hero-lead">
+              コードを読む。変更する。テストする。<br />
+              差分を確認して、次の一手を決める。<br />
+              Claude CodeやCodexに任せられる作業と、<br />
+              人がレビューすべきことを整理する実践入門書です。
+            </p>
+
+            <div class="book-scene" data-book-reveal aria-label="架空書籍の書影イメージ">
+              <div class="book-shadow" aria-hidden="true"></div>
+              <div class="book-cover">
+                <span class="book-cover__tag">AI WORKFLOW BOOK</span>
+                <span class="book-cover__line" aria-hidden="true"></span>
+                <span class="book-cover__small">まだChatGPTを<br />使ってる？</span>
+                <span class="book-cover__title">全て丸投げ<br />AIエージェント！</span>
+                <span class="book-cover__footer">会話から、<br />コード変更を進める時代へ</span>
+              </div>
+              <span class="book-spine" aria-hidden="true"></span>
+            </div>
+          </div>
+
+        </section>
+
+        <section class="section section-cta-intro" aria-label="購入導線">
+          <button class="button button-primary" type="button" data-modal-open="amazon">
+            <span>Amazonで本書の<br />詳細を見る</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" /></svg>
+          </button>
+          <p class="cta-caption">Amazon商品ページURLは公開前に設定してください</p>
+          <p class="hero-caution">※「丸投げ」は無確認の自動実行を意味しません。<br />権限付与・差分確認・マージ・本番反映は、人が確認する前提です。</p>
+        </section>
+
+        <section class="section section-light problem" aria-labelledby="problem-title">
+          <p class="section-label">01 / CHAT LIMIT</p>
+          <h2 id="problem-title">チャットだけでは、<br /><strong>コード変更は完結しない。</strong></h2>
+          <div class="prose">
+            <p>コードを貼って質問すれば、答えや案は返ってくる。<br />けれど、関連ファイルを探し、変更を反映し、テストし、差分を確認する作業は残ります。</p>
+            <p>開発では、回答そのものよりも、<br /><mark>リポジトリの文脈の中で変更を確かめること</mark>が大切です。</p>
+          </div>
+
+          <div class="comparison-card" aria-label="対話型AIとコーディングエージェントの比較">
+            <article class="comparison comparison-chat">
+              <p class="comparison-num">01</p>
+              <h3>チャットで<br />案を受け取る</h3>
+              <p>質問する<br />案を受け取る<br />自分で反映・検証する</p>
+              <span class="comparison-chip">会話で完了</span>
+            </article>
+            <div class="comparison-arrow" aria-hidden="true">→</div>
+            <article class="comparison comparison-agent">
+              <p class="comparison-num">02</p>
+              <h3>リポジトリを<br />読んで作業を進める</h3>
+              <p>コードを調べる<br />変更・テストを進める<br />人が差分を確認する</p>
+              <span class="comparison-chip">開発を支援</span>
+            </article>
+          </div>
+
+          <figure class="editorial-photo editorial-photo--problem">
+            <img src="assets/chat-fatigue-night-japanese.png" alt="夜のデスクでノートPCを前に考え込む日本人男性" loading="lazy" decoding="async" />
+            <figcaption><span>CHAT FATIGUE</span>答えを得るたびに、変更・テスト・確認を<br />自分でつなぎ直していませんか？</figcaption>
+          </figure>
+
+          <p class="section-footnote">Claude CodeやCodexで利用できる操作や範囲は、実行環境・設定・付与した権限によって異なります。</p>
+        </section>
+
+        <section class="section section-dark solution" aria-labelledby="solution-title">
+          <p class="section-label section-label--bright">02 / AGENT WORKFLOW</p>
+          <h2 id="solution-title">任せるのは、<br /><strong>仕様ではなく、</strong><br />調査・実装・検証の手順です。</h2>
+          <p class="section-intro">Claude CodeやCodexは、コードベースを読み、必要なファイルを探し、変更案を作り、テストやレビューを支援するコーディングエージェントです。便利に使うための前提は、<strong>権限とレビューの責任を人が持つこと</strong>です。</p>
+
+          <div class="role-stack">
+            <article class="role-card role-card--human">
+              <div class="role-icon" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div>
+                <p class="role-number">ROLE 01</p>
+                <h3>人が決めること</h3>
+                <p>仕様・優先順位・権限<br />レビュー・マージ・本番反映</p>
+              </div>
+            </article>
+            <article class="role-card role-card--ai">
+              <div class="role-icon role-icon--orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div>
+                <p class="role-number">ROLE 02</p>
+                <h3>エージェントに任せること</h3>
+                <p>コード調査・変更案・編集<br />テスト実行・修正候補の整理</p>
+              </div>
+            </article>
+            <article class="role-card role-card--team">
+              <div class="role-icon role-icon--grid" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+              <div>
+                <p class="role-number">ROLE 03</p>
+                <h3>チームで確認すること</h3>
+                <p>差分・テスト結果・CI<br />権限・セキュリティの見直し</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <figure class="editorial-photo editorial-photo--workflow">
+          <img src="assets/workflow-design-japanese.png" alt="ノートに仕事の流れを描く日本人女性" loading="lazy" decoding="async" />
+          <figcaption><span>FIRST, SCOPE</span>まずは変更範囲を絞り、<br />任せる操作と確認するポイントを決める。</figcaption>
+        </figure>
+
+        <section class="scroll-expand-runway" data-seh-runway aria-label="チームでの活用イメージ">
+          <div class="scroll-expand-hero" data-seh-hero>
+            <div class="scroll-expand-card">
+              <img class="scroll-expand-media" src="assets/japanese-team-ai-workflow.png" alt="ノートPCを囲んで仕事の流れを相談する日本人のチーム" loading="lazy" decoding="async" />
+            </div>
+            <div class="scroll-expand-overlay" aria-hidden="true"></div>
+          </div>
+
+          <div class="scroll-expand-narrative">
+            <div class="scroll-expand-line">
+              <p class="section-label">03 / WHAT YOU WILL LEARN</p>
+              <h2>Claude CodeとCodexを、<br /><strong>安全に使い始めるための1冊。</strong></h2>
+            </div>
+            <p class="section-intro section-intro--dark scroll-expand-line">チャットでコードの案を得るところから一歩進めて、リポジトリの調査、実装、テスト、レビューをどう分担するかを解説します。</p>
+
+            <ol class="chapter-list">
+              <li>
+                <span class="chapter-index">01</span>
+                <div><h3>チャットと<br />エージェントの違い</h3><p>回答を受け取る使い方と、リポジトリの中で作業を進める使い方の違い。</p></div>
+              </li>
+              <li>
+                <span class="chapter-index">02</span>
+                <div><h3>最初に任せる<br />変更を選ぶ</h3><p>影響範囲が小さく、差分とテスト結果を確認しやすい作業の選び方。</p></div>
+              </li>
+              <li>
+                <span class="chapter-index">03</span>
+                <div><h3>依頼に必要な<br />前提をそろえる</h3><p>目的、対象ファイル、制約、確認方法を、実装前に明確にする。</p></div>
+              </li>
+              <li>
+                <span class="chapter-index">04</span>
+                <div><h3>調査・実装・テストを<br />進めてもらう</h3><p>コードベースの調査、変更案、テスト実行を小さな単位で依頼する。</p></div>
+              </li>
+              <li>
+                <span class="chapter-index">05</span>
+                <div><h3>権限とレビューを<br />決める</h3><p>ファイル編集、コマンド実行、Git操作、マージを誰が確認するか。</p></div>
+              </li>
+              <li>
+                <span class="chapter-index">06</span>
+                <div><h3>チーム開発に<br />組み込む</h3><p>差分、テスト、CI、セキュリティを確認しながら使い続けるための考え方。</p></div>
+              </li>
+            </ol>
+
+            <span class="scroll-expand-pin" data-seh-pin aria-hidden="true"></span>
+          </div>
+        </section>
+
+        <figure class="editorial-photo editorial-photo--workshop">
+          <img src="assets/ai-workshop-japanese-team.png" alt="会議テーブルで仕事の進め方を話し合う日本人チーム" loading="lazy" decoding="async" />
+          <figcaption><span>TEAM REVIEW</span>一人で抱え込む開発から、<br />レビューを前提に進める開発へ。</figcaption>
+        </figure>
+
+        <section class="section campaign" aria-labelledby="campaign-title">
+          <div class="campaign-orbit orbit-one" aria-hidden="true"></div>
+          <div class="campaign-orbit orbit-two" aria-hidden="true"></div>
+          <p class="campaign-badge">LAUNCH SAMPLE</p>
+          <p class="section-label section-label--bright">04 / LAUNCH CAMPAIGN</p>
+          <h2 id="campaign-title">発売記念<br /><strong>「最初の変更を任せる」</strong><br />コーディングエージェント<br />確認シート</h2>
+          <p class="campaign-copy">本書を読み終えたあと、「最初に何を頼めばいい？」で止まらないために。<br />変更の目的、対象ファイル、許可する操作、確認するテストを1枚にまとめるためのチェックシートです。</p>
+
+          <figure class="campaign-photo">
+            <img src="assets/book-launch-reader-japanese.png" alt="ノートをそばに本を読む日本人女性" loading="lazy" decoding="async" />
+            <figcaption>読んで終わりにしない。<br />最初の変更を、手元のリポジトリで試してみる。</figcaption>
+          </figure>
+
+          <ol class="steps">
+            <li><span>STEP 01</span><strong>Amazonで<br />本書の詳細を確認</strong></li>
+            <li><span>STEP 02</span><strong>受取条件・<br />個人情報の扱いを確認</strong></li>
+            <li><span>STEP 03</span><strong>確認シートを<br />受け取る</strong></li>
+          </ol>
+          <button class="button button-secondary" type="button" data-modal-open="campaign">
+            <span>発売記念の<br />確認シートを見る</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" /></svg>
+          </button>
+          <p class="campaign-note">※特典内容・受取条件・配布期限は、実運用時に確定情報に差し替えてください。<br />レビュー投稿を条件にした特典設計は行わないでください。</p>
+        </section>
+
+        <section class="section section-light proof" aria-labelledby="proof-title">
+          <div class="fictional-label"><span aria-hidden="true">✦</span> 掲載イメージ（架空）</div>
+          <p class="section-label">05 / SAMPLE PROOF</p>
+          <h2 id="proof-title">発売後の反応を、<br /><strong>次の読者へつなぐ。</strong></h2>
+          <p class="section-intro section-intro--dark">以下はデザイン検討用の架空実績・架空感想です。実運用では、承諾を得た実在の情報だけに差し替えてください。</p>
+
+          <div class="sample-stats">
+            <article class="sample-stats__featured">
+              <span>発売初週</span><strong>1,500<span>部</span></strong><p>手に取られた<br />という掲載例</p>
+              <div class="stat-badge" aria-label="架空の企画バッジ"><span>2026</span><strong>AI WORKFLOW<br />BOOK</strong><small>LAUNCH EDITION<br />（架空）</small></div>
+            </article>
+            <article><span>カテゴリー</span><strong>1<span>位</span></strong><p>を想定した<br />掲載例</p></article>
+            <article><span>読者満足</span><strong>4.8<span>/5</span></strong><p>という掲載例</p></article>
+          </div>
+
+          <section class="recommendation-showcase" aria-labelledby="recommendation-title">
+            <div class="fictional-label fictional-label--recommend"><span aria-hidden="true">✦</span> 推薦コメントの掲載イメージ（すべて架空）</div>
+            <p class="section-label">RECOMMENDERS / SAMPLE</p>
+            <h3 id="recommendation-title">「AIに任せる前に、<br />人が考えるべきことがわかる。」</h3>
+            <div class="recommendation-list">
+              <article class="recommendation-card">
+                <img src="assets/recommender-fictional-man.png" alt="架空の推薦者プロフィール写真" loading="lazy" decoding="async" />
+                <div class="recommendation-card__body">
+                  <span>RECOMMENDER 01 / 架空人物</span>
+                  <h4>藤堂 理一</h4>
+                  <p>未来の仕事研究所 代表<br />（すべて架空の設定）</p>
+                  <blockquote>「ツールの紹介では終わらない。<br />仕事をどう設計するかまで考え抜かれた、<br />いま読むべき一冊だと思います。」</blockquote>
+                </div>
+              </article>
+              <article class="recommendation-card recommendation-card--lilac">
+                <img src="assets/recommender-fictional-woman.png" alt="架空の推薦者プロフィール写真" loading="lazy" decoding="async" />
+                <div class="recommendation-card__body">
+                  <span>RECOMMENDER 02 / 架空人物</span>
+                  <h4>朝比奈 結</h4>
+                  <p>ビジネス書編集者<br />（すべて架空の設定）</p>
+                  <blockquote>「AI初心者にも、導入を急ぎたい人にも。<br />“任せないこと”から始める視点が、<br />安心して次の一歩を踏み出させてくれます。」</blockquote>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <div class="review-list">
+            <article class="review-card">
+              <div class="review-head"><span class="review-avatar review-avatar--violet">W</span><div><strong>Webエンジニア / 30代</strong><small>掲載イメージ（架空）</small></div></div>
+              <blockquote>「AIに何でも任せる」のではなく、<br />任せないことから決める。<br />この順番が、とても腑に落ちました。</blockquote>
+            </article>
+            <article class="review-card">
+              <div class="review-head"><span class="review-avatar review-avatar--lime">K</span><div><strong>小さなチームの代表 / 40代</strong><small>掲載イメージ（架空）</small></div></div>
+              <blockquote>テストの追加やREADMEの更新など、<br />「最初の変更」の候補が<br />具体的に見えてきました。</blockquote>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section-profile" aria-labelledby="profile-title">
+          <div class="profile-photo"><img src="assets/hero-japanese-ai-author.png" alt="架空著者のプロフィール用イメージ" loading="lazy" decoding="async" /></div>
+          <div class="profile-content">
+            <div class="fictional-label fictional-label--dark"><span aria-hidden="true">✦</span> 掲載イメージ（架空）</div>
+            <p class="section-label">06 / AUTHOR</p>
+            <h2 id="profile-title">著者プロフィール</h2>
+            <p class="profile-name">白石 透 <span>しらいし とおる</span></p>
+            <p class="profile-role">AIコーディング活用支援<br />（サンプル設定）</p>
+            <p class="profile-copy">個人開発者や小さなチームが、Claude CodeやCodexを使い、コード調査・実装・テスト・レビューを進めるための考え方を発信。<br /><br />このプロフィールはLPの掲載例です。実在の経歴、資格、実績ではありません。</p>
+          </div>
+        </section>
+
+        <section class="section section-light faq" aria-labelledby="faq-title">
+          <p class="section-label">07 / FAQ</p>
+          <h2 id="faq-title">よくある質問</h2>
+          <div class="faq-list">
+            <details>
+              <summary><span>Q.</span> 本書でいうAIエージェントとは？</summary>
+              <p>Claude CodeやCodexのように、開発環境でコードベースを読み、ファイルの変更やコマンド実行などを支援するコーディングエージェントを指します。実際にできる操作は、ツール・環境・設定した権限によって異なります。</p>
+            </details>
+            <details>
+              <summary><span>Q.</span> チャット型AIとの違いは？</summary>
+              <p>チャット型AIは、質問に答えたり、コード例を示したりする用途に向いています。コーディングエージェントは、許可された範囲でリポジトリを調べ、変更やテストを進められます。ただし、変更内容のレビューやマージの判断まで自動で正しいわけではありません。</p>
+            </details>
+            <details>
+              <summary><span>Q.</span> 初心者は何から始めればいいですか？</summary>
+              <p>影響範囲が小さい修正から始めます。たとえば、テストの追加、文言の修正、READMEの更新などです。依頼のあとに差分とテスト結果を確認できる作業を選んでください。</p>
+            </details>
+            <details>
+              <summary><span>Q.</span> 実行前に確認すべきことは？</summary>
+              <p>アクセスを許可するディレクトリ、実行を認めるコマンド、機密情報の扱い、変更後に確認するテスト、レビュー担当者を先に決めます。承認、マージ、本番反映は人が確認する前提で進めてください。</p>
+            </details>
+            <details>
+              <summary><span>Q.</span> このページの書籍・レビューは実在しますか？</summary>
+              <p>いいえ。このページは架空書籍のLP制作サンプルです。書影、著者、発売記念企画、実績、感想はデモ用の架空表現で、Amazon・OpenAIによる提供、推奨、承認を示すものではありません。</p>
+            </details>
+          </div>
+        </section>
+
+        <section class="section final-cta" aria-labelledby="final-title">
+          <p class="section-label section-label--bright">READY FOR THE FIRST CHANGE?</p>
+          <h2 id="final-title">最初の変更から、<br /><strong>エージェントと進めてみる。</strong></h2>
+          <p>本書は、コードを無確認で自動化することを勧める本ではありません。<br />Claude CodeやCodexに頼む範囲と、人が確認する範囲を整理するための本です。</p>
+
+          <div class="book-scene book-scene--static" aria-label="架空書籍の書影イメージ">
+            <div class="book-shadow" aria-hidden="true"></div>
+            <div class="book-cover">
+              <span class="book-cover__tag">AI WORKFLOW BOOK</span>
+              <span class="book-cover__line" aria-hidden="true"></span>
+              <span class="book-cover__small">まだChatGPTを<br />使ってる？</span>
+              <span class="book-cover__title">全て丸投げ<br />AIエージェント！</span>
+              <span class="book-cover__footer">会話から、<br />コード変更を進める時代へ</span>
+            </div>
+            <span class="book-spine" aria-hidden="true"></span>
+          </div>
+
+          <button class="button button-primary button-primary--light" type="button" data-modal-open="amazon">
+            <span>Amazonで本書の<br />詳細を見る</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" /></svg>
+          </button>
+          <button class="share-button" type="button" data-share>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M18 8a3 3 0 1 0-2.82-4A3 3 0 0 0 15 5l-6.08 3.04a3 3 0 1 0 0 7.92L15 19a3 3 0 1 0 .9 1.79l-6.99-3.5a2.96 2.96 0 0 0 0-2.58l6.98-3.49A3 3 0 0 0 18 8Z" /></svg>
+            このページをシェアする
+          </button>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>© 2026 AI AGENT BOOK LP SAMPLE</p>
+        <p>本ページは架空の書籍出版LPの制作サンプルです。<br />実績・感想・著者情報・特典・発売情報は実在の事実を示しません。</p>
+      </footer>
+
+      <nav class="sticky-cta" aria-label="固定購入導線">
+        <button class="sticky-cta__main" type="button" data-modal-open="amazon">
+          <span class="sticky-cta__label">Amazonで本書を</span>
+          <span class="sticky-cta__action">詳細を見る <b aria-hidden="true">→</b></span>
+        </button>
+      </nav>
+    </div>
+
+    <dialog class="modal" id="link-modal" aria-labelledby="modal-title">
+      <div class="modal__content">
+        <button class="modal__close" type="button" data-modal-close aria-label="モーダルを閉じる">×</button>
+        <p class="modal__eyebrow">PRE-LAUNCH SETUP</p>
+        <h2 id="modal-title">Amazon商品ページの<br />URLが未設定です</h2>
+        <p id="modal-copy">実販売用に公開する前に、実在のAmazon商品ページURLと、書籍情報・キャンペーン条件を設定してください。</p>
+        <div class="modal__notice">このページは架空書籍のLP制作サンプルです。<br />クリック操作は実際の購入・申込みにはつながりません。</div>
+        <button class="button button-modal" type="button" data-modal-close>ページに戻る</button>
+      </div>
+    </dialog>
+
+    <div class="toast" role="status" aria-live="polite" id="toast">リンクをコピーしました</div>
+    <script src="js/app.js"></script>
+  </body>
+</html>

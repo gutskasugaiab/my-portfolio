@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Scroll media zoom effect</title>
+    <style>
+      :root {
+        color: #173d58;
+        background: #eaf7ff;
+        font-family: system-ui, sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+      body { margin: 0; }
+
+      .scroll-media-stage {
+        --media-scale: 1;
+        --media-y: 0px;
+        --media-opacity: 1;
+        min-height: 165vh;
+      }
+
+      .scroll-media-panel {
+        position: sticky;
+        top: 0;
+        display: grid;
+        min-height: 100svh;
+        height: 100svh;
+        place-items: center;
+        overflow: hidden;
+        background: #dff5ff;
+      }
+
+      .scroll-media-panel::after {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(180deg, rgba(235, 249, 255, 0.1), rgba(235, 249, 255, 0.95));
+        content: "";
+        pointer-events: none;
+      }
+
+      .scroll-media-panel img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: var(--media-opacity);
+        transform: translate3d(0, var(--media-y), 0) scale(var(--media-scale));
+        transform-origin: 53% 43%;
+        will-change: transform, opacity;
+      }
+
+      .scroll-media-copy {
+        position: relative;
+        z-index: 2;
+        width: min(86vw, 430px);
+        padding: 24px;
+        color: #173d58;
+        text-align: center;
+      }
+
+      .scroll-media-copy span {
+        display: block;
+        margin-bottom: 10px;
+        color: #e65683;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+      }
+
+      .scroll-media-copy h1 {
+        margin: 0;
+        font-size: clamp(36px, 10vw, 58px);
+        line-height: 1.08;
+      }
+
+      .after-effect {
+        display: grid;
+        min-height: 100svh;
+        place-items: center;
+        padding: 40px 24px;
+        color: #fff;
+        background: linear-gradient(135deg, #7c79ed, #ff759d);
+        text-align: center;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .scroll-media-stage { min-height: auto; }
+        .scroll-media-panel { position: relative; min-height: 100svh; }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="scroll-media-stage" data-scroll-media>
+      <div class="scroll-media-panel">
+        <img src="../assets/hero-japanese-ai-author.png" alt="" />
+        <div class="scroll-media-copy">
+          <span>SCROLL TO TRANSFORM</span>
+          <h1>CHAT<br />→ AGENT</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="after-effect"><h2>次のセクションへ</h2></section>
+
+    <script>
+      (() => {
+        const stage = document.querySelector("[data-scroll-media]");
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        if (!stage || reduceMotion.matches) return;
+
+        let ticking = false;
+
+        const update = () => {
+          const rect = stage.getBoundingClientRect();
+          const range = Math.max(stage.offsetHeight - window.innerHeight, 1);
+          const progress = Math.min(Math.max(-rect.top / range, 0), 1);
+          const fade = Math.min(Math.max((progress - 0.54) / 0.46, 0), 1);
+
+          stage.style.setProperty("--media-scale", (1 + progress * 0.3).toFixed(3));
+          stage.style.setProperty("--media-y", `${Math.round(progress * -38)}px`);
+          stage.style.setProperty("--media-opacity", (1 - fade).toFixed(3));
+          ticking = false;
+        };
+
+        const queueUpdate = () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(update);
+        };
+
+        update();
+        addEventListener("scroll", queueUpdate, { passive: true });
+        addEventListener("resize", queueUpdate);
+      })();
+    </script>
+  </body>
+</html>
