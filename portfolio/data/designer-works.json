@@ -1423,12 +1423,22 @@
   },
   {
     "designerSlug": "katouy",
+    "title": "ai agent book amazon lp 20260729",
+    "description": "",
+    "image": "",
+    "sitePath": "works/katouy/ai-agent-book-amazon-lp-20260729/index.html",
+    "videoUrl": "",
+    "order": 1,
+    "auto": true
+  },
+  {
+    "designerSlug": "katouy",
     "title": "fukushi navi lp",
     "description": "",
     "image": "",
     "sitePath": "works/katouy/fukushi-navi-lp/index.html",
     "videoUrl": "",
-    "order": 1,
+    "order": 2,
     "auto": true
   },
   {
