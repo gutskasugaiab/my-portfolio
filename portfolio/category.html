@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カテゴリー別の制作実績 — GUTS × Xeno</title>
+    <meta name="description" content="SNS運用・HP/LP制作・動画編集・デザイン制作の実績をカテゴリー別にご紹介します。GUTS × Xeno のポートフォリオ。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --amber: #EF9F27;
+            --amber-light: #FAC775;
+            --amber-pale: #FAEEDA;
+            --coral: #D85A30;
+            --coral-pale: #FAECE7;
+            --pink: #D4537E;
+            --pink-pale: #FBEAF0;
+            --teal: #1D9E75;
+            --teal-pale: #E1F5EE;
+            --purple: #7F77DD;
+            --purple-pale: #EEEDFE;
+            --blue: #378ADD;
+            --blue-pale: #E6F1FB;
+            --green: #639922;
+            --green-pale: #EAF3DE;
+            --gray-100: #F7F6F3;
+            --gray-200: #EEEDE8;
+            --gray-700: #444441;
+            --text: #1a1a18;
+            --text-muted: #6b6a65;
+            --border: rgba(0, 0, 0, 0.1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-pill: 999px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--gray-100);
+            min-height: 100vh;
+        }
+
+        /* ── Nav ── */
+        body>nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(247, 246, 243, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 0.5px solid var(--border);
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color .15s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+        }
+
+        .nav-links a.active {
+            border-bottom: 2px solid var(--amber);
+            padding-bottom: 2px;
+        }
+
+        /* ── Container ── */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ── Page header ── */
+        .page-header {
+            padding: 3rem 0 2rem;
+            border-bottom: 0.5px solid var(--border);
+            margin-bottom: 2.5rem;
+        }
+
+        .page-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.35rem;
+        }
+
+        .page-header p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* ── Filter ── */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            font-size: 13px;
+            font-weight: 500;
+            font-family: 'Noto Sans JP', sans-serif;
+            padding: 6px 16px;
+            border-radius: var(--radius-pill);
+            border: 0.5px solid var(--border);
+            background: white;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all .15s;
+        }
+
+        .filter-btn:hover {
+            color: var(--text);
+            border-color: rgba(0, 0, 0, 0.25);
+        }
+
+        .filter-btn.active {
+            background: var(--text);
+            color: white;
+            border-color: var(--text);
+        }
+
+        /* ── Gallery ── */
+        .gallery {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            display: block;
+            width: 100%;
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: white;
+            border: 0.5px solid var(--border);
+            cursor: pointer;
+            transition: transform .18s, box-shadow .18s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: contain;
+            display: block;
+        }
+
+        .work-icon {
+            width: 100%;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gray-100);
+            color: var(--text-muted);
+            font-size: 32px;
+        }
+
+        .item-body {
+            padding: 0.75rem 1rem 0.875rem;
+        }
+
+        .item-tag {
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 10px;
+            border-radius: 99px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .item-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 3px;
+        }
+
+        .item-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ── Lightbox ── */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 8, 0.85);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lightbox-inner {
+            background: white;
+            border-radius: var(--radius-lg);
+            max-width: 720px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .lightbox-img {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            min-height: 340px;
+        }
+
+        .lightbox-img img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .lightbox-body {
+            padding: 1.25rem 1.5rem 1.5rem;
+            border-top: 0.5px solid var(--border);
+        }
+
+        .lightbox-body h2 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .lightbox-body p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.15);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            transition: background .15s;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .lightbox-inner--wide {
+            max-width: 1100px;
+        }
+
+        .lightbox-iframe {
+            width: 100%;
+            height: 60vh;
+            border: none;
+            display: block;
+            background: var(--gray-100);
+        }
+
+        /* ── Contact ── */
+        .container {
+            margin: 20px auto;
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin-top: 0.5rem;
+        }
+
+        .contact-card {
+            background: white;
+            border: 0.5px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.25rem 1.375rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .contact-card-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .contact-card-value {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-card-value:hover {
+            text-decoration: underline;
+        }
+
+        .contact-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: white;
+            border-top: 0.5px solid var(--border);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2rem;
+        }
+
+        /* ── ハンバーガー ── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            transition: background .15s;
+        }
+
+        .hamburger:hover {
+            background: var(--gray-200);
+        }
+
+        .hamburger span {
+            display: block;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+            transform-origin: center;
+        }
+
+        .hamburger.is-open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.is-open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.is-open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ── ドロワー ── */
+        .drawer {
+            position: fixed;
+            top: 56px;
+            right: 0;
+            bottom: 0;
+            width: min(280px, 80vw);
+            background: white;
+            z-index: 150;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+            border-left: 0.5px solid var(--border);
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .drawer.is-open {
+            transform: translateX(0);
+        }
+
+        .drawer__nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .drawer__link:first-child {
+            border-top: 0.5px solid var(--border);
+        }
+
+        .drawer__link {
+            padding: 0.875rem 1.5rem;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 0.5px solid var(--border);
+            transition: color .15s, background .15s;
+        }
+
+        .drawer__link:hover {
+            color: var(--text);
+            background: var(--gray-100);
+        }
+
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 140;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .drawer-overlay.is-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            nav {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 22px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+        }
+
+        /* ── Designer header ── */
+        .designer-header {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .designer-header-avatar {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            background: var(--gray-200);
+        }
+
+        .designer-header-avatar-fallback {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--teal-pale);
+            color: #0F6E56;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        .designer-header-role {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .designer-header-bio {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-top: 4px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 1.25rem;
+        }
+
+        .back-link:hover {
+            color: var(--text);
+        }
+    
+        /* ── カテゴリー別ページ */
+        .cat-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 1.25rem 0 0;
+        }
+
+        .cat-tab {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 99px;
+            border: 0.5px solid var(--border);
+            background: white;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .cat-tab:hover {
+            color: var(--text);
+        }
+
+        .cat-tab.is-active {
+            background: var(--amber);
+            border-color: var(--amber);
+            color: #412402;
+        }
+
+        .cat-tab .cat-count {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .cat-lead {
+            margin-top: 1rem;
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .item-designer {
+            margin-top: 6px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+    </style>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yzxbvsrv0i");
+  </script>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">GUTS × Xeno</a>
+        <ul class="nav-links">
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="png.html">個人デザイン</a></li>
+            <li><a href="category.html" class="active">カテゴリー別</a></li>
+            <li><a href="https://guts1-0.com/">GUTS1.0HP</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="drawer" id="drawer" aria-hidden="true">
+        <nav class="drawer__nav">
+            <a href="index.html" class="drawer__link">トップ</a>
+            <a href="png.html" class="drawer__link">個人デザイン</a>
+            <a href="category.html" class="drawer__link active">カテゴリー別</a>
+            <a href="https://guts1-0.com/" class="drawer__link">GUTS1.0HP</a>
+        </nav>
+    </div>
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <div class="container">
+
+        <a href="index.html" class="back-link">← ポートフォリオトップへ</a>
+
+        <div class="page-header">
+            <h1 id="catTitle">カテゴリー別の制作実績</h1>
+            <p class="cat-lead" id="catLead"></p>
+            <div class="cat-tabs" id="catTabs"></div>
+        </div>
+
+        <div class="gallery" id="gallery">
+            <p class="gallery-loading" style="padding:2rem 0;color:var(--text-muted);grid-column:1/-1">読み込み中...</p>
+        </div>
+
+    </div>
+
+    <!-- Lightbox（画像作品用） -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-inner">
+            <button class="lightbox-close" onclick="closeLightbox()"><i class="ti ti-x"></i></button>
+            <div class="lightbox-img" id="lb-img"></div>
+            <div class="lightbox-body">
+                <h2 id="lb-title"></h2>
+                <p id="lb-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox（LP・HPプレビュー用） -->
+    <div class="lightbox" id="siteLightbox" onclick="closeSiteLightbox(event)">
+        <div class="lightbox-inner lightbox-inner--wide">
+            <button class="lightbox-close" onclick="closeSiteLightbox()"><i class="ti ti-x"></i></button>
+            <iframe id="site-iframe" class="lightbox-iframe" src="" title="LP・HPプレビュー"></iframe>
+            <div class="lightbox-body">
+                <h2 id="site-title"></h2>
+                <p id="site-desc"></p>
+                <p style="margin-top:8px"><a id="site-open-link" href="#" target="_blank" rel="noopener" style="font-size:13px;color:var(--text);text-decoration:underline">新しいタブで開く →</a></p>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact">
+        <div class="container">
+            <div class="sec-label"><i class="ti ti-mail"></i>お問い合わせ</div>
+            <p class="contact-note">お仕事のご依頼・コラボレーションのご提案など、お気軽にご連絡ください。</p>
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-card-icon" style="background:var(--amber-pale);color:#854F0B"><i
+                            class="ti ti-mail"></i></div>
+                    <div class="contact-card-label">メール</div>
+                    <a href="mailto:guts.kasugai@gmail.com" class="contact-card-value">guts.kasugai@gmail.com</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon" style="background:var(--teal-pale);color:#0F6E56"><i
+                            class="ti ti-phone"></i></div>
+                    <div class="contact-card-label">電話</div>
+                    <a href="tel:0568-20-1111" class="contact-card-value">0568-20-1111</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon" style="background:var(--pink-pale);color:#72243E"><i
+                            class="ti ti-map-pin"></i></div>
+                    <div class="contact-card-label">所在地</div>
+                    <span class="contact-card-value" style="cursor:default">愛知県春日井市六軒屋町6-146KANBEビル1階</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 GUTS × Xeno. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const drawer = document.getElementById('drawer');
+        const overlay = document.getElementById('drawerOverlay');
+
+        function openDrawer() {
+            hamburger.classList.add('is-open');
+            drawer.classList.add('is-open');
+            overlay.classList.add('is-open');
+            hamburger.setAttribute('aria-expanded', 'true');
+            drawer.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            hamburger.classList.remove('is-open');
+            drawer.classList.remove('is-open');
+            overlay.classList.remove('is-open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            drawer.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.contains('is-open') ? closeDrawer() : openDrawer();
+        });
+
+        overlay.addEventListener('click', closeDrawer);
+
+        drawer.querySelectorAll('.drawer__link').forEach(link => {
+            link.addEventListener('click', closeDrawer);
+        });
+
+        // ── カテゴリー定義（outsourcingページのサービス名と揃えています）
+        const CATEGORIES = {
+            sns: { label: 'SNS運用', icon: 'ti-share', lead: 'Instagram・YouTube・TikTok・Facebookで運用しているアカウントです。' },
+            web: { label: 'HP・LP制作', icon: 'ti-world', lead: 'コーポレートサイト・LP・ゲームサイトなど、Web制作の実績です。' },
+            video: { label: '動画編集', icon: 'ti-video', lead: 'YouTube・TikTok・Instagram向けの動画編集の実績です。' },
+            design: { label: 'デザイン制作', icon: 'ti-palette', lead: 'チラシ・バナー・ロゴ・イラストなどのデザイン実績です。' }
+        };
+
+        function getCat() {
+            const c = new URLSearchParams(window.location.search).get('cat');
+            return CATEGORIES[c] ? c : Object.keys(CATEGORIES)[0];
+        }
+
+        function esc(str) {
+            return String(str == null ? '' : str)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        async function fetchJson(path) {
+            const res = await fetch(path);
+            if (!res.ok) throw new Error(path + ' fetch failed: ' + res.status);
+            return res.json();
+        }
+
+        // ── 作品のカテゴリー判定（登録済みフィールドから自動判定。JSONの書き換えは不要）
+        function categoryOf(w) {
+            if (w.sitePath || w.siteUrl) return 'web';
+            if (w.videoUrl) return 'video';
+            return 'design';
+        }
+
+        function extractYoutubeId(url) {
+            const m = (url || '').match(/(?:v=|youtu\.be\/|shorts\/)([\w-]{11})/);
+            return m ? m[1] : null;
+        }
+
+        function detectPlatform(url) {
+            if (!url) return null;
+            if (/youtube\.com|youtu\.be/.test(url)) return 'youtube';
+            if (/tiktok\.com/.test(url)) return 'tiktok';
+            if (/instagram\.com/.test(url)) return 'instagram';
+            return null;
+        }
+
+        const PLATFORM_ICONS = {
+            youtube: 'ti-brand-youtube', tiktok: 'ti-brand-tiktok',
+            instagram: 'ti-brand-instagram', facebook: 'ti-brand-facebook'
+        };
+        const PLATFORM_LABELS = {
+            youtube: 'YouTube', tiktok: 'TikTok', instagram: 'Instagram', facebook: 'Facebook'
+        };
+
+        function designerLine(name) {
+            return name ? `<div class="item-designer">制作：${esc(name)}</div>` : '';
+        }
+
+        // ── SNSアカウントのカード
+        function buildSnsCard(acc) {
+            const el = document.createElement('a');
+            el.className = 'gallery-item';
+            el.target = '_blank';
+            el.rel = 'noopener';
+            el.href = acc.url || '#';
+            el.innerHTML = `
+                <div class="work-icon"><i class="ti ${PLATFORM_ICONS[acc.platform] || 'ti-share'}"></i></div>
+                <div class="item-body">
+                    <span class="item-tag" style="background:var(--gray-200);color:var(--gray-700)">${esc(PLATFORM_LABELS[acc.platform] || acc.platform)}</span>
+                    <div class="item-title">${esc(acc.name)}</div>
+                    <div class="item-desc">${esc(acc.description || '')}</div>
+                </div>
+            `;
+            return el;
+        }
+
+        // ── 作品カード（designer.html と同じ挙動）
+        function buildWorkCard(item, designerName) {
+            const cat = categoryOf(item);
+            const title = item.title || (cat === 'web' ? 'LP・HP作品' : cat === 'video' ? '動画作品' : 'デザイン作品');
+            const desc = esc(item.description || '');
+
+            if (cat === 'video') {
+                const el = document.createElement('a');
+                el.className = 'gallery-item';
+                el.target = '_blank';
+                el.rel = 'noopener';
+                el.href = item.videoUrl || '#';
+                const platform = item.platform || detectPlatform(item.videoUrl);
+                let thumbHtml;
+                if (platform === 'youtube') {
+                    const id = extractYoutubeId(item.videoUrl);
+                    thumbHtml = id
+                        ? `<img loading="lazy" src="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="${esc(title)}">`
+                        : `<div class="work-icon"><i class="ti ti-brand-youtube"></i></div>`;
+                } else if (item.image) {
+                    thumbHtml = `<img loading="lazy" src="${esc(item.image)}" alt="${esc(title)}">`;
+                } else {
+                    thumbHtml = `<div class="work-icon"><i class="ti ${PLATFORM_ICONS[platform] || 'ti-video'}"></i></div>`;
+                }
+                el.innerHTML = `
+                    ${thumbHtml}
+                    <div class="item-body">
+                        <span class="item-tag" style="background:var(--gray-200);color:var(--gray-700)">${esc(PLATFORM_LABELS[platform] || '動画')}</span>
+                        <div class="item-title">${esc(title)}</div>
+                        <div class="item-desc">${desc}</div>
+                        ${designerLine(designerName)}
+                    </div>
+                `;
+                return el;
+            }
+
+            if (cat === 'web') {
+                const thumbHtml = item.image
+                    ? `<img loading="lazy" src="${esc(item.image)}" alt="${esc(title)}">`
+                    : `<div class="work-icon"><i class="ti ti-world"></i></div>`;
+                const body = `
+                    ${thumbHtml}
+                    <div class="item-body">
+                        <span class="item-tag" style="background:var(--blue-pale);color:#185FA5">LP・HP</span>
+                        <div class="item-title">${esc(title)}</div>
+                        <div class="item-desc">${desc}</div>
+                        ${designerLine(designerName)}
+                    </div>
+                `;
+                if (item.sitePath) {
+                    const el = document.createElement('div');
+                    el.className = 'gallery-item';
+                    el.dataset.workType = 'lp';
+                    el.dataset.title = title;
+                    el.dataset.desc = item.description || '';
+                    el.dataset.sitePath = item.sitePath;
+                    el.innerHTML = body;
+                    return el;
+                }
+                const el = document.createElement('a');
+                el.className = 'gallery-item';
+                el.target = '_blank';
+                el.rel = 'noopener';
+                el.href = item.siteUrl || '#';
+                el.innerHTML = body;
+                return el;
+            }
+
+            // デザイン（画像）
+            const el = document.createElement('div');
+            el.className = 'gallery-item';
+            el.dataset.workType = 'image';
+            el.dataset.title = title;
+            el.dataset.desc = item.description || '';
+            el.innerHTML = `
+                <img loading="lazy" src="${esc(item.image || '')}" alt="${esc(title)}">
+                <div class="item-body">
+                    <div class="item-title">${esc(title)}</div>
+                    <div class="item-desc">${desc}</div>
+                    ${designerLine(designerName)}
+                </div>
+            `;
+            return el;
+        }
+
+        function renderTabs(current, counts) {
+            const tabs = document.getElementById('catTabs');
+            tabs.innerHTML = Object.entries(CATEGORIES).map(([key, c]) => `
+                <a class="cat-tab${key === current ? ' is-active' : ''}" href="category.html?cat=${key}">
+                    <i class="ti ${c.icon}"></i>${c.label}<span class="cat-count">${counts[key]}</span>
+                </a>
+            `).join('');
+        }
+
+        // ── 初期化
+        async function initCategoryPage() {
+            const cat = getCat();
+            const gallery = document.getElementById('gallery');
+            document.getElementById('catTitle').textContent = CATEGORIES[cat].label;
+            document.getElementById('catLead').textContent = CATEGORIES[cat].lead;
+            document.title = `${CATEGORIES[cat].label}の制作実績 — GUTS × Xeno`;
+
+            try {
+                const [designers, works, snsAccounts] = await Promise.all([
+                    fetchJson('data/designers.json'),
+                    fetchJson('data/designer-works.json'),
+                    fetchJson('data/sns-accounts.json')
+                ]);
+                const nameBySlug = {};
+                (designers || []).forEach(d => { nameBySlug[d.slug] = d.name; });
+                const designerOrder = {};
+                (designers || []).forEach(d => { designerOrder[d.slug] = d.order || 0; });
+
+                const counts = { sns: (snsAccounts || []).length, web: 0, video: 0, design: 0 };
+                (works || []).forEach(w => { counts[categoryOf(w)]++; });
+                renderTabs(cat, counts);
+
+                gallery.innerHTML = '';
+                if (cat === 'sns') {
+                    (snsAccounts || []).forEach(acc => gallery.appendChild(buildSnsCard(acc)));
+                } else {
+                    const items = (works || [])
+                        .filter(w => categoryOf(w) === cat)
+                        .sort((a, b) => (designerOrder[a.designerSlug] || 0) - (designerOrder[b.designerSlug] || 0)
+                            || (a.order || 0) - (b.order || 0));
+                    items.forEach(w => gallery.appendChild(buildWorkCard(w, nameBySlug[w.designerSlug])));
+                }
+                if (!gallery.children.length) {
+                    gallery.innerHTML = '<p style="padding:2rem 0;color:var(--text-muted);grid-column:1/-1">まだ作品が登録されていません。</p>';
+                }
+            } catch (e) {
+                console.error(e);
+                gallery.innerHTML = '<p style="padding:2rem 0;color:var(--text-muted);grid-column:1/-1">読み込みに失敗しました。時間を置いて再読み込みしてください。</p>';
+            }
+        }
+        initCategoryPage();
+
+        // Lightbox（動的に追加される要素にも対応するイベント委譲）
+        document.getElementById('gallery').addEventListener('click', (e) => {
+            const el = e.target.closest('.gallery-item');
+            if (!el || el.tagName === 'A') return; // video型は通常のリンク遷移に任せる
+            if (el.dataset.workType === 'lp') {
+                openSiteLightbox(el);
+            } else {
+                openLightbox(el);
+            }
+        });
+
+        function openLightbox(el) {
+            const lb = document.getElementById('lightbox');
+            document.getElementById('lb-title').textContent = el.dataset.title;
+            document.getElementById('lb-desc').textContent = el.dataset.desc;
+            const img = el.querySelector('img');
+            const lbImg = document.getElementById('lb-img');
+            lbImg.innerHTML = '';
+            if (img) {
+                const clone = document.createElement('img');
+                clone.src = img.src;
+                clone.alt = img.alt;
+                lbImg.appendChild(clone);
+            }
+            lb.classList.add('open');
+        }
+
+        function closeLightbox(e) {
+            if (!e || e.target === document.getElementById('lightbox') || e.currentTarget.tagName === 'BUTTON') {
+                document.getElementById('lightbox').classList.remove('open');
+            }
+        }
+
+        // ── LP・HPプレビュー用ライトボックス
+        function openSiteLightbox(el) {
+            const lb = document.getElementById('siteLightbox');
+            document.getElementById('site-title').textContent = el.dataset.title;
+            document.getElementById('site-desc').textContent = el.dataset.desc;
+            document.getElementById('site-iframe').src = el.dataset.sitePath;
+            document.getElementById('site-open-link').href = el.dataset.sitePath;
+            lb.classList.add('open');
+        }
+
+        function closeSiteLightbox(e) {
+            if (!e || e.target === document.getElementById('siteLightbox') || e.currentTarget.tagName === 'BUTTON') {
+                document.getElementById('siteLightbox').classList.remove('open');
+                document.getElementById('site-iframe').src = ''; // 裏で動き続けないように停止
+            }
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                document.getElementById('lightbox').classList.remove('open');
+                closeSiteLightbox();
+            }
+        });
+    </script>
+</body>
+
+</html>
